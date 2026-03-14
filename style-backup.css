@@ -1,0 +1,1108 @@
+:root {
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --gray: #f9f9f9;
+    --accent: #777;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    border-bottom: 1px solid #eee;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.logo { font-weight: 800; letter-spacing: 2px; }
+
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--black); font-size: 0.9rem; text-transform: uppercase; }
+
+.container { padding: 4rem 5%; max-width: 1200px; margin: auto; }
+
+/* Optimized Bio Section for Longer Text */
+.artist-intro { 
+    margin-bottom: 6rem; 
+    max-width: 900px; /* Increased from 600px to allow more horizontal flow */
+    border-left: 2px solid #eee; /* Subtle vertical line for a "gallery" feel */
+    padding-left: 2.5rem;
+}
+
+.artist-intro h1 { 
+    font-size: 3.5rem; 
+    font-weight: 300; 
+    margin-bottom: 1.5rem; 
+    letter-spacing: -1px;
+}
+
+.bio { 
+    color: var(--black); 
+    font-size: 1.15rem; 
+    line-height: 1.8; /* Increased line height for better readability */
+    column-count: 1; /* Keeps it as a single wide block */
+}
+
+.bio p {
+    margin-bottom: 1.5rem; /* Space between his 3 paragraphs */
+}
+
+/* The Professional Masonry Layout */
+.artwork-grid {
+    column-count: 2; /* 2 columns for tablet/mobile */
+    column-gap: 2rem;
+    width: 100%;
+}
+
+/* On desktop, make it 3 columns */
+@media (min-width: 1000px) {
+    .artwork-grid {
+        column-count: 3;
+    }
+}
+
+.art-card {
+    display: inline-block; /* Essential for masonry! */
+    width: 100%;
+    margin-bottom: 3rem; /* Space between paintings vertically */
+    break-inside: avoid; /* Prevents the card from splitting across columns */
+}
+
+/* Let's make the image look like it's in a gallery */
+.art-card img {
+    width: 100%;
+    height: auto;
+    border: 1px solid transparent; 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.art-card:hover img {
+    border-color: #eee; /* Subtle frame appears on hover */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow for depth */
+}
+
+.art-info { margin-top: 1rem; display: flex; flex-direction: column; }
+.art-info .title { font-weight: 600; font-size: 1rem; }
+.art-info .details { color: var(--accent); font-size: 0.85rem; margin-bottom: 10px; }
+
+.art-link {
+    text-decoration: none; /* Removes the blue underline from the link */
+    color: inherit; /* Keeps text black */
+    display: block;
+}
+
+.view-more {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.art-card:hover .view-more {
+    color: var(--black); /* The arrow turns black when you hover over the painting */
+}
+
+/* Let's make the image look like it's in a gallery */
+.art-card img {
+    width: 100%;
+    height: auto;
+    border: 1px solid transparent; 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.art-card:hover img {
+    border-color: #eee; /* Subtle frame appears on hover */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft shadow for depth */
+}
+
+/* Painting Detail Layout */
+.detail-view {
+    padding-top: 2rem;
+}
+
+.artwork-showcase {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Image takes more space than text */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* On Mobile, stack them */
+@media (max-width: 900px) {
+    .artwork-showcase {
+        grid-template-columns: 1fr;
+    }
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* "Lifts" the art off the white wall */
+}
+
+.artwork-data h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.specs {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+.artwork-data h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #999;
+}
+
+/* Change height: 100vh to min-height: 100vh */
+.gateway-container {
+    min-height: 100vh; /* This allows the page to grow longer than the screen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to allow natural flow */
+    background-color: #fff;
+}
+
+.gateway-header { 
+    text-align: center; 
+    padding: 80px 0 40px 0; /* Added padding to top and bottom */
+}
+
+.collection-header { 
+    text-align: center; 
+    padding: 20px 0 40px 0; /* Added padding to top and bottom */
+}
+
+/* Ensure the collection picker doesn't squash on smaller screens */
+.collection-picker {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    max-width: 1400px;
+    min-height: 600px; /* Gives the cards a consistent height */
+    margin-bottom: 80px; /* Space before the text statement begins */
+}
+
+.collection-card {
+    flex: 1;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    overflow: hidden;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* This makes the card grow when you hover over it */
+.collection-card:hover { flex: 1.5; }
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(40%) brightness(0.7);
+    transition: all 0.6s ease;
+}
+
+.collection-card:hover .card-image { filter: grayscale(0%) brightness(0.9); transform: scale(1.05); }
+
+.card-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+
+.card-text h2 { font-size: 1.8rem; font-weight: 300; margin-bottom: 10px; }
+
+/* Short & Wide Gallery Statement */
+.gallery-statement {
+    padding: 40px 5%;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.statement-content {
+    max-width: 1200px; /* Wider to match the collection cards */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns of different widths */
+    gap: 40px;
+    align-items: start;
+    text-align: left; /* Left aligned looks more professional for wide text */
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.legacy-text {
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0; /* Removing bottom margin to keep it tight */
+}
+
+/* On tablet/phone, stack them back up */
+@media (max-width: 900px) {
+    .statement-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.non-commercial {
+    font-style: italic;
+    color: #777;
+    margin: 1rem 0;
+}
+
+.contact-prompt {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dotted #ccc;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid #000;
+    transition: all 0.2s ease;
+}
+
+.email-link:hover {
+    color: #666;
+    border-bottom-color: #666;
+}
+
+.minimal-footer {
+    padding: 60px 5% 40px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 100px;
+}
+
+.minimal-footer p {
+    font-size: 0.8rem;
+    color: #999; /* Light gray text */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.minimal-footer a {
+    font-size: 0.75rem;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+.index-header {
+    text-align: center;
+    padding: 30px 0 20px 0; /* Reduced from 60px/40px */
+}
+
+.index-header p {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.index-header h1 {
+    margin-bottom: 5px; /* Pulls the sub-text closer to the title */
+    font-size: 2rem; /* Slightly smaller to save space */
+}
+
+.jump-menu {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.jump-menu span { color: #999; margin-right: 15px; }
+
+.jump-menu a {
+    margin: 0 10px;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+}
+
+.jump-menu a:hover { border-bottom: 1px solid #000; }
+
+/* Sub-Region Styling */
+.sub-region {
+    margin-bottom: 80px;
+}
+
+.sub-region-title {
+    font-family: 'Playfair Display', serif; /* Use the Serif font you chose earlier */
+    font-size: 2.2rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+.country-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #888;
+    margin: 40px 0 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Adds a small line next to the country name for a "file folder" look */
+.country-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    margin-left: 20px;
+}
+
+.sub-region-grid {
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.region-link {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.region-link span {
+    font-size: 0.8rem;
+    color: #999;
+    margin-right: 30px;
+}
+
+.region-link h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    flex: 1;
+}
+
+.region-link p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.region-link:hover {
+    background: #000;
+    color: #fff;
+}
+
+.region-link:hover p { color: #ccc; }
+
+.region-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 0.8rem;
+    margin-right: 40px;
+}
+
+.region-title {
+    font-family: 'Playfair Display', serif; /* Your chosen Serif */
+    font-size: 2.5rem;
+    transition: 0.4s;
+}
+
+.region-row {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #000;
+}
+
+.region-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 0.8rem;
+    margin-right: 40px;
+}
+
+.index-container {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 5%;
+}
+
+.section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 60px;
+}
+
+.index-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.region-row {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    padding: 35px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.4s ease;
+}
+
+.region-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #bbb;
+    min-width: 40px;
+}
+
+.region-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+.region-row:hover .region-title {
+    font-style: italic;
+    color: #555;
+}
+
+.region-row:hover .region-num {
+    color: #000;
+}
+
+.navbar {
+    padding: 30px 5%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.breadcrumb a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #000;
+}
+
+.breadcrumb .sep {
+    margin: 0 10px;
+    color: #ccc;
+}
+
+.breadcrumb .current {
+    color: #000;
+    font-weight: 600;
+}
+
+
+.country-heading {
+    font-size: 1.8rem; /* Significant increase from 0.8rem */
+    font-weight: 700; /* Bold */
+    color: #000; /* Deep black */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+}
+
+/* 1. Base State: The section is in its natural position */
+.country-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    padding: 30px 5% 60px; /* Keep your spacing */
+}
+
+/* 2. Below State: Hidden and shifted down */
+.country-section.is-below {
+    opacity: 0;
+    transform: translateY(60px); /* Slightly larger movement for the whole section */
+}
+
+/* 3. Above State: Hidden and shifted up */
+.country-section.is-above {
+    opacity: 0;
+    transform: translateY(-60px);
+}
+
+/* The Grid */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* Individual Artist Cards */
+.artist-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Keeps all previews a consistent shape */
+    overflow: hidden;
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image to fit the box beautifully */
+    filter: grayscale(20%); /* Subtle artistic touch */
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.artist-card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.artist-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.artist-dates {
+    font-size: 0.75rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar is 250px, content takes the rest */
+    gap: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.sidebar {
+    padding-top: 60px;
+}
+
+.sidebar-nav {
+    position: sticky;
+    top: 40px; /* This keeps it "stuck" to the top when scrolling */
+}
+
+.sidebar-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 12px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: #000;
+}
+
+/* On small screens, hide the sidebar and use the top jump menu instead */
+@media (max-width: 1024px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px; /* Prevents the header from covering the country title */
+}
+
+/* Artist Page Specifics */
+.artist-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 5%;
+    font-family: 'Inter', sans-serif;
+}
+
+.artist-title {
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.artist-years {
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #666;
+}
+
+/* Tabs */
+.tabs {
+    margin: 50px 0 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    transition: 0.3s;
+}
+
+.tab-link.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+/* Tab Content Visibility */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Works Gallery Grid */
+.works-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.artwork-item img {
+    width: 100%;
+    height: auto;
+    background: #f9f9f9;
+}
+
+.artwork-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-info .title {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.artwork-info .details {
+    font-weight: 200;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.overview-flex {
+    display: flex;
+    gap: 60px; /* Space between the text and the image */
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.bio-column {
+    flex: 2; /* Takes up 2 parts of the space */
+    line-height: 1.8;
+    font-weight: 300;
+    color: #333;
+}
+
+.bio-column h3 {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.image-column {
+    flex: 1; /* Takes up 1 part of the space (narrower than text) */
+}
+
+.artist-portrait-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(10%); /* Keeps the aesthetic consistent with the archive */
+}
+
+.image-caption {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.75rem;
+    font-weight: 200;
+    color: #888;
+}
+
+/* Mobile Responsive: Stack them on top of each other on small screens */
+@media (max-width: 800px) {
+    .overview-flex {
+        flex-direction: column-reverse; /* Put image on top for mobile */
+        gap: 30px;
+    }
+}
+
+.artwork-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.artwork-image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.artwork-image-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Subtle Hover Effect */
+.artwork-item:hover img {
+    transform: scale(1.03);
+}
+
+.artwork-item:hover .overlay {
+    opacity: 1;
+}
+
+.detail-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 5%;
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Image takes 2/3, text takes 1/3 */
+    gap: 80px;
+}
+
+.artwork-main-display img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.work-title {
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.work-artist a {
+    color: #666;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.specs {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Fixed width for labels, flexible for content */
+    row-gap: 12px; /* Clean, even spacing between rows */
+}
+
+.spec-row {
+    display: contents; /* This allows the span and p to behave like direct children of the .specs grid */
+}
+
+.spec-row span {
+    font-weight: 500;
+    color: #999;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    padding-top: 4px; /* Tiny adjustment to align with the larger text height */
+}
+
+.spec-row p {
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: #000;
+    margin: 0;
+}
+
+.work-description {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #f0f0f0; /* One single, very light line to separate bio from specs */
+    line-height: 1.8;
+    font-weight: 300;
+    color: #444;
+}
+
+.raw-specs {
+    margin: 40px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.raw-specs p {
+    font-weight: 300;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #000;
+    margin: 0 0 8px 0; /* Tight spacing between the core technical specs */
+}
+
+.raw-specs .signature {
+    font-style: italic;
+    color: #555;
+    margin-top: 15px;
+}
+
+.provenance-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.provenance-section p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* The Animation Definition */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Subtle lift from the bottom */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applying it to the Body */
+body {
+    animation: pageFadeIn 0.8s ease-out forwards;
+    /* We ensure the page starts invisible if the browser supports the animation */
+    background-color: #fff; 
+}
+
+/* Hide elements initially */
+.navbar, .artist-container, .region-links, .page-layout:not(#textBackToTop) {
+    opacity: 0;
+    animation: pageFadeIn 0.8s ease-out forwards;
+}
+
+/* Navbar appears immediately */
+.navbar {
+    animation-delay: 0.1s;
+}
+
+/* Main content appears slightly after */
+.artist-container, .region-links, .page-layout {
+    animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#artistSearch {
+    border: none;
+    border-bottom: 1px solid #eee; /* Very faint line */
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    padding: 5px 25px 5px 0;
+    background: transparent;
+    outline: none;
+    transition: border-bottom 0.4s ease, width 0.4s ease;
+    width: 150px; /* Starts small */
+    color: #000;
+}
+
+#artistSearch:focus {
+    border-bottom: 1px solid #000; /* Darkens when you click it */
+    width: 200px; /* Gently expands */
+}
+
+#artistSearch::placeholder {
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background: white;
+    border: 1px solid #eee;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10000;
+    display: none; /* Hidden until typing starts */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.search-item {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f9f9f9;
+    transition: background 0.2s;
+}
+
+.search-item:hover {
+    background: #f5f5f5;
+    font-style: italic; /* Subtle nod to our Serif style */
+}
+
+.search-icon {
+    position: absolute;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    border: 1.2px solid #bbb;
+    border-radius: 50%;
+    pointer-events: none;
+    /* Adjust this 'top' to move the icon up or down */
+    /* If it's too low, try 8px or 9px */
+    top: 5px; 
+}
+
+.search-icon::after {
+    content: "";
+    position: absolute;
+    /* Adjusted to match the smaller 10px circle */
+    top: 9px; 
+    left: 9px;
+    width: 5px;
+    height: 1.2px;
+    background-color: #bbb;
+    transform: rotate(45deg);
+    transform-origin: left top;
+}
+
+/* When the user clicks the search bar, the icon turns black */
+#artistSearch:focus + .search-icon {
+    border-color: #000;
+}
+#artistSearch:focus + .search-icon::after {
+    background-color: #000;
+}
