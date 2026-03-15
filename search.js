@@ -33,11 +33,7 @@ function filterArtists() {
             let finalUrl = '';
 
             if (isLocal) {
-                // Find the path to the main folder and append the artist URL
-                const path = window.location.pathname;
-                const rootIndex = path.indexOf('RedRavenArts/');
-                const rootPath = path.substring(0, rootIndex + 13); // 13 is the length of 'RedRavenArts/'
-                finalUrl = rootPath + artist.url;
+                finalUrl = 'file:///C:/Users/garet/OneDrive/Documents/GitHub/REDRAVENARTS/' + artist.url;
             } else {
                 // If hosted on a server, use the clean root-relative path
                 finalUrl = '/' + artist.url;
