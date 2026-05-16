@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baniprosonno | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Asian Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../south-asian.html">South Asian</a> 
+            <span class="sep">/</span>
+            <span class="current">Baniprosonno</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Baniprosonno</h1>
+            <p class="artist-years">b. 1932</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    <p>Baniprosonno is a Shimla based artist and writer who has worked in numerous media, including painting, drawing, sculpture, illustration, poetry and storytelling and is also known for running art workshops for children. Self-taught, Baniprosonno’s lively but at times naïve art has Art Brut tendencies, as seen in his illustrations for a semi-autobiographical novel Crawl published in 2024. Brought up in Kolkata, he drifted in his youth to Delhi where he got by selling art on the street before taking up a post as a designer at a pottery manufacturer in Srinagar, Kashmir. After returning to Delhi he moved in 1951 to Shimla, meeting his wife and gaining his first gallery show. Responsible for many fine quality book illustrations, Baniprosonno is said to have had over one hundred solo art shows, including in the UK, Germany, Mexico and elsewhere. He had a solo exhibition at the Academy of Fine Arts, Kolkata in 2005 and a residency in Iceland in 2011. A profile in the Times of India in 2014 was headlined ‘The Kinetic Art Master’, reflecting the sense of movement captured in his painting.</p>
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Baniprosonno.JPG" alt="Sun The Creator">
+                        <span class="image-caption">Sun The Creator, 1965</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/sun-the-creator.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Baniprosonno.JPG" alt="Sun The Creator" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Sun The Creator</span>
+                        <span class="details">Oil on canvas, 1965</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../south-asian.html">Return to South Asian</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>
