@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahab Jaffer | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Asian Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../south-asian.html">South Asian</a> 
+            <span class="sep">/</span>
+            <span class="current">Wahab Jaffer</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Wahab Jaffer</h1>
+            <p class="artist-years">B. 1941</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    <p>Wahab Jaffer studied engineering in the UK and joined the family firm in Pakistan on graduation. However, he was drawn to the artistic world and in 1971 joined the studio of Ali Imam in Karachi. At the Indus Gallery he met leading artist Ahmed Parvez and the two became firm friends; Jaffer studied with Pervez 1972-9, his own work leaning towards abstraction. He began exhibiting at mixed shows from 1974 and had his first solo show at the Indus Gallery in 1981. Jaffer’s style evolved to include figures – particularly women - and was noted for its vibrancy and rich colours. Acrylic became his favourite medium.</p>
+                    <p>Solo exhibitions followed in Islamabad, Rawalpindi and Karachi as well as many mixed shows elsewhere. Goethe-Institute held a show of his drawings in 1989. Wahab, who became a noted collector as well as artist, later moved to Canada where he has exhibited in a number of mixed shows including a two-artist exhibition at Royal Ontario Museum in 2001. More recently, Jaffer in Summer 2006 took part in a three-man show of Pakistani artists in Dubai and a mixed show of Pakistani artists in New Delhi. Jaffer’s work is held by the Asia-Pacific Museum in Pasadena, California and the National Museum of Pakistan.</p>
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/JafferW-500.jpg" alt="Untitled">
+                        <span class="image-caption">Untitled, 1983</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-women.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/JafferW-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1983</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../south-asian.html">Return to South Asian</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amal Ghosh | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Asian Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../south-asian.html">South Asian</a> 
+            <span class="sep">/</span>
+            <span class="current">Amal Ghosh</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Amal Ghosh</h1>
+            <p class="artist-years">1933–2022</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    <p>Amal Ghosh was born in Kolkata and attended Kolkata Government College of Art and Craft where he studied painting. From 1958-60 he attended Central School of Arts and Crafts (later Central Saint Martins) in London, specialising in mural painting. Ghosh taught at Central Saint Martins from the 1970s though to 1997, initially mainly enamel painting and then later stained glass. Throughout this period he divided his time between London and India, both as an exhibitor and as an emeritus professor at Kolkata University. Painting remained his first love and became his main practice in later years, drawing on his Indian heritage and spirituality and marrying it with Western post-war expressionism. After a first solo exhibition in London in 1969, Ghosh had three in Norway over the next few years in addition to others in London. His first one-man show in India took place at the Birla Academy in Kolkata in 1981. Major solo exhibitions of paintings in later years included the Art Heritage Gallery in New Delhi in1991, British Council Gallery, Kolkata in 1995, Mermaid Theatre Gallery in London in 1996, the Meghraj Gallery, London in 1997 and Galerie 88 in Kolkata in 2011 and 2014. A posthumous retrospective was held at the Broadway Gallery, Letchworth in 2024. In addition to his public stained glass commissions, Ghosh’s work in the UK is held by the Victoria and Albert Museum, the Arts Council and council collections in Birmingham, Bradford and Leicester. It is also in public collections in Sweden, Italy, France, Bangladesh and India.</p>
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Ghosh.JPG" alt="Untitled">
+                        <span class="image-caption">Untitled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-watercolour.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Ghosh.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Watercolour</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../south-asian.html">Return to South Asian</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

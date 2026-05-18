@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A curated collection of fine art from the Mid-Century to the Modern Archive.">
+    <meta name="description" content="A global collection of pioneer and modern art.">
     <title>Asian Collection | Red Raven Arts</title>
     
     <link rel="stylesheet" href="../style.css">
@@ -29,28 +29,71 @@
     </nav>
 
 
-    <main class="container">
-        <header class="collection-header">
-            <h1>ASIAN COLLECTION</h1>
-        </header>
+    <main class="split-container">
+        <div class="split-visual" id="split-visual-box">
+            <img id="img-default" class="fade-layer active" src="images/CheungYeeRed-500.jpg" alt="Collection Preview">
+            <img id="img-east" class="fade-layer" src="images/CheungYeeChart1.jpg" alt="East Asian Preview">
+            <img id="img-south" class="fade-layer" src="images/Chakrab-500.jpg" alt="South Asian Preview">
+            <img id="img-southeast" class="fade-layer" src="images/DucP17.jpg" alt="South East Asian Preview">
+        </div>
 
-        <div class="index-list">
-            <a href="east-asian.html" class="region-row">
-                <span class="region-num">01</span>
-                <span class="region-title">East Asian</span>
-            </a>
+        <div class="split-content">
+            <header class="split-header">
+                <h1>ASIAN COLLECTION</h1>
+            </header>
 
-            <a href="south-asian.html" class="region-row">
-                <span class="region-num">02</span>
-                <span class="region-title">South Asian</span>
-            </a>
+            <div class="index-list">
+                <a href="east-asian.html" class="region-row" data-target="img-east">
+                    <span class="region-num">01</span>
+                    <span class="region-title">East Asian</span>
+                </a>
 
-            <a href="southeast-asian.html" class="region-row">
-                <span class="region-num">03</span>
-                <span class="region-title">South East Asian</span>
-            </a>
+                <a href="south-asian.html" class="region-row" data-target="img-south">
+                    <span class="region-num">02</span>
+                    <span class="region-title">South Asian</span>
+                </a>
+
+                <a href="southeast-asian.html" class="region-row" data-target="img-southeast">
+                    <span class="region-num">03</span>
+                    <span class="region-title">South East Asian</span>
+                </a>
+            </div>
         </div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll('.region-row');
+            const allImages = document.querySelectorAll('.fade-layer');
+            const defaultImg = document.getElementById('img-default');
+
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    const targetId = row.getAttribute('data-target');
+                    
+                    allImages.forEach(img => {
+                        if (img.id === targetId) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Optional: When the mouse completely leaves the list area, smoothly bring back your default image
+            const indexList = document.querySelector('.index-list');
+            indexList.addEventListener('mouseleave', () => {
+                allImages.forEach(img => {
+                    if (img.id === 'img-default') {
+                        img.classList.add('active');
+                    } else {
+                        img.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 
     <footer class="minimal-footer">
         <p>© Red Raven Arts. All paintings are part of a private collection and not for sale.</p>

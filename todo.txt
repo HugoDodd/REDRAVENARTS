@@ -1,0 +1,6 @@
+Any artwork with an unkown artist was ignored.
+Mary and Roop Krishna need the biographies rewritten so they each have a separate biography.
+One Mary Krishna artwork was removed due to no image being present.
+Sen, Sunil Madhav was not included due to no images being present.
+Yedekar, Ram was not included due to having no artist biography.
+Azam, Nasser was not included due to having no artist biograph.

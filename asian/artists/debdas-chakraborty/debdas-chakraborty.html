@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debdas Chakraborty | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Asian Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../south-asian.html">South Asian</a> 
+            <span class="sep">/</span>
+            <span class="current">Debdas Chakraborty</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Debdas Chakraborty</h1>
+            <p class="artist-years">1933–2008</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    <p>Debdas Chakraborty is one of the great modern Bangladeshi artists. He graduated from the Government Institute of Art in Dhaka in 1956 and was employed for some years as an artist at the Agricultural Information Centre. During the 1960s he was one of the few Dhaka-trained painters who exhibited regularly in West Pakistan and he also gained an international reputation. His painting has an elusive quality, an aggregation of forms often suggestive of human figures (such as in his Desire Symbols of 1963). A technique he frequently used was to start with figurative images and gradually obliterate them to produce virtually abstract works.</p>
+                    <p>He represented Bangladesh at the XIX International Biennale at São Paulo in 1987 showing five large engravings. His work is now undergoing a reappraisal and Chakraborty is increasingly recognised for his immense contribution to Pakistani and later to Bangladeshi art, particularly in the 1960s and 1970s. Chakraborty had many solo shows, in later years including one at the Bengal Gallery of Fine Arts in Dhaka in 2001, and in 2005 his works and those of a number of other leading Bangladeshi artists were shown at a joint exhibition in Dhaka with top Indian artists (including F N Souza and M F Husain) to celebrate the close cultural ties between the two countries. Four of Chakraborty’s works are held by the National Gallery of Art in Islamabad, Pakistan.</p>
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Chakrab-500.jpg" alt="War Figures (Conflict in Bangladesh)">
+                        <span class="image-caption">War Figures (Conflict in Bangladesh), 1973</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/war-figures.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Chakrab-500.jpg" alt="War Figures (Conflict in Bangladesh)" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">War Figures (Conflict in Bangladesh)</span>
+                        <span class="details">Oil on canvas, 1973</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../south-asian.html">Return to South Asian</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>
