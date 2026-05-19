@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <nav class="navbar">
+    <nav class="navbar-empty">
         <div class="breadcrumb">
             <a href="../index.html">Red Raven Arts</a> 
             <span class="sep">/</span> 
@@ -29,28 +29,71 @@
     </nav>
 
 
-    <main class="container">
-        <header class="collection-header">
-            <h1>WESTERN COLLECTION</h1>
-        </header>
+    <main class="split-container">
+        <div class="split-visual" id="split-visual-box">
+            <img id="img-default" class="fade-layer active" src="images/Kelly-500.jpg" alt="Collection Preview">
+            <img id="img-british" class="fade-layer" src="images/BowenSpatial-500.jpg" alt="British Preview">
+            <img id="img-european" class="fade-layer" src="images/Aeppli.jpg" alt="European Preview">
+            <img id="img-aow" class="fade-layer" src="images/Zev72c.jpg" alt="Americas & Other Western Preview">
+        </div>
 
-        <div class="index-list">
-            <a href="abstract.html" class="region-row">
-                <span class="region-num">01</span>
-                <span class="region-title">Americas & Australasia</span>
-            </a>
+        <div class="split-content">
+            <header class="split-header">
+                <h1>WESTERN COLLECTION</h1>
+            </header>
 
-            <a href="expressionist.html" class="region-row">
-                <span class="region-num">02</span>
-                <span class="region-title">British</span>
-            </a>
+            <div class="index-list">
+                <a href="british.html" class="region-row" data-target="img-british">
+                    <span class="region-num">01</span>
+                    <span class="region-title">British</span>
+                </a>
 
-            <a href="surreal.html" class="region-row">
-                <span class="region-num">03</span>
-                <span class="region-title">European</span>
-            </a>
+                <a href="european.html" class="region-row" data-target="img-european">
+                    <span class="region-num">02</span>
+                    <span class="region-title">European</span>
+                </a>
+
+                <a href="americas-other-western.html" class="region-row" data-target="img-aow">
+                    <span class="region-num">03</span>
+                    <span class="region-title">Americas & Other Western</span>
+                </a>
+            </div>
         </div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll('.region-row');
+            const allImages = document.querySelectorAll('.fade-layer');
+            const defaultImg = document.getElementById('img-default');
+
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    const targetId = row.getAttribute('data-target');
+                    
+                    allImages.forEach(img => {
+                        if (img.id === targetId) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Optional: When the mouse completely leaves the list area, smoothly bring back your default image
+            const indexList = document.querySelector('.index-list');
+            indexList.addEventListener('mouseleave', () => {
+                allImages.forEach(img => {
+                    if (img.id === 'img-default') {
+                        img.classList.add('active');
+                    } else {
+                        img.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 
     <footer class="minimal-footer">
         <p>© Red Raven Arts. All paintings are part of a private collection and not for sale.</p>

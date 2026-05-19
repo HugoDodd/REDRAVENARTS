@@ -25,6 +25,18 @@ body {
     z-index: 9999 !important;
 }
 
+.navbar-empty {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    border-bottom: 0px solid #eee;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    z-index: 9999 !important;
+}
+
 .container {
     padding: 4rem 5%;
     max-width: 1200px;
