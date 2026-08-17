@@ -80,3 +80,63 @@ document.addEventListener('click', function(event) {
         document.getElementById('searchResults').style.display = 'none';
     }
 });
+
+// Global Tab Management & History State Handler for Red Raven Arts
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Intercept tab button clicks automatically
+    const tabLinks = document.querySelectorAll('.tab-link');
+    
+    tabLinks.forEach(button => {
+        // Extract the tab name ('Overview' or 'Works') from your existing inline onclick attribute
+        const onclickAttr = button.getAttribute('onclick');
+        if (!onclickAttr) return;
+        
+        const match = onclickAttr.match(/openTab\(event,\s*'([^']+)'\)/);
+        if (match) {
+            const tabName = match[1];
+            
+            // Add an extra layer of behavior when clicked
+            button.addEventListener('click', function() {
+                if (tabName === 'Works') {
+                    window.location.hash = 'works';
+                } else {
+                    // Clears the hash cleanly when navigating back to Overview
+                    history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                }
+            });
+        }
+    });
+
+    // 2. Automatically handle initial load and back button operations
+    function checkHashAndOpenTab() {
+        if (window.location.hash === '#works') {
+            const targetButton = Array.from(document.querySelectorAll('.tab-link'))
+                .find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('Works'));
+            
+            if (targetButton) {
+                // Remove active states from all buttons/tabs
+                document.querySelectorAll('.tab-content, .tab-link').forEach(el => el.classList.remove('active'));
+                
+                // Set active states for the Works tab
+                targetButton.classList.add('active');
+                const worksContent = document.getElementById('Works');
+                if (worksContent) worksContent.classList.add('active');
+            }
+        } else {
+            // Revert to Overview if hash is empty (e.g. forward/backward navigation changes)
+            const overviewButton = Array.from(document.querySelectorAll('.tab-link'))
+                .find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('Overview'));
+            
+            if (overviewButton) {
+                document.querySelectorAll('.tab-content, .tab-link').forEach(el => el.classList.remove('active'));
+                overviewButton.classList.add('active');
+                const overviewContent = document.getElementById('Overview');
+                if (overviewContent) overviewContent.classList.add('active');
+            }
+        }
+    }
+
+    // Run the checks
+    checkHashAndOpenTab();
+    window.addEventListener('hashchange', checkHashAndOpenTab);
+});
