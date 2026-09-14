@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Ellison | Red Raven Arts</title>
+    <title>{{ artist.artist_name }} | Red Raven Arts</title>
     <link rel="stylesheet" href="../../../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,11 @@
         <div class="breadcrumb">
             <a href="../../../index.html">Red Raven Arts</a> 
             <span class="sep">/</span> 
-            <a href="../../index.html">African & Middle Eastern</a> 
+            <a href="../../index.html">{{ artist.collection }}</a> 
             <span class="sep">/</span>
-            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <a href="../../{{ artist.region_slug }}.html">{{ artist.region }}</a> 
             <span class="sep">/</span>
-            <span class="current">Gabriel Ellison</span>
+            <span class="current">{{ artist.artist_name }}</span>
         </div>
         <div class="search-wrapper">
             <div class="search-container">
@@ -32,10 +32,10 @@
 
     <main class="artist-container">
         <header class="artist-header">
-            <h1 class="artist-title">Gabriel Ellison</h1>
-            
-            <p class="artist-years">1930-2017</p>
-            
+            <h1 class="artist-title">{{ artist.artist_name }}</h1>
+            {% if artist.lifespan %}
+            <p class="artist-years">{{ artist.lifespan }}</p>
+            {% endif %}
         </header>
 
         <div class="tabs">
@@ -47,48 +47,50 @@
             <div class="overview-flex">
                 <div class="bio-column">
                     <h3>Artist Biography</h3>
-                    
-                        
-                            
-                            <p>Gabriel Ellison was born in Lusaka and was to spend the bulk of her life in Zambia before ending her days in South Africa. She was educated in both Northern and Southern Rhodesia but learnt her art via private tuition in Britain. Ellison was head of the Graphic Art section of the Zambian Ministry of Information and produced designs for numerous sets of stamps from the 1960s-1980s, but she is probably best known for designing the Zambian national flag in 1964. In addition to her art and design work Ellison wrote novels, many factual works on the local flora and fauna and in 2004 wrote a book on Zambian art history. She was an early member of the Lusaka Art Society and later a member of the Royal Society of Arts. Her work was shown in numerous mixed exhibitions including at Mpapa Gallery, the first commercial gallery in the country, and in 2014 at the Jubilee exhibition at the Livingstone Art Gallery celebrating 50 years of art in an independent Zambia. Ellison’s murals decorate Barclay’s Bank on Cairo Road in Lusaka and Kenneth Kaunda International Airport, whilst the Zambian government awarded her the honour Grand Officer of Distinguished Service.</p>
-                            
-                        
-                    
+                    {% if artist.biography %}
+                        {% for paragraph in artist.biography.split('\n') %}
+                            {% if paragraph.strip() %}
+                            <p>{{ paragraph.strip() }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <p>Biography forthcoming.</p>
+                    {% endif %}
                 </div>
 
-                
+                {% if artist.featured_image %}
                 <div class="image-column">
                     <div class="artist-portrait-wrapper">
-                        <img src="../../images/Ellison.JPG" alt="Gabriel Ellison">
-                        
-                        <span class="image-caption">Houseboy</span>
-                        
+                        <img src="../../images/{{ artist.featured_image }}" alt="{{ artist.artist_name }}">
+                        {% if artist.featured_caption %}
+                        <span class="image-caption">{{ artist.featured_caption }}</span>
+                        {% endif %}
                     </div>
                 </div>
-                
+                {% endif %}
             </div>
         </div>
 
         <div id="Works" class="tab-content">
             <div class="works-gallery">
-                
-                <a href="works/houseboy.html" class="artwork-item">
+                {% for work in gallery_works %}
+                <a href="works/{{ work.slug }}.html" class="artwork-item">
                     <div class="artwork-image-container">
-                        <img src="../../images/Ellison.JPG" alt="Houseboy" loading="lazy">
+                        <img src="../../images/{{ work.image_filename }}" alt="{{ work.title }}" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <span class="title">Houseboy</span>
-                        <span class="details">Oil on board</span>
+                        <span class="title">{{ work.title }}</span>
+                        <span class="details">{{ work.medium }}{% if work.year %}, {{ work.year }}{% endif %}</span>
                     </div>
                 </a>
-                
+                {% endfor %}
             </div>
         </div>
     </main>
 
     <footer class="minimal-footer">
         <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
-        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+        <a href="../../{{ artist.region_slug }}.html">Return to {{ artist.region }}</a>
     </footer>
 
     <script>

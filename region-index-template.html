@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>South Asian | Red Raven Arts</title>
+    <title>{{ region_name }} | Red Raven Arts</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,9 @@
         <div class="breadcrumb">
             <a href="../index.html">Red Raven Arts</a> 
             <span class="sep">/</span> 
-            <a href="index.html">Asian</a>
+            <a href="index.html">{{ collection_name }}</a>
             <span class="sep">/</span> 
-            <span class="current">South Asian</span>
+            <span class="current">{{ region_name }}</span>
         </div>
         <div class="search-wrapper">
             <div class="search-container">
@@ -33,42 +33,42 @@
             <nav class="sidebar-nav">
                 <span class="sidebar-label">Jump to</span>
                 <ul>
-                
-                    <li><a href="#india">India</a></li>
-                
+                {% for section in sub_region_sections %}
+                    <li><a href="#{{ section.id }}">{{ section.name }}</a></li>
+                {% endfor %}
                 </ul>
             </nav>
         </aside>
 
         <main class="content-area">
-            
-            <section id="india" class="country-section">
-                <h2 class="country-heading" style="text-transform: uppercase;">India</h2>
+            {% for section in sub_region_sections %}
+            <section id="{{ section.id }}" class="country-section">
+                <h2 class="country-heading" style="text-transform: uppercase;">{{ section.name }}</h2>
                 <div class="artist-grid">
-                    
+                    {% for artist in section.artists %}
                     <div class="artist-card">
-                        <a href="artists/g-d-paulraj/g-d-paulraj.html">
+                        <a href="artists/{{ artist.slug }}/{{ artist.slug }}.html">
                             <div class="image-wrapper">
-                                <img src="images/Paulrajoil-500.JPG" alt="G. D. Paulraj" loading="lazy">
+                                <img src="images/{{ artist.featured_image }}" alt="{{ artist.artist_name }}" loading="lazy">
                             </div>
                             <div class="artist-meta">
-                                <span class="artist-name">G. D. Paulraj</span>
-                                
-                                <span class="artist-dates">1914-1979</span>
-                                
+                                <span class="artist-name">{{ artist.artist_name }}</span>
+                                {% if artist.lifespan %}
+                                <span class="artist-dates">{{ artist.lifespan }}</span>
+                                {% endif %}
                             </div>
                         </a>
                     </div>
-                    
+                    {% endfor %}
                 </div>
             </section>
-            
+            {% endfor %}
         </main>
     </div>
 
     <footer class="minimal-footer">
         <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
-        <a href="index.html">Return to Asian</a>
+        <a href="index.html">Return to {{ collection_name }}</a>
     </footer>
 
     <script>
