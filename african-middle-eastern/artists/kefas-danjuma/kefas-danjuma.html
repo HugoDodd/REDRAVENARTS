@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kefas Danjuma | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Kefas Danjuma</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Kefas Danjuma</h1>
+            <p class="artist-years">1958–2016</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    <p>Kefas Nenpunmun Danjuma was born in Vom, Plateau State, Nigeria. He attended Saint John’s College in Jos (1972–76) before pursuing higher education at Ahmadu Bello University (ABU) in Zaria, where he studied art and earned a PhD in Art History. Danjuma enjoyed a distinguished career as both a practicing painter and a respected academic and educator at ABU Zaria.</p>
+                    <p>Danjuma considered human beings to be the most vital creation, centering his artistic practice on capturing the psychological and spiritual essence of the human condition, predominantly through expressive studies of faces and portraiture. He was an active member of the Nogh-Nogh art group in Zaria and a fellow of the Society of Nigerian Artists.</p>
+                    <p>His work was promoted extensively by the Signature Gallery in Lagos and featured in prominent national and international exhibitions. Notable showcases include the Guinness Art Exhibition in Lagos (1994), group shows at Thought Pyramid Art Gallery in Abuja (2010, 2012), and the international touring exhibition <em>Gani Odutokun and his Influence</em>, which premiered at the Brunei Gallery, SOAS University of London (1999) before traveling to Brussels and the Caribbean. His work was also included in <em>Showing Nigeria</em> in the UK (2012), timed to coincide with the London Olympic Games.</p>
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Danjuma.JPG" alt="Heads for a Durbar 1">
+                        <span class="image-caption">Heads for a Durbar 1, 1996</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <!-- Work 1 -->
+                <a href="works/heads-for-a-durbar-1.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Danjuma.JPG" alt="Heads for a Durbar 1" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Heads for a Durbar 1</span>
+                        <span class="details">Oil on canvas, 1996</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

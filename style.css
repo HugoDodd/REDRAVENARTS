@@ -114,6 +114,10 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,.1);
 }
 
+.crop-top {
+  object-position: top center; /* or 50% 0% */
+}
+
 .specs {
     font-size: 1.1rem;
     color: #666;
@@ -1141,8 +1145,28 @@ html, body {
     color: var(--accent) !important; /* Soft premium grey breathing space animation */
 }
 
+#img-default {
+    object-position: center 70% !important;
+}
+
 #img-western {
     object-position: center !important;
+}
+
+#img-african {
+    object-position: center !important;
+}
+
+#img-asian {
+    object-position: 25% 58% !important;
+}
+
+#img-european {
+    object-position: 8% center !important;
+}
+
+#img-name {
+    object-position: top !important;
 }
 
 /* ==========================================================================

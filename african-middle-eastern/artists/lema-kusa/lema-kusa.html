@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lema Kusa | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Lema Kusa</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Lema Kusa</h1>
+            <p class="artist-years">B. 1944</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Lema Kusa was born in Kinkenge in Bas-Congo and in 1958 entered the Academy of Fine Arts in Leopoldville (renamed Kinshasa in 1966) where he studied adversting and illustration, achieving his diploma in 1965. He then won a scholarship to study graphic art in Liege, Belgium. On his return to Kinshasa Kusa was appointed a Professor to head up the advertising department at the newly formed Academy of Fine Arts. At the same time as teaching, Kusa in 1974 set up his own design and advertising agency. Throughout this period and since Kusa has continued to paint, using a strong expressionist palette. His subjects were initially drunks, prostitutes and ordinary people though in later years he has concentrated on the female figure. His work was shown in mixed exhibitions in Paris (1975), Basel (1978) and Kinshasa. He had solo shows in 1980 in New York and Alabama.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Kusa-500.JPG" alt="Untitled, 1983">
+                        <span class="image-caption">Untitled, 1983</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1983-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Kusa-500.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1983</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

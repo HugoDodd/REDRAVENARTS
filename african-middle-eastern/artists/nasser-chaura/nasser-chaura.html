@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasser Chaura | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../north-african-middle-eastern.html">North African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <span class="current">Nasser Chaura</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Nasser Chaura</h1>
+            <p class="artist-years">1920–1992</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Nasser Chaura was born in Damascus, Syria to a wealthy family and, determined to pursue painting, held a first solo exhibition at Damascus Officer’s Club in 1938 aged just eighteen. He travelled to Rome but on the outbreak of war returned to Damascus where in 1941 he co-founded Studio Veronese, the first active art hub in Syria. Here he was influenced by impressionism brought by fleeing Eastern European artists, which was to remain his main style until the 1960s. Chaura studied at the Faculty of Fine Arts in Cairo, Egypt from 1942-47 and on his return to Damascus set up a studio which was to become a key part of the local art scene. In 1960 he helped found the Faculty of Fine Arts at the University of Damascus, teaching there for some thirty years. Many of Syria’s most noted artists, such as Marwan, studied under Chaura. Chaura’s own art underwent a radical shift in 1964 when he switched to abstraction and from oils to acrylics. The following year, with Fateh Moudarres and others, he established the Damascus Group (or D Group) of abstract artists and this group exhibited at the Siwann Gallery in Damascus and also at the Sao Paolo biennale in Brazil. His art underwent a further change in the mid-1970s when he switched back towards landscapes and representation in an impressionist manner, albeit retaining elements of abstraction. He had a solo exhibition at Ebla Gallery of Art in Damascus in 1984 and throughout his life was considered one of Syria’s most important artists. HChaura’s work is held in major collections in the Middle East, notably the Arab Museum of Modern Art in Doha, the Dalloul Foundation in Lebanon, Alessi Foundation in Dubai and Syria’s National Museum of Damascus.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Chaura.JPG" alt="No: 55, 1975">
+                        <span class="image-caption">No: 55, 1975</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/no-55.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Chaura.JPG" alt="No: 55" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">No: 55</span>
+                        <span class="details">Oil (possibly acrylic?) on canvas, 1975</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../north-african-middle-eastern.html">Return to North African & Middle Eastern</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

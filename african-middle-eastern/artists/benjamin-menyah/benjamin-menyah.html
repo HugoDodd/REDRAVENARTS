@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Menyah | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Benjamin Menyah</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Benjamin Menyah</h1>
+            <p class="artist-years">B. 1944</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Benjamin Menyah was born in Apewosika on Ghana’s Cape Coast. He trained as a teacher at St Mary’s Training College in Apowa from 1962-66 and in the the mid-1970s he joined Winneba Specialist Training College as an art tutor. He became head of painting there and in 1992 joined University College of Education, Winneba where he taught art for the rest of his career. An art educator and an artist, in 2000 Menyah became a member of the Pan African Circle of Artists (PACA) and he was also a fellow of the Goethe Institute in Accra and the co-ordinator for Ghana for the Paris-based Foundation Afrique en Creation. His paintings were mainly of local people and scenes, using oils in a pointillist style. Menyah had numerous exhibitions in Ghana and his paintings were also shown internationally in mixed shows in Nigeria in 1977, United States in 1982 and Germany in 1986. His work is held in many Ghanaian public collections as well as by the Commonwealth Institute in London and Galeria de Art in Madrid.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Menyah-500.JPG" alt="Kitchen scene- Ghana, 1970">
+                        <span class="image-caption">Kitchen scene- Ghana, 1970</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/kitchen-scene-ghana.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Menyah-500.JPG" alt="Kitchen scene- Ghana" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Kitchen scene- Ghana</span>
+                        <span class="details">Oil on paper, 1970</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

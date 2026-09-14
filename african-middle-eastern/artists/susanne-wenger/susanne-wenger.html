@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susanne Wenger | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Susanne Wenger</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Susanne Wenger</h1>
+            <p class="artist-years">1915–2009</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Susanne Wenger was born in Graz, Austria and studied at the Academy of Fine Arts in Vienna. Her art tended towards surrealism and spirituality and, after surviving the horrors of war, in 1946 she became a founding member of the Vienna Art Club. In 1949 she met and married the linguist Ulli Beier and in 1950 the couple arrived in Ibadan, Nigeria where Beier had been offered a lecture post. Beier became interested in the local Yoruba culture in its many forms, particularly after the couple moved to Osogbo in 1958, becoming an important supporter of its resurgence in the 1960s. Wenger though immersed herself in the local Orisha religion and, over time, divorced Beier and married a Yoruba drummer. Wenger created art using traditional batik printing methods before inventing her own method of textile painting, wax batik and indigo dye. Her subjects – in a very distinct semi-surreal style – largely revolved around the Yoruba gods but she became best known for her work on restoring and recreating, with the help of other Osogbo artists, the Sacred Grove of Osogbo. This grove of shrines to the various Orisha gods was declared a UNESCO World Heritage Site in 2006. Wenger, who had Nigerian citizenship from 1959 until her death, was always well known in Nigeria but has become recognised increasingly in Europe for her work, having a first major exhibition in Vienna in 1985 and then many others elsewhere since. Her work was also shown at Nigerian Modernism at the Tate Modern in London 2025-26.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Wenger-500.jpg" alt="Untitled">
+                        <span class="image-caption">Untitled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/gods.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/WengerGods.JPG" alt="Gods" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Gods</span>
+                        <span class="details">Batik</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-linocut.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Wenger-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Linocut</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

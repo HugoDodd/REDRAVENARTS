@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Yacouba | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Jacob Yacouba</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jacob Yacouba</h1>
+            <p class="artist-years">1947–2014</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Jacob Yacouba, whose birth name was Yakhouba Diallo, was born in Tambacounda, Senegal and moved with his family to the capital Dakar where he studied at the Maurice Delafosse Technical School. Aged just nineteen, in 1966 he won a painting prize at the World Festival of Black Arts held in Senegal. At the time he was concentrating on guitar music but when in 1971 he relocated to Saint-Louis Yacouba he began to devote himself entirely to painting. He had a first solo exhibition at the French Cultural Centre in Saint-Louis in 1973 and then his fame rocketed. Presidents Senghor and Bongo both purchased paintings from him and Yacouba had numerous solo shows in Dakar and elsewhere in Senegal. In addition, his work was shown in France and the United States. Yacouba married a famous actress and gained epithets such as ‘the African Picasso’ and ‘the only grand master of Senegalese painting’. After a period at Rheims School of Art in France Yacouba’s style changed and he became best known for his sensuous depictions of the female form. The last ten years of his life, however, saw him suffering from severe illness and struggling to paint. Yacouba had solo shows at the National Gallery of Art in Dakar in the 1990s and his work is in public collections in Senegal and in France, whilst the Metropolitan Museum of Art in New York holds a print and Atlanta airport in the US hangs a major tapestry. In 2012 noted Senegalese film director Fatou Konde Senghor made a documentary of Yacouba’s life titled The Return of the Elephant.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Yacouba.JPG" alt="Untitled">
+                        <span class="image-caption">Untitled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-acrylic-on-canvas-laid-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Yacouba.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Acrylic on canvas, laid on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasser Assar | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../north-african-middle-eastern.html">North African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <span class="current">Nasser Assar</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Nasser Assar</h1>
+            <p class="artist-years">1928–2011</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Nasser Assar was once described as “Persia’s greatest living painter” and is included in the Tehran Museum of Contemporary Art’s collection. He studied at Tehran’s School of Fine Art and then at the Beaux-Arts, Paris where he has lived since 1953. Assar’s work in the 1960s drew comparison with Mark Rothko and he represented France at both the second and third Paris Biennales in 1961 and 1963. He was strongly influenced by Chinese wash-point technique and calligraphic effects, and his work was considered as being linked to that of the ‘cloud’ movement (nuagisme) in France. His first show was in Tehran in 1952 and this was followed by major exhibitions in London in 1961, Brussels and Washington. He also took part in prestigious group exhibitions in Vienna in 1959 and Paris in 1960. Assar continued to exhibit widely and is increasingly highly regarded in Iran and the wider Middle East.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Assarpink-500.jpg" alt="Untitled, 1962">
+                        <span class="image-caption">Untitled, 1962</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1961-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Assaroil-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1961</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1962-oil-colour-on-paper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Assarbeige-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil colour on paper, 1962</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1962-oil-colour-on-paper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Assarpink-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil colour on paper, 1962</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../north-african-middle-eastern.html">Return to North African & Middle Eastern</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

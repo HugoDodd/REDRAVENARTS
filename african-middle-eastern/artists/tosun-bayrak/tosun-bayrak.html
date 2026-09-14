@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tosun Bayrak | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../north-african-middle-eastern.html">North African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <span class="current">Tosun Bayrak</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Tosun Bayrak</h1>
+            <p class="artist-years">1926–2018</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Tosun Bayrak was born in Istanbul and initially studied sciences there before moving on to study art, architecture and art history in the studios of Fernand Leger and Andre Lhote in Paris, the University of California, Berkeley and Rutgers University in the United States and the Courtauld Institute of Art in London. From 1949 Bayrak spent a decade in Casablanca, Morocco where he was Turkish honorary consul, painting and also running a business. He then returned to the United States to establish an art department at Fairleigh Dickinson University in New Jersey. Initially heavily influenced by Abstract Expressionism, Bayrak won a Guggenheim scholarship in 1965 and had many successful exhibitions in the States but later in the1960s he began sculpting using human flesh, blood and body parts in protest at the Vietnam war. He also staged ‘events’ involving gore and violence and he became known as a founder of ‘Shock Art’. Always a thoughtful man, Bayrak in the 1970s turned his back on art to devote himself to learning about Islam and Sufism, where he became renowned for his translations, books and teachings. Istanbul Museum of Graphic Arts holds his work. A major retrospective, Fasa Fiso, was held in 2016 at the Mili Re Art Gallery in Istanbul.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Bayrak.JPG" alt="Seal of Moulay Abdallah el ghalibi allah, 1964">
+                        <span class="image-caption">Seal of Moulay Abdallah el ghalibi allah, 1964</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/seal-of-moulay-abdallah-el-ghalibi-allah.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Bayrak.JPG" alt="Seal of Moulay Abdallah el ghalibi allah" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Seal of Moulay Abdallah el ghalibi allah</span>
+                        <span class="details">Oil and mixed media on canvas, 1964</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../north-african-middle-eastern.html">Return to North African & Middle Eastern</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

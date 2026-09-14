@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayo Ogundele | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Bayo Ogundele</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Bayo Ogundele</h1>
+            <p class="artist-years">B. 1949</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Labayo Ogundele, like his artist elder brother Rufus, was born in Oshogbo, Nigeria. He too received training at the Oshogbo workshops under Denis Williams and Georgina Beier and his prints and paintings became typical of the Osobgo style – marrying Western training with traditional Yoruba art. Although majoring in acting, he also trained in printing and other art techniques from 1969-71at the Ori-Olukun Cultural Centre at the University of Ife under Prof S. Irein Wangboje. Bayo Ogundele had solo exhibitions at the University of Lagos in 1973, the British Council Ibadan in 1976, the Alliance Francaise Ibadan in 1983 and the French Cultural Centre, Lagos in 1984. He also had a solo show at the Goethe Institute in Yaounde in Cameroon in 1975. In addition to many group shows in Nigeria. Bayo Ogundele was one of the artists in an exhibition on Osogbo art at the Museum of African Art in Belgrade in 1988, and his work was also shown in other group exhibitions in the UK, USA, Australia and Germany. The Jordan Gallery of National Arts holds his work.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/OgundeleBayo75.JPG" alt="Untitled, 1975">
+                        <span class="image-caption">Untitled, 1975</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/jesus-and-the-cross.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBayoJesus-500.jpg" alt="Jesus and the Cross" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Jesus and the Cross</span>
+                        <span class="details">Oil on board, 1970</span>
+                    </div>
+                </a>
+                
+                <a href="works/worshippers-house.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBworship-500.JPG" alt="Worshippers House" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Worshippers House</span>
+                        <span class="details">Print, 1971</span>
+                    </div>
+                </a>
+                
+                <a href="works/palm-wine-taper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBtaper-500.JPG" alt="Palm-wine Taper" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Palm-wine Taper</span>
+                        <span class="details">Print, 1972</span>
+                    </div>
+                </a>
+                
+                <a href="works/epa-mask.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBmask-500.JPG" alt="Epa Mask" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Epa Mask</span>
+                        <span class="details">Oil on paper, 1994</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1975-oil-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBayo75.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on board, 1975</span>
+                    </div>
+                </a>
+                
+                <a href="works/arugungun-fishing-festival.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/OgundeleBfishing-500.JPG" alt="Arugungun Fishing Festival" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Arugungun Fishing Festival</span>
+                        <span class="details">Oil on paper, 1994</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

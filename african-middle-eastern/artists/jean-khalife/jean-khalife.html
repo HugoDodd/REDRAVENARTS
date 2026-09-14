@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Khalife | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../north-african-middle-eastern.html">North African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <span class="current">Jean Khalife</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jean Khalife</h1>
+            <p class="artist-years">1923–1978</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>Jean Khalife was born in Hadtoun in northern Lebanon and was to become one of Lebanon’s leading abstract artists. He studied from 1947-50 at the Academy of Fine Arts in Beirut and then from 1951-54 at the Ecole Nationale Superiore des Beaux Arts n Paris. His work was shown in a 1955 group exhibition at the Institute du Monde Arabe in Paris but his first solo exhibition was in Beirut in 1959 at the Geleria Camille Mounsef. After spending a year in Italy Khalife’s work from about 1961 moved towards the abstract, usually using bold colours. He represented Lebanon in all the Alexandria Biennales from 1960-66 and the Sao Paolo Biennales from 1967-71 and was a leading art teacher, initially at the Lebanese Academy of Fine Arts and later at the Lebanese University. Highlights of exhibitions abroad included the Ashmoleon Museum in Oxford, England in 1971 and other mixed shows in Toyko and Rome. The National Museum of Damascus in 1978 bought a large painting but the, at the height of his success, Khalife died of a heart attack. A Jean Khalife Museum was set up in his memory in his home village of Hadtoun and his work has continued to feature in exhibitions of Arab art from the period.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Khalife.JPG" alt="Untitled, 1971">
+                        <span class="image-caption">Untitled, 1971</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1971-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Khalife.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1971</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../north-african-middle-eastern.html">Return to North African & Middle Eastern</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

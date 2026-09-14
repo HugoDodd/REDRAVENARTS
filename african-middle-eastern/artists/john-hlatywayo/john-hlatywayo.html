@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Hlatywayo | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern Collection</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">John Hlatywayo</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">John Hlatywayo</h1>
+            <p class="artist-years">B. 1928</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                    <p>John Hlatywayo was born in Chipinge, Rhodesia and originally trained as a carpenter. He travelled to work in South Africa in 1948 and in the 1950s he attended art classes under Cecil Skotnes at Polly Street Art Centre, Johannesburg and later under George Boys who introduced him to the techniques of batik and mono printing. He moved back to Rhodesia in 1963 and in 1970 Hlatywayo took up a studio in the Rhodes National Gallery in Salisbury, now the National Gallery of Zimbabwe, Harare. Although periodically returning to Johannesburg, Hlatywayo for many years continued to live and teach art in Harare. Hlatywayo was one of the first black Rhodesians to integrate Western artistic ideas into his painting. Cecil Skotnes in 1960 said Hlatywayo’s work showed “an individuality which is very striking”. He called it primitive work but in a manner more reminiscent of European primitives such as Douanier-Rousseau than African.</p>
+                    
+                    <p>His paintings were shown a number of times at the Rhodes National Gallery and in the 1960s he also exhibited in London and Johannesburg, including solo shows at Constantia Gallery in 1961 and Adier Fielding Galleries in 1964. Hlatywayo was one of ten artists shown in a major July 1975 exhibition at the Gallery Delta in Salisbury titled Rhodesian Contemporary Art and he was given a solo show there in 1979. In his 90s in 2016 Hltaywayo’s sculptures were exhibited with paintings by Tafadzwe Gwetai at the Africa Centre, London. His work can be found in the collections of the National Gallery in Harare, Zimbabwe and the Museum of Modern Art, New York, USA.</p>
+                    
+                </div>
+
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Hlatywayo-500.jpg" alt="Untitled, 1964">
+                        <span class="image-caption">Untitled, 1964</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1960-ink-and-wash.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Hlatywayobottle-500.JPG" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Ink and wash, 1960</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1964-oil-on-canvas-fixed-to-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Hlatywayo-500.jpg" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas fixed to board, 1964</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>
