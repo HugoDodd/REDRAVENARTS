@@ -1270,48 +1270,21 @@ html, body {
     }
 }
 
-/* Mobile Viewport Adjustments (Tablet & Mobile devices) */
 @media (max-width: 1032px) {
-    .detail-container {
-        margin: 20px auto;
-        padding: 0 5%;
+    /* Prevent the breadcrumb container from taking over all free flex space */
+    .breadcrumb {
+        flex: 0 1 auto !important; /* Shrinks container width to fit content */
+        max-width: calc(100% - 110px); /* Leaves explicit room for the search bar */
+        min-width: 0;
     }
-
-    /* Collapse the two-column detail layout into a clean vertical stack */
-    .detail-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    /* Center and constrain artwork image on mobile viewports */
-    .artwork-main-display {
-        text-align: center;
-    }
-
-    .artwork-main-display img {
-        max-height: 65vh;
-        width: auto;
-        max-width: 100%;
-        margin: 0 auto;
-        object-fit: contain;
-    }
-
-    .work-title {
-        font-size: 1.6rem;
-    }
-
-    .work-description {
-        margin-top: 30px;
-        padding-top: 20px;
-    }
-
+    
     /* Truncate breadcrumb current item further for tight phone screens */
     .breadcrumb .current {
         max-width: 130px;
     }
 
     .region-title {
-        font-size: 1.35rem !important; /* Scaled down + !important overrides line 474 */
+        font-size: 1.35rem !important; /* Scaled down */
         letter-spacing: -0.3px;
     }
 
@@ -1330,6 +1303,12 @@ html, body {
         display: inline-block !important;
         font-weight: 600;
         color: #000;
+        width: auto !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        vertical-align: middle;
     }
 
     /* Add a back arrow automatically */
@@ -1365,6 +1344,56 @@ html, body {
 
     #artistSearch:focus {
         width: 120px !important;
+    }
+
+}
+
+/* Mobile Viewport Adjustments (Tablet & Mobile devices) */
+@media (max-width: 768px) {
+    .detail-container {
+        margin: 20px auto;
+        padding: 0 5%;
+    }
+
+    /* Collapse the two-column detail layout into a clean vertical stack */
+    .detail-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Center and constrain artwork image on mobile viewports */
+    .artwork-main-display {
+        text-align: center;
+    }
+
+    .artwork-main-display img {
+        max-height: 65vh;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    .work-title {
+        font-size: 1.6rem;
+    }
+
+    .work-description {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    /* Hide the visual split panels on mobile for home and collection index pages */
+    .home-split-visual,
+    .split-visual {
+        display: none !important;
+    }
+
+    /* Expand text containers to full screen width */
+    .home-split-content,
+    .split-content {
+        width: 100%;
+        padding: 40px 6%;
     }
 
 }
