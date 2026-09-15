@@ -6,7 +6,7 @@ Welcome! This guide explains how to add new artworks, update artist details, and
 
 ## 📋 Step 1: Update the Google Sheet
 
-1. Open the **RedRavenArts Collection Google Sheet** in your browser. (Check your browser bookmarks or search for it on [Google Sheets](https://sheets.google.com/)).
+1. Open the **RedRavenArts Collection Google Sheet** in your browser. (It should be in recent documents on [Google Sheets](https://sheets.google.com/)).
 2. Scroll to the bottom of the table to add your new entry, filling out the columns as follows:
 
    * **Artist Surname:** The artist's family name used for alphabetical sorting on the site (e.g., *Paulraj*).
