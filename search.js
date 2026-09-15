@@ -10,7 +10,7 @@ const artists = [
     { name: "Twins Seven Seven", url: "african-middle-eastern/artists/twins-seven-seven/twins-seven-seven.html" },
 ];
 
-// 2. The Search Logic (Supports local file:///, GitHub Pages subfolder, & custom domains)
+// 2. The Search Logic (Supports local file:///, GitHub Pages, & root domains)
 function filterArtists() {
     const input = document.getElementById('artistSearch');
     const resultsContainer = document.getElementById('searchResults');
@@ -51,13 +51,11 @@ function filterArtists() {
                 }
             } else {
                 // Hosted web server (GitHub Pages vs Custom Domain)
-                const pathSegments = window.location.pathname.split('/');
-                
-                // If hosted on GitHub Pages (e.g., github.io/REDRAVENARTS/...)
-                if (window.location.hostname.includes('github.io') && pathSegments[1]) {
-                    finalUrl = '/' + pathSegments[1] + '/' + artist.url;
+                if (window.location.hostname.endsWith('github.io')) {
+                    // Always locks to the repo name regardless of deep nested subpages
+                    finalUrl = '/REDRAVENARTS/' + artist.url;
                 } else {
-                    // Standard root/custom domain deployment
+                    // Custom domain / root deployment
                     finalUrl = '/' + artist.url;
                 }
             }
