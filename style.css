@@ -547,8 +547,7 @@ html {
 
 .artist-years {
     font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     color: #666;
 }
 

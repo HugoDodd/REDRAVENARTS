@@ -72,7 +72,7 @@ def process_sheets_dataframe(df):
                 'alias': alias,
                 'artist_name': display_name,
                 'slug': artist_slug,
-                'lifespan': get_val(row, 'Lifespan'),
+                'lifespan': format_artist_dates(get_val(row, 'Lifespan')),
                 'biography': get_val(row, 'Biography'),
                 'collection': get_val(row, 'Collection'),
                 'region': region,
@@ -370,6 +370,40 @@ def cleanup_orphaned_files(active_artists):
                                 if (coll, artist_slug, work_slug) not in active_work_slugs:
                                     work_file.unlink()
                                     print(f"🗑️ Deleted Removed Artwork HTML: {coll}/artists/{artist_slug}/works/{work_file.name}")
+
+import re
+
+def format_artist_dates(date_str):
+    """Normalizes artist date formats for elegant web display:
+    - Removes apostrophes in decades ("1980's" -> "1980s")
+    - Converts slash decades to ranges ("1960s/70s/80s" -> "1960s – 1980s")
+    - Normalizes prefixes to lowercase without trailing spaces ("c.1914", "b.1945", "fl.1920")
+    - Fixes 'f.l.' typos to 'fl.'
+    - Formats hyphens/dashes cleanly ("c.1914 – 1979", "1914 – ")
+    """
+    if not date_str:
+        return ""
+    
+    # Clean up outer space
+    s = str(date_str).strip()
+    
+    # 1. Decades cleanup: remove apostrophes ("1980's" -> "1980s")
+    s = re.sub(r'(\d{4})\'s', r'\1s', s, flags=re.IGNORECASE)
+    
+    # 2. Convert slash-separated decade ranges ("1970s/80s" or "1960s/70s/80s" -> "1960s-1980s")
+    s = re.sub(r'(\d{4}s)(?:\/\d{2}s)+', lambda m: f"{m.group(1)}-19{m.group(0).split('/')[-1]}", s, flags=re.IGNORECASE)
+    
+    # 3. Standardize prefixes (c., b., d., fl.) to lowercase and remove spaces after them
+    s = re.sub(r'\bf\.?l\.?\s*', 'fl.', s, flags=re.IGNORECASE)
+    s = re.sub(r'\b([cbd])\.\s*', lambda m: m.group(1).lower() + '.', s, flags=re.IGNORECASE)
+    
+    # 4. Convert all hyphens/en-dashes to spaced en-dashes ("1914-1979" -> "1914 – 1979")
+    s = re.sub(r'(\d{4}s?|\d{2}s?)\s*[-–]\s*(\d{4}s?|\d{2}s?|c\.|b\.|d\.|fl\.)', r'\1 – \2', s)
+    
+    # 5. Handle open-ended dates ("1914-" -> "1914 – ")
+    s = re.sub(r'(\d+)\s*[-–]\s*$', r'\1 – ', s)
+    
+    return s
 
 if __name__ == "__main__":
     df = fetch_sheet_data()
