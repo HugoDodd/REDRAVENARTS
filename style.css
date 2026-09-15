@@ -1383,17 +1383,25 @@ html, body {
         padding-top: 20px;
     }
 
-    /* Hide the visual split panels on mobile for home and collection index pages */
     .home-split-visual,
     .split-visual {
         display: none !important;
     }
 
-    /* Expand text containers to full screen width */
     .home-split-content,
     .split-content {
-        width: 100%;
-        padding: 40px 6%;
+        min-height: calc(100vh - 70px) !important; /* Subtracts header height to fit viewport */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding-top: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Tighten header title spacing on mobile */
+    .home-split-content .index-list,
+    .split-content .index-list {
+        margin-bottom: 80px !important;
     }
 
 }
