@@ -1269,3 +1269,44 @@ html, body {
         padding: 20px;
     }
 }
+
+/* Mobile Viewport Adjustments (Tablet & Mobile devices) */
+@media (max-width: 900px) {
+    .detail-container {
+        margin: 20px auto;
+        padding: 0 5%;
+    }
+
+    /* Collapse the two-column detail layout into a clean vertical stack */
+    .detail-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Center and constrain artwork image on mobile viewports */
+    .artwork-main-display {
+        text-align: center;
+    }
+
+    .artwork-main-display img {
+        max-height: 65vh;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    .work-title {
+        font-size: 1.6rem;
+    }
+
+    .work-description {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    /* Truncate breadcrumb current item further for tight phone screens */
+    .breadcrumb .current {
+        max-width: 130px;
+    }
+}
