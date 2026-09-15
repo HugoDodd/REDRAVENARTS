@@ -3,6 +3,7 @@
 // 1. The "Database" (Automatically updated by build_from_sheets.py)
 const artists = [
     { name: "Youssouf Bath", url: "african-middle-eastern/artists/youssouf-bath/youssouf-bath.html" },
+    { name: "John Christoforou", url: "western/artists/john-christoforou/john-christoforou.html" },
     { name: "Gabriel Ellison", url: "african-middle-eastern/artists/gabriel-ellison/gabriel-ellison.html" },
     { name: "Kent Onah", url: "african-middle-eastern/artists/kent-onah/kent-onah.html" },
     { name: "G. D. Paulraj", url: "asian/artists/g-d-paulraj/g-d-paulraj.html" },

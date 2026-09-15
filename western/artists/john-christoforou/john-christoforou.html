@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Christoforou | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">John Christoforou</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">John Christoforou</h1>
+            
+            <p class="artist-years">1921 – 2014</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Christoforou was a powerfully gestural abstract and figurative artist who used a brilliant palette, “a savage expressionist”, born in London to parents of Greek origin. He was an important pioneer of the Nouvelle Figuration movement which emerged in the 1960s. This movement, which incorporated the work of Bacon, De Kooning and others, was a form of expressionism which reached far beyond the harmonised vision of perceptual reality, to create highly charged “infra-vital” images. The Hellenic Ministry of Culture and Athens School of Fine Art in late 2002 held a major retrospective in Athens honouring “an artist who made Greece famous in Europe and the whole world”.</p>
+                            
+                        
+                            
+                        
+                            
+                            <p>Christoforou moved with his father to Greece in 1930 and he studied at L’Ecole des Beaux-Arts in Athens before returning to England in 1938 and serving in the Royal Air Force 1941-46. He had his first solo show in 1949 at 20 Brook Street Gallery. In 1951-2 Christoforou lived and showed in Paris, destroying all his remaining earlier work. Returning to London in 1953 he showed with Gimpel Fils and then joined Victor Musgrave’s Gallery One, where he had a number of solo shows, before settling in Paris in 1957. In 1965 Christoforou received the prize of the International Association of Art Critics in London. He went on to exhibit extensively in the United States, Britain, France, Sweden, Denmark, Netherlands, Belgium and elsewhere. Retrospectives included Randers Kuntsmuseum, Denmark 1974, L’Ecole Regionale des Beuax-Arts d’Angers 1985 and Fondation d’Art Moderne en Picardie, Amiens 1988. Tate Gallery, the Government Art Collection, the Greek National Art Gallery and public collections in France, Colombia, Bangladesh, Mexico, Denmark, South Korea, Taiwan and Austria, amongst others, hold his work.</p>
+                            
+                        
+                    
+                </div>
+
+                
+                <div class="image-column">
+                    <div class="artist-portrait-wrapper">
+                        <img src="../../images/Christofbluemother-500.jpg" alt="John Christoforou">
+                        
+                        <span class="image-caption">Blue Mother and Child, 1958</span>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/blue-mother-and-child.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/Christofbluemother-500.jpg" alt="Blue Mother and Child" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Blue Mother and Child</span>
+                        <span class="details">Oil on board, 1958</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

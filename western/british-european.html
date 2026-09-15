@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>British & European | Red Raven Arts</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="index.html">Western</a>
+            <span class="sep">/</span> 
+            <span class="current">British & European</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <span class="sidebar-label">Jump to</span>
+                <ul>
+                
+                    <li><a href="#britain-europe">Britain & Europe</a></li>
+                
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            
+            <section id="britain-europe" class="country-section">
+                <h2 class="country-heading" style="text-transform: uppercase;">Britain & Europe</h2>
+                <div class="artist-grid">
+                    
+                    <div class="artist-card">
+                        <a href="artists/john-christoforou/john-christoforou.html">
+                            <div class="image-wrapper">
+                                <img src="images/Christofbluemother-500.jpg" alt="John Christoforou" loading="lazy">
+                            </div>
+                            <div class="artist-meta">
+                                <span class="artist-name">John Christoforou</span>
+                                
+                                <span class="artist-dates">1921 – 2014</span>
+                                
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="index.html">Return to Western</a>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.country-section');
+
+            const observerOptions = {
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('is-below', 'is-above');
+                    } else {
+                        const rect = entry.target.getBoundingClientRect();
+                        if (rect.top < 0) {
+                            entry.target.classList.add('is-above');
+                        } else {
+                            entry.target.classList.add('is-below');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top > window.innerHeight) {
+                    section.classList.add('is-below');
+                } else if (rect.bottom < 0) {
+                    section.classList.add('is-above');
+                }
+                
+                observer.observe(section);
+            });
+        });
+    </script>
+<script src="../search.js"></script>
+</body>
+</html>
