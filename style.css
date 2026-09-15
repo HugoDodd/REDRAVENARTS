@@ -1271,7 +1271,7 @@ html, body {
 }
 
 /* Mobile Viewport Adjustments (Tablet & Mobile devices) */
-@media (max-width: 900px) {
+@media (max-width: 1032px) {
     .detail-container {
         margin: 20px auto;
         padding: 0 5%;
@@ -1311,6 +1311,60 @@ html, body {
     }
 
     .region-title {
-        font-size: 1 rem;
+        font-size: 1.35rem !important; /* Scaled down + !important overrides line 474 */
+        letter-spacing: -0.3px;
     }
+
+    /* Hide separators and current page text */
+    .breadcrumb .sep,
+    .breadcrumb .current {
+        display: none !important;
+    }
+
+    /* Hide all ancestor links except the very last clickable link (the artist) */
+    .breadcrumb a {
+        display: none !important;
+    }
+
+    .breadcrumb a:nth-last-of-type(1) {
+        display: inline-block !important;
+        font-weight: 600;
+        color: #000;
+    }
+
+    /* Add a back arrow automatically */
+    .breadcrumb a:nth-last-of-type(1)::before {
+        content: "← ";
+    }
+
+    /* Navbar spacing tweak */
+    .navbar {
+        padding: 1.5rem 5%;
+        gap: 15px;
+    }
+
+    /* Prevent breadcrumbs from pushing into search */
+    .breadcrumb {
+        flex: 1;
+        min-width: 0; /* Required for text-overflow to work in flex */
+    }
+
+    .breadcrumb a:nth-last-of-type(1) {
+        display: block !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    /* Shrink search bar on mobile so link has room */
+    #artistSearch {
+        width: 90px !important;
+        font-size: 0.75rem;
+    }
+
+    #artistSearch:focus {
+        width: 120px !important;
+    }
+
 }
