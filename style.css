@@ -1270,69 +1270,57 @@ html, body {
     }
 }
 
-Breadcrumb Container
+/* ==========================================
+   MOBILE & RESPONSIVE FIXES
+   ========================================== */
+
+/* 1. Dynamic Breadcrumb Wrapping & Truncation */
 .breadcrumb {
     display: flex;
-    flex-wrap: wrap;       /* Allows long breadcrumbs to wrap onto line 2 naturally */
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.35rem 0.5rem;   /* Compact vertical and horizontal spacing */
-    font-size: 0.85rem;    /* Scale down slightly on mobile */
+    gap: 0.35rem 0.5rem;
+    font-size: 0.85rem;
     line-height: 1.4;
 }
 
-/* Prevent individual path names from breaking mid-word */
 .breadcrumb a, 
 .breadcrumb span {
     white-space: nowrap;
 }
 
-/* If a single artist or artwork title is absurdly long, truncate with ellipsis */
-.breadcrumb-current {
+.breadcrumb .current {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-@media (max-width: 600px) {
-    .breadcrumb-current {
-        max-width: 140px;   /* Tighter truncation for mobile screens */
-    }
-}
-
-/* Desktop Detail Page Grid (Example structure) */
-.artwork-detail-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Side-by-side on desktop */
-    gap: 2.5rem;
-    align-items: start;
-}
-
-.artwork-detail-image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Mobile Responsiveness */
+/* 2. Mobile Layout Adjustments (Screens 768px & below) */
 @media (max-width: 768px) {
-    .artwork-detail-container {
-        grid-template-columns: 1fr; /* Stack into a single column */
+    /* Truncate long breadcrumbs further on mobile */
+    .breadcrumb .current {
+        max-width: 140px;
+    }
+
+    /* Stack artwork image and details vertically */
+    .detail-container {
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    .artwork-detail-image {
+    .artwork-main-display {
         width: 100%;
         text-align: center;
     }
 
-    .artwork-detail-image img {
-        max-height: 60vh; /* Prevents giant images from taking over the whole screen */
+    .artwork-main-display img {
+        max-height: 60vh;
         margin: 0 auto;
         object-fit: contain;
     }
 
-    .artwork-title-header {
-        font-size: 1.5rem; /* Scale down large artwork headers */
+    .work-title {
+        font-size: 1.5rem;
     }
 }
