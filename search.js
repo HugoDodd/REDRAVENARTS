@@ -10,7 +10,7 @@ const artists = [
     { name: "Twins Seven Seven", url: "african-middle-eastern/artists/twins-seven-seven/twins-seven-seven.html" },
 ];
 
-// 2. The Search Logic (Supports both local file:/// and hosted web server)
+// 2. The Search Logic (Supports local file:///, GitHub Pages subfolder, & custom domains)
 function filterArtists() {
     const input = document.getElementById('artistSearch');
     const resultsContainer = document.getElementById('searchResults');
@@ -47,12 +47,19 @@ function filterArtists() {
                     const rootPath = path.substring(0, rootIndex + folderName.length);
                     finalUrl = rootPath + artist.url;
                 } else {
-                    // Fallback if folder name changes
                     finalUrl = artist.url;
                 }
             } else {
-                // Hosted web server (GitHub Pages, Vercel, Netlify, etc.)
-                finalUrl = '/' + artist.url;
+                // Hosted web server (GitHub Pages vs Custom Domain)
+                const pathSegments = window.location.pathname.split('/');
+                
+                // If hosted on GitHub Pages (e.g., github.io/REDRAVENARTS/...)
+                if (window.location.hostname.includes('github.io') && pathSegments[1]) {
+                    finalUrl = '/' + pathSegments[1] + '/' + artist.url;
+                } else {
+                    // Standard root/custom domain deployment
+                    finalUrl = '/' + artist.url;
+                }
             }
 
             link.href = finalUrl;
