@@ -1309,4 +1309,8 @@ html, body {
     .breadcrumb .current {
         max-width: 130px;
     }
+
+    .region-title {
+        font-size: 1.8rem;
+    }
 }
