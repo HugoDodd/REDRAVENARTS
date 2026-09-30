@@ -56,10 +56,10 @@
                     {% if work.provenance or work.Notes %}
                     <div class="provenance-section">
                         {% if work.provenance %}
-                        <p class="context-note">{{ work.provenance }}</p>
+                        <p class="context-note">Provenance: {{ work.provenance }}</p>
                         {% endif %}
                         {% if work.Notes %}
-                        <p class="context-note">{{ work.Notes }}</p>
+                        <p class="context-note">Notes: {{ work.Notes }}</p>
                         {% endif %}
                     </div>
                     {% endif %}

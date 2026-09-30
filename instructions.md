@@ -47,12 +47,15 @@ Before running the website generator, place your new artwork images in the proje
 
 ## 🚀 Step 3: Run the Website Generator
 
-Now update the website files with a single double-click:
+Now update the website files on your computer:
 
-1. Open the main **Red Raven Arts** folder in Finder.
-2. Double-click **`run_builder.command`**.
-3. A Terminal window will open automatically and display the build progress.
-4. When you see **`✅ Build complete!`**, press `Enter` or close the window. 
+1. Open Visual Studio Code from the dock at the bottom
+2. File > Open Recent > ~/Documents/Website/REDRAVENARTS
+3. Right click on run_builder.command in the sidebar
+4. Click **Reveal in Finder**
+5. Double-click **`run_builder.command`**.
+6. A Terminal window will open automatically and display the build progress.
+7. When you see **`✅ Build complete!`**, press `Enter` or close the window. 
 
 *(You can now open `index.html` locally on your computer to preview your changes!)*
 
