@@ -65,6 +65,6 @@ To send your updates live to the internet:
 1. Open the **Repository tab** (third tab down on the left sidebar that should have a blue circle with a number on it).
 2. In the message field, type a short note about what you added (e.g., *"Added 2 new paintings for G. D. Paulraj"*).
 4. Click the blue **Commit** button.
-5. Click **Push origin** at the top right of the window.
+5. Click **Sync Changes**.
 
 🎉 **Done!** Your website will automatically update online within 1–2 minutes.
