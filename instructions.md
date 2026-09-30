@@ -62,10 +62,9 @@ Now update the website files with a single double-click:
 
 To send your updates live to the internet:
 
-1. Open **GitHub Desktop** on your Mac.
-2. You will see a list of modified files on the left side of the screen.
-3. In the lower-left summary box, type a short note about what you added (e.g., *"Added 2 new paintings for G. D. Paulraj"*).
-4. Click the blue **Commit to main** button.
+1. Open the **Repository tab** (third tab down on the left sidebar that should have a blue circle with a number on it).
+2. In the message field, type a short note about what you added (e.g., *"Added 2 new paintings for G. D. Paulraj"*).
+4. Click the blue **Commit** button.
 5. Click **Push origin** at the top right of the window.
 
 🎉 **Done!** Your website will automatically update online within 1–2 minutes.
