@@ -1405,3 +1405,10 @@ html, body {
     }
 
 }
+
+/* Prevent the single country section from fading out when scrolled past on single-category pages */
+body:has(.country-section:only-of-type) .country-section.is-above,
+body:has(.country-section:only-of-type) .country-section.is-below {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
