@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yony Waite | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Yony Waite</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Yony Waite</h1>
+            
+            <p class="artist-years">1935 – 2024</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Yony (Jony) Waite was born in California, studying art at the University of California, Berkeley under Richard Diebenkorn before learning Chinese techniques in Hong Kong and then spending two years in Japan absorbing sumi-e art. After she settled in Kenya from 1962, this latter style – involving tonal grey forms, black ink and shallow forms – was to be a major part of her own art, in conjunction with action-drawing from life. Her work concentrated on semi-abstracted depictions of animals, landscape and people in a wide range of media, from oils on canvas, drawings to murals and textiles. Waite noted the lack of places to show her paintings in Nairobi and so in 1968, with two others, set up what was to become the most influential commercial art gally in the city, Gallery Watatu. Here she gave shows to Jak Katarikawe, Theresa Musoke, Ancent Soi and other pioneers in Kenyan art. A supporter of female rights and an environmentalist, Waite was instrumental in two major art initiatives involving Kenyan women – in 1992 she organised a 50m banner with work by 100 women called ‘African Story Snake’ for the Earth Summit in Rio de Janeiro and in 1995 she ran a project called ‘Women beyond Borders’ which showed in the United States and Nairobi. She also ran print workshops. Waite took up Kenyan citizenship in later life and her wall-works are to be found in many hotels and lodges in East Africa. The Museum of Women in the Arts in Washington has one of her hangings in its collection, whilst retrospectives were held at both the Circle Art Gallery and One Off contemporary art galleries in Nairobi after her death in 2024.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

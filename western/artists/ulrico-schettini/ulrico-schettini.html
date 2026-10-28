@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulrico Schettini ((Montefiore)) | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Ulrico Schettini ((Montefiore))</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Ulrico Schettini ((Montefiore))</h1>
+            
+            <p class="artist-years">b.1932</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Ulrico Schettini was born in Cosenza, in the Italian Marches. After studying art at Pesaro, Paris and Rome he settled in England in 1958. An academically-inclined artist, during the 1960s and early 1970s he lectured at Hull College of Arts and Crafts, Carlisle College of Art and Design, Hornsea College of Art, the City Literary Institute and King’ College London. He worked in New York in 1964 and from 1966-71 lectured annually in America under the auspices of the Association of American Colleges. Schettini’s early work was fiercely modernist, being “emotionally powerful” and displaying a chromatic austerity that “blends a basic outline of form with a free graphic improvisation within that form” (Art News and Review Jan 1959). Critics at the time equated his art with modern jazz movements. From the mid-1960s Schettini began producing more figurative work, in a strong expressive, dark style. Schettini first solo exhibition was at the experimental New Vision Gallery in London in 1958, followed by one in Newcastle. He then exhibited in London at the Drian Gallery in 1959 and the Institute for Contemporary Art in 1961. He had group shows in London, Paris and Milan and then had a major retrospective exhibition at the Municipal Art Gallery, Hull in 1966 which attracted international attention. About this time, though, despite the acclaim, he destroyed many works and disappeared to Italy to find himself again as an artist. He took ‘Montefiore’ as his professional name in homage to two potters he worked with there. A large exhibition of his subsequent work, which now included many ancient and archaeological influences, was given at the Café Royal, London in 1972 and a still more important exhibition at the Palazzo della Permanente, Milan in 1974. Wildensteins in New York also sold his work. Montefiore moved back to Italy in the 1970s and continues to exhibit there. His work underwent another dramatic shift in the 1980s. He turned to a wider variety of media – he is currently working on stained glass, metals and ceramics as well as painting – and shifted entirely to representational art. The main motive behind this was religious and he now mainly concentrates on large-scale commissions for Catholic institutions in Peru, Spain and Italy. He taught at the Academy of Fine Arts at Brera, Milan. Schettini’s work is held by Northwestern College, Orange City in Indiana and California University of Pennsylvania, South Australia House, London and other public collections.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/fagiani.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Fagiani" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Fagiani</span>
+                        <span class="details">Oil/acrylic on canvas, 1974</span>
+                    </div>
+                </a>
+                
+                <a href="works/studenti.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Studenti" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Studenti</span>
+                        <span class="details">Acrylic on paper laid on board, 1971</span>
+                    </div>
+                </a>
+                
+                <a href="works/al-bar.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Al Bar" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Al Bar</span>
+                        <span class="details">Acrylic on canvas, 1973</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

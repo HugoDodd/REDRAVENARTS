@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Bornfriend | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Jacob Bornfriend</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jacob Bornfriend</h1>
+            
+            <p class="artist-years">1904 – 1976</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Jacob Bornfriend was born in Zborav in Slovakia and educated at the Academy of Fine Arts, Prague under Willi Nowak 1930-5. Bornfriend emigrated to England in 1939, settling in London. He had his first solo show at Roland, Browse & Delbanco, London in 1950 and in 1957 painted a large mural for Jew’s College, London. Initially painting still lives and landscapes, Bornfriend’s work – which exudes a quiet beauty - increasingly turned towards the abstract. The Tate Gallery, Southampton City Art Gallery, Leeds Museum and Art Gallery, several colleges at Oxford and many galleries abroad hold his work. These include Museum of Bochum, Germany and Auckland Art Gallery, New Zealand. Slovak capital Bratislava’s City Art Gallery gave him a retrospective in 2008 and Bornfriend’s work was included in a mixed exhibition at the London Jewish Museum of Art in 2009. Connaught-Brown showed Bornfriend’s work alongside two other émigré artists in 2013.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/two-figures.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Two Figures" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Two Figures</span>
+                        <span class="details">Chalk</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1962-pastel.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Pastel, 1962</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-gouache.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Greenaway | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Peter Greenaway</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Peter Greenaway</h1>
+            
+            <p class="artist-years">b.1942</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Peter Greenaway is best known as the maker of intellectual films such as The Draughtsman’s Contract and Baby of Macon, but he attended Walthamstow College of Art and art history and painting have always played a central role in his films and operas. Greenaway has curated exhibitions and installations as well as participating in mixed shows – such as Spellbound: Art & Film at the Hayward in 1996 - and having solo exhibitions internationally. These solo shows included Nicole Klagsbrun Gallery, New York in 1995, Mylos Art Gallery, Thessaloniki Greece in 1996 and Museo Rufino Tamayo, Mexico City in 1997-98. In 2004 Greenaway created an epic installation for the opening of Compton Verney, Warwickshire which houses the art collection of philanthropist Sir Peter Moores, and in 2009 a major work based on the Paolo Veronese painting Le Nozze di Cana for the Venice Biennale. Another multi-media presentation based on Leonardo’s Last Supper was shown at Park Avenue Armoury, New York in January 2011. It went on to tour internationally, including the Museu de Arte de Sao Paolo, Brazil in 2012.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/death-of-webern-the-cake-smokes.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Death of Webern: The Cake Smokes" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Death of Webern: The Cake Smokes</span>
+                        <span class="details">Pencil on card, 1988</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Reyes | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Emma Reyes</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Emma Reyes</h1>
+            
+            <p class="artist-years">1919 – 2003</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Emma Reyes was a Colombian painter and intellectual who overcame a poverty-stricken and difficult background, escaping a convent for orphan girls aged nineteen. Despite being illiterate and untrained artistically, she in 1947 won an art scholarship to Paris. Reyes gradually broke through as an artist and forged friendships with some of the most distinguished European and Latin American artist, writers and academics of the twentieth century including Frida Kahlo, Diego Rivera and Jean-Paul Sartre. Her first solo show was at Galerie Kleber in Paris in 1949 and in the early 1950s her work was shown in Mexico City alongside that of Diego Rivera and Jose Clemente Orosco. She lived in Buenos Aires, Montevideo, Jerusalem, Washington and Rome before settling in Paris. In the year of her death the French government named her a Knight of the Order of Arts and Letters. In 2012 a volume of letters detailing her childhood was published, initially in Spanish, becoming a slow-burn literary sensation. A solo show of her artwork was held in Perigord Museum, France in 2017/2018 and White Cube in London also presented a solo exhibition in 2026. Note: Leon Tovar Gallery showing a major floral work on paper at TEFAF New York in 2025, which was shown as a full-page image in The Art Newspaper May 2025. Apolllo described Reyes as an artist whose ‘star is in the ascendant’.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1958-ink-on-paper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Ink on paper, 1958</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

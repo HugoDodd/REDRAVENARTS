@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael O. Agwu ((Okah)) | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Michael O. Agwu ((Okah))</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Michael O. Agwu ((Okah))</h1>
+            
+            <p class="artist-years">1948 – 2016</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Michael Agwu was born in Ibii village, Ehugbo (formerly known as Afikpo), Ebonyi State, Nigeria. Agwu trained under Prof S Irein Wangboje at the Ori-Olokun Cultural Centre, University of Ife from 1971-74. He then taught at Benin University and later at the University of Port Harcourt in Nigeria. Agwu worked mainly in wood block and linocut prints but also painted on cloth and did batik. He had a solo exhibition at the University of Port Harcourt in 1989. His work was exhibited internationally, including a solo show in 1990 at Easton, Maryland in the United States, and illustrates the catalogue for ‘Paradox of the New: Art from Africa’ at South Swan Gallery, Bradford, UK in 1991. Mixed shows abroad included ‘Contemporary Art from Nigeria’ at the University of California in 1971 and 1972, whilst mixed exhibitions in Nigeria included the National Museum, Lagos in 1972, British Council, Enugo in 1973 and 1980 and Gong Gallery, Lagos in 1975. In later years he lived in London. His work was studied by Simon Ottenberg of the University of Washington, Seattle and the University of Oxford holds one of his pieces, ‘Argungu Fishing Festival’, in its collection.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/like-father-like-sons.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Like Father Like Sons" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Like Father Like Sons</span>
+                        <span class="details">Linocut</span>
+                    </div>
+                </a>
+                
+                <a href="works/onitsha-women-dance.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Onitsha Women Dance" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Onitsha Women Dance</span>
+                        <span class="details">Screenprint in colours</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

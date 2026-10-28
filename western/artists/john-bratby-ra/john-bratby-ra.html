@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Bratby RA | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">John Bratby RA</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">John Bratby RA</h1>
+            
+            <p class="artist-years">1928 – 1992</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Bratby was and remains a controversial artist; a founder member of the Kitchen Sink School of realist art in the 1950s, he is today described by Charles Saatchi – who devoted an entire room of his first Saatchi Gallery to Bratby – as being likely to “knock the youngsters out”. Bold images, vigour, thick paint and primary colours were Bratby’s trademarks. Bratby was born in London and studied at the Royal College of Art 1951-4. Through the 1950s Bratby regularly showed at Beaux Arts Gallery in solo exhibitions, the first being in 1954. Having won a number of scholarships in 1954, including from the Italian government, Bratby went on to teach at the Royal College of Art 1957-8. He represented Britain at the Venice Biennale both in 1956 and 1958, where on both occasions he won the Guggenheim Award. He was elected RA in 1971. Although slipping out of fashion in the latter 1960s and 1970s, his reputation recovered in part due to the championing of Julian Hartnoll. In 1991 the National Portrait Gallery held a retrospective and in the same year there was a solo show at Albemarle Gallery and the Mayor Gallery included him in the group show The Kitchen Sink Artists Revived. There was another solo show at Sue Rankin Gallery, with a retrospective at The Catto Gallery in 1997. The Tate Modern, Tate Britain, Saatchi Gallery, Museum of Modern Art New York and national galleries of Canada and New Zealand are amongst those that hold examples of his work.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/nov-6-sun-behind-sunflower-1.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Nov 6 Sun behind Sunflower 1" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Nov 6 Sun behind Sunflower 1</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oil-on-card.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on card</span>
+                    </div>
+                </a>
+                
+                <a href="works/patti.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Patti" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Patti</span>
+                        <span class="details">Pencil and crayon</span>
+                    </div>
+                </a>
+                
+                <a href="works/melted-snow-on-the-va-roof.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Melted Snow on the V&A roof" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Melted Snow on the V&A roof</span>
+                        <span class="details">Oil on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

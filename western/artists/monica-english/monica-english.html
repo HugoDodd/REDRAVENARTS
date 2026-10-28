@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica English | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Monica English</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Monica English</h1>
+            
+            <p class="artist-years">1920 – 1979</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Monica English, nee Barrett, was a self-taught artist whose semi-magical depictions of horses, ancient gods and the like reflected her Wiccan leanings. English was brought up in rural Buckinghamshire and became a master of hounds in addition to being a well-known ‘witch’. She was considered very attractive and had a number of marriages and relationships before settling in Gayton, Norfolk in 1953 with Robert English. She played a key role in a Norfolk coven that worshipped the Celtic Horse Goddess Epona and many of their rituals took place on horseback. Influenced artistically both by John Skeaping and pagan imagery, English caught the eye of German activist artist Gustav Metzger who gave her a solo show in his King’s Lynn gallery in 1956. English had a one-person show at St Martin’s Gallery, London in 1963 and another in London in 1966 at Keith and Hazel Albarn’s counter-cultural Artists’ Own gallery. She also had numerous solo shows in East Anglian galleries and contributed to mixed exhibitions at the Woodstock, Whibley and Walker galleries in the capital. In 1967 English provided an illustration of Pan in a book by Cottie Burland called ‘The Magical Arts’. In the same year, in a guide to East Anglian artists, Donald Newby described English as ‘a painter of two worlds. One of these was a world of myth and legend peopled with the gods, warriors and ghosts of the past, and springs from her study of anthropology, folklore and primitive religions. The other world is the rural reality of landscape and animals, particularly horses, whose beauty and pride of movement fascinates her.’</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-charcoal-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Charcoal on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-last-draw-of-the-day.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The Last Draw of the Day" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The Last Draw of the Day</span>
+                        <span class="details">Oil pastels on paper, 1965</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1968-oil-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on board, 1968</span>
+                    </div>
+                </a>
+                
+                <a href="works/before-the-storm.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Before the Storm" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Before the Storm</span>
+                        <span class="details">Oil on board, 1963</span>
+                    </div>
+                </a>
+                
+                <a href="works/horses-iv.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Horses IV" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Horses IV</span>
+                        <span class="details">Charcoal and bodycolour</span>
+                    </div>
+                </a>
+                
+                <a href="works/soldiers.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Soldiers" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Soldiers</span>
+                        <span class="details">Oil on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

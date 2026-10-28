@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank Beanland | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Frank Beanland</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Frank Beanland</h1>
+            
+            <p class="artist-years">b.1936</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Frank Beanland was born in Bridlington, Yorkshire. A bold, colourful abstract artist, he attended Hull College of Art 1952-57, then Slade School of Fine Art 1959-61. A Boise travelling scholarship took him to Stockholm 1961-2. Beanland began showing in 1960 at Young Contemporaries then in mixed shows at Drian Galleries, London Group and Gimpel Fils. He settled for a while in the 1960s in Cornwall where he produced much of his best work. Solo exhibitions include Smiths Galleries One in 1960 and Belgrave Galleries 1999. His work is held by a number of public collections including Leverhulme Trust and Slade School and the Lodz Museum in Poland.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/mottled-ground-3-discs.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Mottled Ground, 3 Discs" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Mottled Ground, 3 Discs</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/blue-grey-and-lavender-over-scarlet.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Blue Grey and Lavender over Scarlet" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Blue Grey and Lavender over Scarlet</span>
+                        <span class="details">Oil on board, 1962</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

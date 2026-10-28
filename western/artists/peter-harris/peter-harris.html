@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Harris | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Peter Harris</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Peter Harris</h1>
+            
+            <p class="artist-years">1923 – 2009</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Peter Harris was born in Bristol, England and studied art at the West of England Art Academy. He made his name when from 1951-1960 he served as Arts Superintendent for the Federation of Malaya. Most crucially, he was instrumental in founding in 1952 the Wednesday Art Group in Kuala Lumpur where Harris taught and encouraged local artists, many of whom went on to become amongst Malaysia’s finest. The National Art Gallery in Kuala Lumpur gave Harris a retrospective in 1960 and from 1962-1967 Harris served as Arts Superintendent for Sabah before returning to the UK. He had a number of shows at British galleries, notably a 1961 solo exhibition at Woodstock Gallery in Mayfair, but remained relatively low profile in the UK. Unbeknown to him, his reputation was gradually rising in Malaysia as his long-term influence became clearer and Harris was rewarded in later life with major exhibitions in Penang in 2001 and a memorial exhibition in Kuala Lumpur in 2009. His work is held by the National Art Gallery in Kuala Lumpur, Singapore Art Museum and a number of public institutions in Penang.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1982-oil-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on board, 1982</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1959-pastel.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Pastel, 1959</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1959-pastel.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Pastel, 1959</span>
+                    </div>
+                </a>
+                
+                <a href="works/siam-girl-ii.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Siam Girl II" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Siam Girl II</span>
+                        <span class="details">Pastel, 1959</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

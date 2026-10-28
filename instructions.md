@@ -1,36 +1,54 @@
 # 🎨 How to Update the Red Raven Arts Collection
 
-Welcome! This guide explains how to add new artworks, update artist details, and publish changes to the live website using Google Sheets.
-
 ---
 
 ## 📋 Step 1: Update the Google Sheet
 
 1. Open the **RedRavenArts Collection Google Sheet** in your browser. (It should be in recent documents on [Google Sheets](https://sheets.google.com/)).
-2. Scroll to the bottom of the table to add your new entry, filling out the columns as follows:
+2. Choose either the ArtistInfo sheet or ArtworkInfo sheet and add a new entry.
+3. The ArtistInfo fields are as follows:
+   * **Artist ID**: A unique ID assigned to each artist in the form ARTIST-0001, ARTIST-0002, ARTIST-0003, etc.
 
-   * **Artist Surname:** The artist's family name used for alphabetical sorting on the site (e.g., *Paulraj*).
-      * *Pseudonyms:* For artists known exclusively by a pseudonym (e.g., *Twins Seven Seven*), type the full pseudonym here so they sort under **T**.
-   * **Known as:** How the artist's name appears on the site (e.g., *G. D. Paulraj*).
-      * You are the expert here! Use your best judgment for initials, pseudonyms, middle names or Chinese name ordering (*Surname Firstname*).
-   * **Alias:** An optional secondary name placed in brackets (e.g., `Daniel Harris (Zev)` or `Richard Lin (Lin Show Yu)`). Leave empty if not needed.
-   * **Lifespan:** The artist's dates. *(Can be left blank if already filled in for this artist higher up in the sheet)*.
-      * **Standard:** `1914-1979`
-      * **Living Artist:** `b.1945`
-      * **Estimated Date(s):** `c.1914-1979` or `c.1914-c.1979`
-      * **Active Period (Birth/Death Unknown):** `fl.1920-1950` or `fl.1960s-1980s`
-      * **Birth Known, Death/Status Unknown:** `1914-`
-   * **Biography:** Paste your written artist biography here. *(Can be left blank if already filled in for this artist higher up)*.
-   * **Collection / Region / Sub-Region:** Select the appropriate options from the dropdown menus.
-   * **Artwork Title:** The official title of the piece without quotation marks (e.g., *Sails*). Type **Untitled** if it has no title.
-   * **Year:** Creation year of the piece (e.g., `1988` or `c.1988`). Leave blank if unknown.
-   * **Width (cm) & Height (cm):** Dimensions in centimeters.
-   * **Image Filename:** The exact name of your image file, including the extension (e.g., `paulraj-landscape.jpg`).
-   * **Signature:** Details on signing/dating/titling (e.g., *Signed lower right* or *Signed and dated 1974*).
-   * **Provenance:** Ownership history listed under the first divider line. Leave empty if none.
-   * **Notes:** Additional commentary, subject matter details, or backstory. Leave empty if none.
+   * **Artist Surname**: The artist's family name used for alphabetical sorting on the site (e.g., Paulraj). For artists known exclusively by a pseudonym (e.g., Twins Seven Seven), type the full pseudonym here so they sort under the appropriate letter (e.g., T).
 
-> **⚠️ Important:** Spelling must be exact! If you are adding a second artwork for an existing artist, make sure **Artist Surname** and **Known as** are spelled identically to earlier entries, otherwise the site will create a duplicate artist page.
+   * **Known as**: How the artist's name appears on the site (e.g., G. D. Paulraj, Twins Seven Seven).
+
+   * **Alias**: An optional secondary name placed in brackets (e.g., Daniel Harris (Zev) or Richard Lin (Lin Show Yu)). Leave empty if not needed (most artists).
+
+   * **Lifespan**: The artist's dates.
+      * Standard: 1914-1979
+      * Living Artist: b.1945
+      * Estimated Date(s): c.1914-1979
+      * Active Period (Birth/Death Unknown): fl.1920-1950 or fl.1960s-1980s
+      * Birth Known, Death/Status Unknown: 1914-
+   
+   * **Biography**: The written biography for the artist found in the document.
+   
+   * **Collection**: Western, Asian, or African & Middle Eastern.
+
+   * **Region**: British & European, Americas & Other Western, East Asian, South Asian, South East Asian, North African & Middle Eastern, Sub-Saharan African.
+
+   * **Sub-Region**: Britain & Europe, United States & Canada, Latin America, Caribbean, Oceania, China (incl. Hong Kong & Taiwan), Mongolia, Korea, Japan, Bangladesh, India, Nepal, Pakistan, Mainland Southeast Asia, Philippines, Malaysia & Singapore, Indonesia, North Africa, Middle East, East Africa, Nigeria, West Africa, Southern Africa, Congo.
+
+4. The ArtworkInfo fields are as follows:
+
+   * **Artist ID**: The unique ID of the artist from `ArtistInfo`.
+   
+   * **Artwork Title**: The official title of the piece without quotation marks (e.g., Sails). Type Untitled if it has no title.
+
+   * **Year**: Creation year of the piece (e.g., 1988 or c.1988). Leave blank if unknown.
+
+   * **Medium**: The artwork medium.
+   
+   * **Width (cm) & Height (cm)**: Dimensions in centimeters.
+   
+   * **Image Filename**: The filename that the artwork image was saved under. The ones that will work can be found on the website in the collection folder, for example in `western/images/`. Please include the file extension (e.g., Aguilar Alcuiz-500.jpg)
+
+   * **Signature**: Details on signing/dating/titling (e.g., Signed lower right or Signed and dated 1974).
+
+   * **Provenance**: Ownership history listed under the first divider line. Leave empty if none.
+
+   * **Notes**: Additional commentary, subject matter details, or backstory. Leave empty if none.
 
 ---
 
@@ -62,10 +80,10 @@ Now update the website files with a single double-click:
 
 To send your updates live to the internet:
 
-1. Open **GitHub Desktop** on your Mac.
-2. You will see a list of modified files on the left side of the screen.
-3. In the lower-left summary box, type a short note about what you added (e.g., *"Added 2 new paintings for G. D. Paulraj"*).
-4. Click the blue **Commit to main** button.
-5. Click **Push origin** at the top right of the window.
+1. Open the file in VSCode.
+2. Find the **Source Control** tab on the left (third one down, looks like a 4speed gearbox  pattern, will have a blue bubble with the number of changes you have made since last time in it).
+3. Add a short message in the message box on what you changed.
+4. Click the **Commit to main** button.
+5. Click **Push origin** button.
 
 🎉 **Done!** Your website will automatically update online within 1–2 minutes.

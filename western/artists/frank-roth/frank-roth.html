@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank Roth | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Frank Roth</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Frank Roth</h1>
+            
+            <p class="artist-years">1936 – 2019</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>American abstract painter, born in Boston in 1936. Moved in 1954 to New York, where he studied first at the Cooper Union Art School and then in 1955 at Hans Hofmann's school. First one-man exhibition at the Artists' Gallery, New York, 1958. Began by painting in a romantic Abstract Expressionist style, with large, loose-edged patches of colour, then developed a more restless, active treatment with loops, intercepted lines and torn shapes. Travelled in Europe and Mexico, then returned to New York, where he has taught since 1963 at the School of Visual Arts. In the 1960s and 1970s he also taught at the University of California, Berkeley and elsewhere. Received various awards, including a Guggenheim Fellowship 1964; Ford Foundation Artist-in-Residence at Rhode Island University 1966. By 1965 had begun to paint geometrically precise compositions containing somewhat Surreal forms suggesting car or aeroplane parts, tensely balanced in what could be a bright, clear sky. In the late 1960s reverted to a more abstract and delicate style, leading to works with a profusion of small forms floating in front of a background dappled with light and shade. Now lives in East Hampton, New York. Roth has had numerous solo exhibitions including Annely Juda in London in 1965 and 1967, the Martha Jackson Gallery, New York in 1968 and 1971 and Utah Museum of Fine Art in 1967. Mixed exhibitions included Leo Castelli Gallery and Louis K Meisel galleries in New York. Poet and Art Critic John Perrault wrote an article in the New York Magazine in May 1968, calling Roth a ‘remarkable artist’ and his neo-Surrealistic work ‘magical mystery paintings’ and ‘“illusionistic” and yet modern and abstract’‘. A photographic portrait taken of Roth in 1962 is in the Smithsonian Collection and Roth’s work is held in top American collections including the Whitney, Walker, Corcoran, Albright-Knox and Norton-Simon museums and galleries and Yale, Buffalo and Duke universities. In the UK Roth’s paintings are in the Leicestershire County Council collection and the Tate Modern, London.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1967-pastel-and-mixed-media.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Pastel and mixed media, 1967</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1967-pastel-and-mixed-media.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Pastel and mixed media, 1967</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

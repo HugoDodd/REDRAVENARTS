@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo Jones | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Jo Jones</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jo Jones</h1>
+            
+            <p class="artist-years">1894 – 1989</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Violet Madeline Josette Jones, or Jo Jones as she was usually known, was born in Knebworth in Hertfordshire. She began painting from an early age and, after using some prize money to fund a stay in Jamaica, she held a successful exhibition there in 1924 that then travelled to Chenil Galleries, Chelsea. She went on to study art in Paris and then attended Slade School in London. Although tutored by both Walter Sickert and Augustus John, her main influences were Bonnard and Matisse. In 1933 the director of the Tate Gallery, J B Manson, introduced her to Wildenstein Gallery which gave her her first major solo show in 1935. Manson wrote the introduction to the catalogue and the Contemporary Art Society, Augustus John, Sir William Rothenstein and a number of other major collectors all bought pictures. In 1938 she had a show at Galerie Zbrowski, Paris with another at Wildenstein in 1939. That year she moved to London, which was to remain her base, although she also had a cottage and studio in Long Bredy, Dorset. Subsequently she held several shows at the O’Hana Gallery, London and in Zurich and also exhibited at the Society of Women Artists. Jones had four distinct periods as a painter; in Paris and London before the war, in Spain in the 1950s, Morocco in the 1960s and after that – although she retained her studio in Chelsea - mainly in Dorset with occasional visits abroad, especially to Vevey and Zurich. It was in the 1950s that she discovered the Sacro Monte gypsies in Granada, living and working amongst them for nine summers. A portrait of the flamenco dancer Mario Maya won her a substantial prize that she donated to the dancer to enable him to study in London. Pictures from this period are in the Gypsy Museum at Leeds University. Her work there formed the basis of the 1969 book The Gypsies of Granada with text by Augustus John, Laurie Lee and others. In 1963 Jones visited Morocco to draw the strange rock formations in the Tafrout Valley. Her work in Morocco was capped by a successful show in Rabat. A talented and very individual artist, Jones showed regularly in Britain, France and Switzerland, having a retrospective at Alpine Gallery 1985. The Michael Parkin Gallery had a memorial exhibition in 1992, as did Six Chapel Row, Bath in 1999. Her work is held in public collections in Switzerland, France and America as well as the UK and is held in many private collections in the US, Europe and elsewhere.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/women-of-xauen-2.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Women of Xauen 2" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Women of Xauen 2</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/rock-forms-at-tafraout.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Rock forms at Tafraout" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Rock forms at Tafraout</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/early-moonrise-tafraout.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Early Moonrise, Tafraout" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Early Moonrise, Tafraout</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/women-of-xauen-1.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Women of Xauen 1" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Women of Xauen 1</span>
+                        <span class="details">Oil on canvas, 1967</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

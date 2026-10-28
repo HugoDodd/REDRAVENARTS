@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Carter RA | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">John Carter RA</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">John Carter RA</h1>
+            
+            <p class="artist-years">b.1942</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Middlesex born John Carter attended Kingston College of Art 1959-63. Travelling scholarships to Europe and the United States followed and Carter from 1968 had a series of solo shows at the Redfern Gallery, London. His spare, abstract work won admirers and he continues to exhibit regularly including, in recent years, Sweden, Switzerland and Germany. Redfern gave him a solo show in 2010 and another in 2013. He has taught widely over the years, including at the Royal College of Art and Chelsea College of Art, and was elected RA in sculpture in 2007. The RA gave a solo show of his works on paper in 2013-14. Arts Council holds examples.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-theme-elements-superimposed-in-a-square-initial-version-1988-89.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled Theme: Elements Superimposed in a Square – Initial Version 1988-89" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled Theme: Elements Superimposed in a Square – Initial Version 1988-89</span>
+                        <span class="details">Acrylic/mixed media on wood</span>
+                    </div>
+                </a>
+                
+                <a href="works/ueace-09.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="UEA/CE 09" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">UEA/CE 09</span>
+                        <span class="details">Original screenprint, 1999</span>
+                    </div>
+                </a>
+                
+                <a href="works/study-for-brooke.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Study for Brooke" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Study for Brooke</span>
+                        <span class="details">Acrylic on paper with collage, 1966</span>
+                    </div>
+                </a>
+                
+                <a href="works/a-kind-of-valhalla.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="A Kind of Valhalla" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">A Kind of Valhalla</span>
+                        <span class="details">P.V.A. and drawing on paper, 1966</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

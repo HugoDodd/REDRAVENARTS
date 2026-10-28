@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfredo Buenaventura | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Asian</a> 
+            <span class="sep">/</span>
+            <a href="../../south-east-asian.html">South East Asian</a> 
+            <span class="sep">/</span>
+            <span class="current">Alfredo Buenaventura</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Alfredo Buenaventura</h1>
+            
+            <p class="artist-years">1942 – 1982</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Alfredo O. Buenaventura Y Ostria was born into a distinguished artistic family in Bulacan, a province north of Manila, the Philippines. After briefly studying art at the University of Santo Tomas, Alfredo came under the tutelage of his uncle Cesar Buenaventura. This was at a time, in the 1960s, when Cesar was at his artistic peak as a leading painter of impressionistic landscapes. Alfredo used a palette knife to create a thick impasto expressionism, softened by impressionism learned from his uncle, for “a rather modern look at traditional scenes” (Dr David Wurfel). Alfredo died of a heart ailment shortly before his fortieth birthday. His paintings are in private collections in the United States, Spain and the Philippines and the public collection of York Centre for Asian Research.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/moving-the-long-house.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Moving the Long House" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Moving the Long House</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../south-east-asian.html">Return to South East Asian</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

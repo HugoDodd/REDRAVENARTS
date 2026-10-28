@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frans Krajcberg | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Frans Krajcberg</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Frans Krajcberg</h1>
+            
+            <p class="artist-years">1921 – 2017</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Frans Krajcberg was born in Poland and studied art and engineering at Leningrad University. After fighting with Polish forces, he moved to Germany at the end of the war and went to the Academy of Art in Stuttgart. He studied with Willi Baumeister and then stayed in Paris before, with Chagall’s help, embarking for Brazil in 1948. He showed his work at the first Sao Paulo Biennial in 1950 and took Brazilian nationality in 1958, despite spending much of the time in Paris and Ibiza as well as Rio de Janeiro. That year he also won Best Brazilian Painter at the fourth Sao Paulo Bienniale. European shows at the time included a 1959 joint show with two other Brazilian artists at the Drian Gallery in London. In 1964 he established an open air studio in Banca Cata, Minas Gerais and built his first sculptures with dead tree trunks, stones and other natural objects. He began travelling in the Amazon and became increasingly disturbed by the rampant deforestation. In the 1960s he continued his frequent visits to France and elsewhere in Europe. Since then he has become perhaps Brazil’s foremost eco-artist, with his sculptures becoming particularly highly regarded. In later years Krajcberg has been awarded many prizes including the Medal of the Order of the Rio Branco in 2002 by the Brazilian government and the Great Cross of the Order of Merit Cultural by President Lula in 2004. Espace Krajcberg in Paris held a major retrospective in 2023.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1965-papier-mache-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Papier mache on canvas, 1965</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

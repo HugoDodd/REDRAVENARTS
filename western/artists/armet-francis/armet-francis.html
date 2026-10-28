@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armet Francis | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Armet Francis</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Armet Francis</h1>
+            
+            <p class="artist-years">b.1945</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Armet Francis was born in Jamaica in 1945, moving to join family in London in 1955. He is best known as one of the foremost photographers of Black Britons from the 1960s onwards, later capturing in addition images of the African diaspora in the US, the Caribbean and elsewhere. However, in the 1970s as well as his photography he also painted in an expressionist and abstract style that drew on African iconography. He rarely displayed these paintings, keeping them in a personal archive, although he did show some, along with his photography, at a 1975 exhibition at the Jamaican High Commission in London. After this period Francis concentrated on photography to widespread acclaim. He participated in FESTEC ’77 in Lagos, Nigeria and in 1983 was the first Black photographer to be given a solo exhibition at the Photographers’’ Gallery in London. Major subsequent shows included a group show at Tate Modern in 2021 called Life Between Islands where his work graced the catalogue cover and a solo show in 2024 at the Autograph Gallery in London (to whom he subsequently donated his entire photography archive). It was also in 2024 that his paintings from the 1970s made a reappearance when the Morley Gallery in London put on an exhibition of six artists’ work titled The Generations: Figures of Vision, showcasing the work of the early Afro-Caribbean artists and matching them with upcoming talent. Here Francis showed both his photography and his paintings from the 1970s. Major institutions holding Francis’ photography in the UK include the Tate Modern, Victoria & Albert Museum and Museum of London, whilst the Brooklyn Museum of Art in the US also holds his work. A public grant has helped fund an on-line archive of Armet Francis’ work, which includes his paintings as well as the photography.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1970-felt-pen-watercolour-on-paper-on-card.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Felt pen & watercolour on paper on card, 1970</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Sambono | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Charles Sambono</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Charles Sambono</h1>
+            
+            <p class="artist-years">1954 – 2021</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Charles Sambono was a Zambian-born artist who worked primarily in oil and pastels and enjoyed international success. He had his first exhibition aged 14 and went on to have some 60 shows on four continents. He exhibited in his native Zambia, Nigeria, Japan, England, the USA, Germany, and Switzerland, among other places. He moved to London in the 1970s where his work was shown by a number of galleries, notably the groundbreaking Westbourne Gallery (later Karnak House) which concentrated on the work of Caribbean and African diaspora artists in the UK, before spending his last twenty years in Switzerland. There he was represented by Gallery Helvetica from 2001. In London his work was included in a major mixed show The Colours of Black at the Greater London Council and in a solo show in 1987 at the Commonwealth Institute. He also won first prize at the Salon d’automne International in Marseilles in 2006. In his vibrant paintings, Sambono explored the power and vulnerability of human dynamics and questions of identity and gender, emphasizing them through sweeping lines, curves, and bold colours. He painted his figures with virtuosity using just a few expressive lines and his paintings captured the sensuality of human relationships. One of Sambono’s paintings was used on the cover of Ifi Amadiume’s 1987 book African Matriarchal Foundations.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/blissful-drummers.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Blissful Drummers" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Blissful Drummers</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+                <a href="works/study-in-blues.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Study in Blues" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Study in Blues</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+                <a href="works/thoughtful-dreams.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Thoughtful Dreams" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Thoughtful Dreams</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+                <a href="works/desire.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Desire" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Desire</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+                <a href="works/melis-girl.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Meli’s Girl" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Meli’s Girl</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+                <a href="works/harmonius-aftermath.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Harmonius Aftermath" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Harmonius Aftermath</span>
+                        <span class="details">Oil on paper</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

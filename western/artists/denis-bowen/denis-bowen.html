@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Bowen | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Denis Bowen</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Denis Bowen</h1>
+            
+            <p class="artist-years">1921 – 2006</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Denis Bowen was born in Kimberly, South Africa of Welsh parentage but left for England as a child. He studied at the Royal College of Art from 1946-50, where teachers included Rodrigo Moynihan, John Minton and Carel Weight. Bowen soon made his name as a leading experimental artist; in 1952 with other members of the ICA he founded the Free Painters’ Group and from 1956-66 he directed the New Vision Centre, initially with Frank Avray Wilson and Halima Nalecz. This became the focal point in London for work of advanced artists from Europe and elsewhere. From 1969-1972 he taught at Victoria University, British Colombia and in later life he was a leading light in Celtic Vision which he co-founded in 1982. Bowen showed widely, at the Redfern Gallery and elsewhere, and major late career retrospectives included Belgrave Gallery, London in 2001, Blyth Gallery, Imperial College in 2002 and Rome Museum of Modern Art in 2006. His work is held by the Tate Gallery, Victoria and Albert Museum, British Museum and many regional collections in the UK. It is also in public collections in Australia, USA, Canada, Italy, Poland, Macedonia, Israel and elsewhere.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/rising-planets.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Rising Planets" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Rising Planets</span>
+                        <span class="details">Oil on canvas, 1968</span>
+                    </div>
+                </a>
+                
+                <a href="works/planet-series-d5.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Planet Series D5" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Planet Series D5</span>
+                        <span class="details">Oil on paper, 1986</span>
+                    </div>
+                </a>
+                
+                <a href="works/spatial-interaction.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Spatial Interaction" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Spatial Interaction</span>
+                        <span class="details">Mixed media</span>
+                    </div>
+                </a>
+                
+                <a href="works/cosmic-landscape.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Cosmic Landscape" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Cosmic Landscape</span>
+                        <span class="details">Oil on canvas, 1968</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

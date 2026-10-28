@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimoh Buraimoh | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Jimoh Buraimoh</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jimoh Buraimoh</h1>
+            
+            <p class="artist-years">b.1943</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Chief Jimoh Buraimoh was born in Osogbo, Osun State, Nigeria and has become one of the most influential artists to emerge from the Osogbo School of Art. His work, primarily as a bead painter, intermingles Western media with Yoruba styles and motifs. He has exhibited widely, having solo shows in Nigeria, UK, Germany and USA, and has taken part in major mixed exhibitions – most notably ‘A Concrete Vision: Osogbo Art in the 1960s’ at the Smithsonian Museum in Washington in 2000. Buraimoh’s work is held in permanent collections at the Smithsonian, the National Museum in Lagos and National Gallery of Modern Art, Lagos. His work was also shown at Nigerian Modernism at the Tate Modern in London 2025-26.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/adams-eve.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Adams & Eve" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Adams & Eve</span>
+                        <span class="details">Ink, 1989</span>
+                    </div>
+                </a>
+                
+                <a href="works/animals-world.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Animals World" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Animals World</span>
+                        <span class="details">Ink, 1989</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-world-of-struggle.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The World of Struggle" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The World of Struggle</span>
+                        <span class="details">Ink, 1989</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oilbeads-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil/beads on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/butterfly.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Butterfly" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Butterfly</span>
+                        <span class="details">Deep etching</span>
+                    </div>
+                </a>
+                
+                <a href="works/obatala-god-of-creation.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Obatala (God of Creation)" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Obatala (God of Creation)</span>
+                        <span class="details">Oil/beads on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/lonelyness.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Lonelyness" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Lonelyness</span>
+                        <span class="details">Oil/beads on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

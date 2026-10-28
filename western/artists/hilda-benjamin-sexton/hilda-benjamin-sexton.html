@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilda Benjamin Sexton | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Hilda Benjamin Sexton</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Hilda Benjamin Sexton</h1>
+            
+            <p class="artist-years">1898 – 1976</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Hilda Benjamin was born in Minchinhampton, Gloucestershire. She became a decorative designer and painter who was initially best known for her Arts and Crafts-style applique hangings. Examples along with a mural of hers, Summertime, can be seen at Rodmarton Manor in Cirencester where she worked in 1925-26. In 1926 she married James H Sexton, an artist also linked to the Arts & Crafts movement, and she exhibited a decorated mirror at the 1928 Arts & Crafts Exhibition Society by which time the couple were living at Staveley Road, Chiswick. Hilda and James spent from 1929-34 in Canada. Two large wall-hangings – The Hunt and The Seasons – were exhibited at the Canadian National Exhibition in Toronto in 1929 but Sexton also painted the local landscape in oils. The Sextons returned with a son Paul to England in 1934, giving as their address Bella-Vista, Cooper’s Hill, Brockworth in Gloucestershire. This might have been Hilda’s parents’ home, though, as they seem to have moved back to Chiswick by the mid-1930s and remained there for the rest of their lives. Hilda Sexton exhibited a tempera landscape of Brittany at the Royal Academy Summer Exhibition in 1936. Country Life in 1953 published an illustration of a needlework designed by Sexton for the coronation of George VI in 1937. The Telegraph reported that she had a job working for Heals but Sexton also continued to paint and an exhibition of her work, alongside that of Gillian Denison, was held at the Zaydler Gallery in London in 1970.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/farm-buildings-wales.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Farm Buildings, Wales" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Farm Buildings, Wales</span>
+                        <span class="details">Oil on canvas board</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-quarry-coopers-hill.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The Quarry, Coopers Hill" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The Quarry, Coopers Hill</span>
+                        <span class="details">Gouache on card</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

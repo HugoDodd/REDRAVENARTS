@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzanne Rodillon | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Suzanne Rodillon</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Suzanne Rodillon</h1>
+            
+            <p class="artist-years">1916 – 1988</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Suzanne Rodillon lived a bohemian lifestyle and never married. She was well-connected in the Parisian art scene, though initially ran a business and only turned to painting in 1946 aged thirty. She learned to draw at the Grande Chaumiere but her figures soon took on an anguished, haunted look, referencing totems and primordial feelings and showing a fertile imagination. Rodillon later painted in an abstract expressionist style, though still shot through with Art Brut references and imagery. Her first solo exhibition was in 1956 at Galerie Drouant David, Paris, followed by another that year at Galleria del Naviglio in Milan, Italy. Other solo shows followed at New Vision Gallery in London and Galleria del Cavallino in Venice in 1957, Galerie Les Contemporains in Brussels in 1958 and at the Drian Gallery in London in 1959 and 1960. Mixed shows with the Group “Phases” took place in Lima, Peru and Tokyo in 1958. Despite Rodillon’s burgeoning career and international exhibitions, she abruptly stopped painting in 1966. The work in her studio was sold in 1991 at auction. A brief essay in a catalogue accompanying the sale suggested that her departure from the art world was due to unspecified family obligations. She died in obscurity in 1988 but her work was included in the exhibition ‘Unlisted’ at the Derfner Judaica Museum in New York in 2023, which concentrated on female artists thought to have been unjustly neglected due to their gender/lifestyles.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-lithograph.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Lithograph</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1960-oil-on-paper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on paper, 1960</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1960-oil-on-paper.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on paper, 1960</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

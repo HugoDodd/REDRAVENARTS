@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadira Azzouz | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../north-african-middle-eastern.html">North African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <span class="current">Nadira Azzouz</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Nadira Azzouz</h1>
+            
+            <p class="artist-years">1927 – 2020</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Born in Mosul, Nadira Azzouz studied fine art at the School of Domestic Fine Arts in Baghdad from 1944-49, and at the Central School of Art in London from 1957-60. In 1960 Azzouz staged her first solo show in Baghdad, and became an active member of the Society of Iraqi Plastic Arts. Azzouz furthered her artistic training by studying in Cambridge and then had exhibitions in London and Baghdad before moving to Beirut. There she had a solo exhibition in 1965 at Gallery One. Azzouz had children and later, as the political situation deteriorated in Lebanon, the family moved to London in 1980. Azzouz’s work mixed Western abstract ideas with Arabic cultural motifs and strong colour was also a key part of her painting. Her pain at being exiled from the Arab world is also said to be evident in her works, as was a specifically female viewpoint. She took part in the Kufa Gallery in London’s 1988 show Arab Women Artists in the UK and in 2022 Janet Rady Fine Art in London gave her a posthumous exhibition. Azzouz’s work is in the Barjeel Art Foundation collection in the UAE and also in the Associazione Genesi collection in Milan, Italy. Peter Badejo 1943- Peter Badejo was an early member of the Duro Ladipo theatre in Oshogbo but also studied printing in art workshops. In 1967 he was one of the artists who showed at an art exhibition at the University of Ife and in 1968 he went to the university to study theatre, painting and music there. At the December 1968 Ife Festival Badejo showed the range of his talents, exhibiting sculpture and prints, acting, dancing and playing in a traditional orchestra. He was part of the Ori-Olakun Festival from 1969-72. In 1969, along with Ademola Williams and two other artists, Badejo exhibited at the United States Information Service (USIS) centre in Ibadan. His prints from the period show genuine quality. Theatre, though, was his main passion and he went on to become a highly regarded and experimental actor, dancer and theatre director, initially in Nigeria and later in the UK.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/five-ladies.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Five Ladies" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Five Ladies</span>
+                        <span class="details">Acrylic on canvas, 2012</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../north-african-middle-eastern.html">Return to North African & Middle Eastern</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinhardt Schuster | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Reinhardt Schuster</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Reinhardt Schuster</h1>
+            
+            <p class="artist-years">b.1936</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Schuster was born in Bod (formerly Brenndorf) in Romania in September 1936, part of the German diaspora left stranded by the changing borders in the early-mid 20th century. He studied under Hans Mattis Teutsch at Brasov (Kronstadt) and then attended Bucharest Academy of Art. After completing his studies in 1964, and after a period as an art teacher at the F. Schiller Institute in Bucharest, he became a full-time artist in 1967. He came to prominence in the early 1970s, working initially in a Germanic expressionist style but increasingly moving towards the abstract. He had solo shows throughout the 1970s in Romania, as well as representing Romania at the Biennale. He also showed in Japan, Germany, Russia and, in 1981, at the Romanian Academy in Rome and London. In 1973 he had a group exhibition in Austria and then 1975-76 took a touring show of his paintings to Bonn, Bad Gedesberg, Stuttgart and Dinkelbuehl. His success in West Germany encouraged him to settle in Dusseldorf where, from 1985, he lectured at the art college. However, Romania continues to claim him as one of its foremost artists and in 1996 held a solo exhibition of his work in the Bucharest National Theatre which also toured to Brasov, Sibiu and Timisoara. A major retrospective was held in 2001 in Dusseldorf to celebrate his 65th birthday. Schuster’s work is held in public and private collections in Switzerland, UK, Austria, Japan and USA in addition to Germany and Romania. According to his entry in Benezit, Schuster’s paintings “are very structured, built on geometrical forms painted in areas of flat colour which are nevertheless reminiscent of landscapes and architectural views. He puts static and dynamic elements together, plays with the contrasts between colours, and has an interest in movement.”</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

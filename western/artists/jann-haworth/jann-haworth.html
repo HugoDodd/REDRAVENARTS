@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jann Haworth | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Jann Haworth</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Jann Haworth</h1>
+            
+            <p class="artist-years">b.1942</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Jann Haworth was born in Hollywood, California to artistic parents. She attended the University of California in Los Angeles (UCLA) in 1959 and after two years there moved to London, studying history of art at the Courtauld Institute and fine art at the Slade. She quickly hit upon soft sculptures as a medium and American popular culture as an inspiration. She became one of the few female members of the British pop art movement. Her first major exhibition was with three other artists at the Institute of Contemporary Art in 1963. Robert Fraser Gallery gave her two solo shows in the 1960s. Further solo exhibitions in London included Waddington Galleries and Gimpel Fils and she also had solo shows in Amsterdam, Milan, Paris, New York and elsewhere. Haworth’s work was included in numerous group exhibitions, particularly pop art retrospectives but increasingly as a representative of feminist art. She remains best known for collaborating with her then husband and fellow pop artist Peter Blake on the Beatles’ Sgt Pepper LP cover. Although her career quietened in the later 1970s and 1980s she continued to produce innovative art and her profile has risen again in recent years. The Pallant Gallery, Chichester put on a major retrospective in 2019-20.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-poster-56x44cm.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Poster: 56x44cm</span>
+                    </div>
+                </a>
+                
+                <a href="works/aunt-gurdi-burning.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Aunt Gurdi Burning" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Aunt Gurdi Burning</span>
+                        <span class="details">Oil on silk mounted on metal screens, 1995</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

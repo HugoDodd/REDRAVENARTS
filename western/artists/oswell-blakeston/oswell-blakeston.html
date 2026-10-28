@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oswell Blakeston | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Oswell Blakeston</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Oswell Blakeston</h1>
+            
+            <p class="artist-years">1907 – 1985</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Oswell Blakeston was a painter, writer, film maker and critic. A man of extraordinary talents, Blakeston’s family was of Austrian origin and he was born Henry Hasslacher. At age 16 he ran away from a bourgeois upbringing to become a conjuror’s assistant, a cinema organist and then a clapper boy with David Lean at Gaumont film studios. He began writing film criticism and, with Francis Brugiere, in the early 1930s he pioneered abstract films in Britain. As well as his painting and art criticism, Blakeston was also a novelist, playwright and poet with a “quick eye for the bizarre and the outrageous” according to his long-term partner and fellow artist Max Chapman. Blakeston and Chapman spent much of the war years at a conscientious objectors house in Ashburton in Devon. Blakeston had over 40 solo shows, including Drian and Grabowski Galleries and New Vision Centre, and some 100 mixed shows. These included Leicester, Madden and Mercury Galleries. In 1981 he shared a show at Middlesborough Art Gallery with Max Chapman and in 1986 there was a memorial show at Camden Arts Centre. Victoria & Albert Museum and the Ulster Museum in Belfast hold his work, as do national galleries in Finland, Poland and Portugal.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/safely-home.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Safely Home" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Safely Home</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/black-hole.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Black Hole" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Black Hole</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-harbour.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The Harbour" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The Harbour</span>
+                        <span class="details">Oil on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-1920s.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The 1920s" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The 1920s</span>
+                        <span class="details">Mixed media collage</span>
+                    </div>
+                </a>
+                
+                <a href="works/the-day-the-sun-fell-in-the-sand.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The Day the Sun Fell in the Sand" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The Day the Sun Fell in the Sand</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

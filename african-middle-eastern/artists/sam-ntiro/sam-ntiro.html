@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Ntiro | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Sam Ntiro</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Sam Ntiro</h1>
+            
+            <p class="artist-years">1923 – 1993</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Sam Joseph Ntiro was born near Mount Kilimanjaro, Tanzania. He studied with Margaret Trowell at Makerere University College School of Fine Art in Kampala, Uganda 1944-47. He attended the Slade School of Fine Art in London from 1952. By the time he won a Carnegie Scholarship to the United States in 1960 he was thought of as east Africa’s best-known painter. While he was in New York he had a solo show at the Merton Simpson Gallery, and the Museum of Modern Art purchased one of his works for its permanent collection. Ntiro was said to be the first East African to show in New York and the first African on Madison Avenue. He also spent a year as artist in residence at Southern University, New Orleans. Ntiro from 1961-64 was Tanzania’s High Commissioner in London before returning to a Professorship at Makerere. Ntiro is Tanzania’s most famous artist and his stylised works, often of the daily life of the Chagga people, are instantly recognisable. In addition to MOMA in New York and the National Gallery of Art in Washington, his paintings are held in numerous public collections including the British Government Art Collection (purchased from same Piccadilly Gallery exhibition as this one), the British Empire and Commonwealth Museum in Bristol, Ira-Hameen Museum in Finland and the Bridgeman Art Library. Seven works feature on the ArtSite Africa – an on-line guide to the finest work from Africa - and he is highlighted as one of Africa’s “canonical” painters in the Africa South Art Initiative. His work was included in the major exhibition African Modernism in America 1947-67 held in 2023-24 at the Phillips Collection in Washington, United States.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/the-brook.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="The Brook" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">The Brook</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

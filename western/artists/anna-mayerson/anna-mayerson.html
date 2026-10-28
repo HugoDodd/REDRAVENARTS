@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Mayerson | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Anna Mayerson</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Anna Mayerson</h1>
+            
+            <p class="artist-years">1906 – 1984</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Anna Mayerson was born in Vienna to a German Jewish family and studied art at the Vienna Academy and the Kunstgewerbemuseum in Zurich before fleeing Vienna for England in 1938. She studied at the Slade School of Art in London and had solo shows at the Modern Art Gallery in 1942 and the Leger Gallery in 1943, both in London. In 1946 she took part in a show of five artists at the Redfern Gallery, others including Jankel Adler, Raoul Ubac and Graham Sutherland and in 1948 she had an exhibition with one other artist at the Hanover Gallery. Her career in England was interrupted as Mayerson went to live in Taormina, Sicily from 1949-1959. During this period she exhibited extensively in Europe and Truman Capote described drawings for the front-piece of his 1951 novel The Grass Harp as ‘superb – beyond anything’. She had a solo show in Galeria Odyssia in Rome in 1961 and two one-person exhibitions at Annely Juda Fine Art in London in 1971 and 1972. Numerous mixed exhibitions included A.I.A., Leicester Galleries, Arts Council and London Group. Stylistically Mayerson began her career as a figurative artist but from the 1950s to mid-1960s painted in a bold abstract expressionist style, often using bitumen and metalwork in her paintings and constructions. From the mid-1960s Mayerson brought back figurative motifs, notably of heads and faces. Ben Uri Gallery and Somerville College, Oxford hold her work.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1961-oil-bitumen-and-metal-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil, bitumen and metal on canvas, 1961</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1965-oil-and-bitumen-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil and bitumen on canvas, 1965</span>
+                    </div>
+                </a>
+                
+                <a href="works/head.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Head" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Head</span>
+                        <span class="details">Oil and bitumen on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/collage.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Collage" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Collage</span>
+                        <span class="details">Mixed media on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/composition.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Composition" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Composition</span>
+                        <span class="details">Oil and metal on board</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1959-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1959</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

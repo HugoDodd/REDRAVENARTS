@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayo Ajayi | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Ayo Ajayi</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Ayo Ajayi</h1>
+            
+            <p class="artist-years">b.1936</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Patrick Ayo Ajayi was born in 1936 in Ose-Ekiti, Ondo State in Nigeria. He was awarded a Diploma in Fine Arts at the College of Technology, Kumasi in Ghana in 1963. That year he became art editor at Spear Magazine, Lagos before joining the Daily Times, Lagos in 1964 as a cartoonist and art critic. He stayed at the Daily Times until 1973 but from 1968-1974 was also a part-time lecturer at Yaba College of Technology in Lagos. Ajayi also conducted numerous art workshops in Nigeria and the United States from 1972-1982. Ajayi was an important Nigerian artist and a founder member in 1964 of the Society of Nigerian Artists (SNA), exhibiting at its inaugural exhibition in Lagos that year. Major solo exhibitions included at the Exhibition Centre, Marina, Lagos in 1964, the National Museum, Lagos in 1967, USIS, Lagos 1976 and University of Missouri, Columbia in the United States in 1981. Group exhibitions included the Commonwealth Arts Festival, Cardiff, Wales in 1965, the 8th Bienniel, Sao Paulo, Brazil, 1965, First World Festival of Negro Arts, Dakar, Senegal in 1966 and a travelling exhibition of ten Nigerian artists in London, Moscow and Warsaw in 1968. Later major group exhibitions included the Second Indian Triennial, New Delhi, in 1971 and FESTAC ’77 in Lagos. Ajayi’s work is in the permanent collection of the National Gallery of Modern Art in Lagos and also at the University of Ibadan in Nigeria.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/ogun.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Ogun" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Ogun</span>
+                        <span class="details">Screenprint</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-oil-on-board.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

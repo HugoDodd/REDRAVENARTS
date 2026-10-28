@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anita de Caro | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">Anita de Caro</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Anita de Caro</h1>
+            
+            <p class="artist-years">1909 – 1998</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Anita de Caro was born in New York and studied art there under Hans Hofmann. The death of her mother and an interest in an Indian religious guru saw de Caro decamp to Europe in 1932, later studying in Zurich before in 1936 moving to Paris to attend Stanley Hayter’s print workshop Atelier 17. There she met and married the engraver Roger Viellard. The couple were increasingly drawn towards abstraction and the Second Paris School, working with Roger Bissiere, Viera da Silva and others. De Caro had her first solo exhibition in 1944 and in the later 1940s and 1950s she had a string of solo and mixed shows at major galleries in New York and Paris, such as at Galerie Maeght in 1958 and the Rose Fried Gallery the same year. She exhibited in London at the Hanover Gallery in 1952, ‘57 and ‘58. Mixed exhibitions included The Tokyo Museum of Modern Art in 1960 and in 1962 both the Smithsonian in Washington and the Museum of Modern Art in Warsaw. The poet Jean Tardieu said of her work it was “the synthesis between what speaks to her mind and what pleases her vision”. From the early 1960s de Caro allowed figures to start entering her abstractions and from the late 1960s to mid-1980s she was represented by the Coard Gallery in Paris. Her work is in permanent public collections including the Musee d’Art Moderne in Paris and the MUDO in Beauvais as well as the New South Wales Gallery in Australia.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/dans-les-feuilles.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Dans les Feuilles" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Dans les Feuilles</span>
+                        <span class="details">Gouache/watercolour, 1960</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-gouache-on-card.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache on card</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1958-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1958</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

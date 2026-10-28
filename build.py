@@ -1,15 +1,18 @@
 import os
 import re
+import time
 import shutil
 import pandas as pd
 from pathlib import Path
 from jinja2 import Template
 
+
 # ==========================================
 # CONFIGURATION
 # ==========================================
 SHEET_ID = "1O02GDnXZUsySrN9noBSCQ8O7Mgz7sr4VqV1fBohxWzo"
-SHEET_NAME = "Sheet1"  # Name of the tab in your Google Sheet
+ARTIST_SHEET_NAME = "ArtistInfo"
+ARTWORK_SHEET_NAME = "ArtworkInfo"
 
 BASE_DIR = Path(__file__).parent
 SEARCH_JS_FILE = BASE_DIR / "search.js"
@@ -21,98 +24,130 @@ def slugify(text):
     text = re.sub(r'[^\w\s-]', '', text)
     return re.sub(r'[\s_-]+', '-', text)
 
-def fetch_sheet_data():
-    """Fetches Google Sheet directly as a Pandas Dataframe via public CSV URL."""
-    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}"
+def fetch_sheet_tab(sheet_name):
+    """Fetches a specific Google Sheet tab directly as a Pandas Dataframe with cache-busting."""
+    # Adding a timestamp parameter forces Google to bypass the cached version
+    cache_buster = int(time.time())
+    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={sheet_name}&cb={cache_buster}"
     try:
         df = pd.read_csv(url)
-        # 1. Fill NaN values with empty strings FIRST
         df = df.fillna("")
-        # 2. Clean blank string whitespace across all cells
         df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
-        print("✅ Successfully fetched Google Sheet data!")
+        print(f"✅ Successfully fetched fresh Google Sheet tab: '{sheet_name}'!")
         return df
     except Exception as e:
-        print(f"❌ Failed to fetch Google Sheet: {e}")
+        print(f"❌ Failed to fetch Google Sheet tab '{sheet_name}': {e}")
         return None
 
-def process_sheets_dataframe(df):
-    """Groups artwork rows by artist and extracts artist metadata."""
+def get_val(row_data, keys):
+    """Flexible helper to check multiple possible column header names."""
+    if isinstance(keys, str):
+        keys = [keys]
+    for key in keys:
+        if key in row_data:
+            val = row_data.get(key, '')
+            if not pd.isna(val) and str(val).strip().lower() not in ['nan', '(nan)', '']:
+                return str(val).strip()
+    return ''
+
+def process_artists_and_artworks(artists_df, artworks_df):
+    """
+    1. Loops through every artist in Artist Info.
+    2. Loops through every artwork in Artwork Info and links to the correct artist via Artist ID.
+    """
     artists_dict = {}
 
-    def get_val(row_data, key):
-        val = row_data.get(key, '')
-        if pd.isna(val) or str(val).strip().lower() in ['nan', '(nan)']:
-            return ''
-        return str(val).strip()
+    # ==========================================
+    # STEP 1: Loop through every artist in Artist Info
+    # ==========================================
+    print("\n👤 Processing Artist Info tab...")
+    for _, row in artists_df.iterrows():
+        artist_id = get_val(row, ['Artist ID', 'ArtistID', 'ID', 'artist_id'])
+        if not artist_id:
+            surname = get_val(row, ['Artist Surname', 'Surname', 'Last Name'])
+            known_as = get_val(row, ['Known as', 'Known As', 'First Name'])
+            base_name = known_as if known_as else surname
+            artist_id = slugify(base_name)
+        
+        if not artist_id:
+            continue
 
-    for _, row in df.iterrows():
-        # 1. Determine Display Name & Alias
-        known_as = get_val(row, 'Known as')
-        alias = get_val(row, 'Alias')
-        surname = get_val(row, 'Artist Surname')
-
-        if not known_as and not surname:
-            continue  # Skip empty rows
+        known_as = get_val(row, ['Known as', 'Known As'])
+        alias = get_val(row, ['Alias'])
+        surname = get_val(row, ['Artist Surname', 'Surname'])
 
         base_name = known_as if known_as else surname
         display_name = f"{base_name} ({alias})" if alias else base_name
-
         artist_slug = slugify(base_name)
-        region = get_val(row, 'Region')
+
+        region = get_val(row, ['Region'])
         region_slug = slugify(region)
-        sub_region = get_val(row, 'Sub-Region')
+        sub_region = get_val(row, ['Sub-Region', 'SubRegion', 'Sub Region'])
         sub_region_slug = slugify(sub_region)
 
-        # Initialize Artist record if encountering them for the first time
-        if artist_slug not in artists_dict:
-            artists_dict[artist_slug] = {
-                'surname': surname if surname else base_name,
-                'known_as': known_as,
-                'alias': alias,
-                'artist_name': display_name,
-                'slug': artist_slug,
-                'lifespan': format_artist_dates(get_val(row, 'Lifespan')),
-                'biography': get_val(row, 'Biography'),
-                'collection': get_val(row, 'Collection'),
-                'region': region,
-                'region_slug': region_slug,
-                'sub_region': sub_region,
-                'sub_region_slug': sub_region_slug,
-                'works': []
-            }
-        else:
-            # Fallback for repeated rows if fields were left blank
-            existing = artists_dict[artist_slug]
-            if not existing['lifespan']:
-                existing['lifespan'] = get_val(row, 'Lifespan')
-            if not existing['biography']:
-                existing['biography'] = get_val(row, 'Biography')
+        # Initialize artist record
+        artists_dict[artist_id] = {
+            'artist_id': artist_id,
+            'surname': surname if surname else base_name,
+            'known_as': known_as,
+            'alias': alias,
+            'artist_name': display_name,
+            'slug': artist_slug,
+            'lifespan': format_artist_dates(get_val(row, ['Lifespan', 'Dates'])),
+            'biography': get_val(row, ['Biography', 'Bio']),
+            'collection': get_val(row, ['Collection']),
+            'region': region,
+            'region_slug': region_slug,
+            'sub_region': sub_region,
+            'sub_region_slug': sub_region_slug,
+            'works': []
+        }
+    print(f"✅ Loaded {len(artists_dict)} unique artists.")
 
-        # 2. Extract Artwork Details for this row
-        title = get_val(row, 'Artwork Title')
-        img_filename = get_val(row, 'Image Filename')
-        raw_year = get_val(row, 'Year')
-        medium = get_val(row, 'Medium')
+    # ==========================================
+    # STEP 2: Loop through every artwork in Artwork Info
+    # ==========================================
+    print("\n🖼️ Processing Artwork Info tab...")
+    artwork_count = 0
+    for _, row in artworks_df.iterrows():
+        artist_id = get_val(row, ['Artist ID', 'ArtistID', 'ID', 'artist_id'])
+        
+        # Fallback matching if Artist ID column varies slightly
+        if not artist_id or artist_id not in artists_dict:
+            artist_name_ref = get_val(row, ['Artist Surname', 'Artist', 'Artist Name'])
+            found_id = None
+            for aid, a_data in artists_dict.items():
+                if slugify(artist_name_ref) in aid or slugify(artist_name_ref) in a_data['slug'] or slugify(artist_name_ref) in slugify(a_data['surname']):
+                    found_id = aid
+                    break
+            artist_id = found_id
+
+        if not artist_id or artist_id not in artists_dict:
+            continue
+
+        title = get_val(row, ['Artwork Title', 'Title', 'Artwork'])
+        img_filename = get_val(row, ['Image Filename', 'Image', 'Filename', 'Image File'])
+        raw_year = get_val(row, ['Year', 'Date'])
+        medium = get_val(row, ['Medium'])
 
         if raw_year:
             try:
                 year = str(int(float(raw_year)))
             except ValueError:
-                year = raw_year  # Fallback for text years like "c. 1988" or "1988-1990"
+                year = raw_year  # Fallback for text years like "c. 1988"
         else:
             year = ""
 
         if title or img_filename:
             try:
-                w_val = float(row.get('Width (cm)', 1) or 1)
+                w_val = float(row.get('Width (cm)', row.get('Width', 1)) or 1)
                 w = int(round(w_val))
             except ValueError:
                 w_val = 1.0
                 w = 1
                 
             try:
-                h_val = float(row.get('Height (cm)', 1) or 1)
+                h_val = float(row.get('Height (cm)', row.get('Height', 1)) or 1)
                 h = int(round(h_val))
             except ValueError:
                 h_val = 1.0
@@ -129,7 +164,8 @@ def process_sheets_dataframe(df):
 
             caption = f"{title}, {year}" if year else title
 
-            artists_dict[artist_slug]['works'].append({
+            # Append work to the matching artist's works array
+            artists_dict[artist_id]['works'].append({
                 'title': title,
                 'slug': work_slug,
                 'year': year,
@@ -137,17 +173,20 @@ def process_sheets_dataframe(df):
                 'width_cm': w,
                 'height_cm': h,
                 'image_filename': img_filename,
-                'signature': get_val(row, 'Signature'),
-                'provenance': get_val(row, 'Provenance'),
-                'Notes': get_val(row, 'Notes'),
+                'signature': get_val(row, ['Signature']),
+                'provenance': get_val(row, ['Provenance']),
+                'Notes': get_val(row, ['Notes']),
                 'aspect_ratio': ratio,
                 'caption': caption
             })
+            artwork_count += 1
+
+    print(f"✅ Successfully linked {artwork_count} artworks to their respective artists.")
 
     # Post-process aspect-ratio gallery sorting & select optimal 4:5 featured image
-    TARGET_RATIO = 0.8  # ~4:5 aspect ratio container
+    TARGET_RATIO = 0.8  
 
-    for slug, artist in artists_dict.items():
+    for artist_id, artist in artists_dict.items():
         works = artist['works']
         standard_gallery = [w for w in works if 0.75 <= w['aspect_ratio'] <= 1.4]
         bottom_line_gallery = [w for w in works if w not in standard_gallery]
@@ -157,7 +196,6 @@ def process_sheets_dataframe(df):
         artist['final_gallery_items'] = standard_gallery + bottom_line_gallery
 
         if works:
-            # Pick work with aspect ratio closest to 0.8 (4:5)
             best_work = min(works, key=lambda w: abs(w['aspect_ratio'] - TARGET_RATIO))
             artist['featured_image'] = best_work['image_filename']
             artist['featured_caption'] = f"{best_work['title']}, {best_work['year']}" if best_work['year'] else best_work['title']
@@ -168,14 +206,10 @@ def process_sheets_dataframe(df):
     return list(artists_dict.values())
 
 def build_artist_pages(artist):
-    """
-    Renders HTML pages inside collection/artists/artist_slug/
-    e.g., african-middle-eastern/artists/eve-de-negri/eve-de-negri.html
-    """
+    """Renders HTML artist pages and individual artwork detail (works) pages."""
     collection_slug = slugify(artist['collection'])
     artist_slug = artist['slug']
     
-    # Target directory path
     artist_dir = BASE_DIR / collection_slug / "artists" / artist_slug
     works_dir = artist_dir / "works"
     works_dir.mkdir(parents=True, exist_ok=True)
@@ -194,9 +228,9 @@ def build_artist_pages(artist):
 
         with open(artist_dir / f"{artist_slug}.html", 'w', encoding='utf-8') as f:
             f.write(rendered_index)
-        print(f"✅ Created Page: {collection_slug}/artists/{artist_slug}/{artist_slug}.html")
+        print(f"✅ Created Artist Page: {collection_slug}/artists/{artist_slug}/{artist_slug}.html")
 
-    # 2. Render Artwork Detail Pages
+    # 2. Render Individual Artwork Detail (Works) Pages
     detail_file = BASE_DIR / 'artwork-detail-template.html'
     if detail_file.exists():
         with open(detail_file, 'r', encoding='utf-8') as f:
@@ -212,12 +246,11 @@ def build_artist_pages(artist):
                 f.write(rendered_detail)
 
 def update_search_js(artists_list):
-    """Safely updates only the `artists` array in search.js without wiping the click logic."""
+    """Safely updates only the `artists` array in search.js."""
     search_entries = []
     
     for artist in artists_list:
         collection_slug = slugify(artist['collection'])
-        # Store clean relative path: region/artists/artist-slug/artist-slug.html
         url = f"{collection_slug}/artists/{artist['slug']}/{artist['slug']}.html"
         
         search_entries.append({
@@ -226,13 +259,10 @@ def update_search_js(artists_list):
             'url': url
         })
 
-    # Sort master search index alphabetically by artist surname
     search_entries.sort(key=lambda x: x['surname'].strip().lower())
 
-    # Build the JavaScript array string
     js_lines = ["const artists = ["]
     for entry in search_entries:
-        # Escaping quotes to prevent syntax breaking on names with apostrophes
         safe_name = entry['name'].replace('"', '\\"')
         js_lines.append(f'    {{ name: "{safe_name}", url: "{entry["url"]}" }},')
     js_lines.append("];")
@@ -243,7 +273,6 @@ def update_search_js(artists_list):
         with open(SEARCH_JS_FILE, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Update only the `const artists = [...];` array using Regex
         new_content = re.sub(
             r'const artists = \[.*?\];', 
             array_code, 
@@ -261,10 +290,7 @@ def update_search_js(artists_list):
             f.write(array_code)
 
 def build_region_pages(artists_list):
-    """
-    Groups artists by Collection -> Region -> Sub-Region,
-    sorts sub-regions and artists alphabetically, and renders region HTML pages.
-    """
+    """Groups artists by Collection -> Region -> Sub-Region and renders region pages."""
     grouped_data = {}
 
     for artist in artists_list:
@@ -290,7 +316,6 @@ def build_region_pages(artists_list):
 
         grouped_data[coll_slug][reg_slug]['sub_regions'][sub_region_name].append(artist)
 
-    # Load template
     template_path = BASE_DIR / 'region-index-template.html'
     if not template_path.exists():
         print(f"⚠️ Template missing: {template_path.name}")
@@ -299,16 +324,13 @@ def build_region_pages(artists_list):
     with open(template_path, 'r', encoding='utf-8') as f:
         template = Template(f.read())
 
-    # Generate each region index file
     for coll_slug, regions in grouped_data.items():
         for reg_slug, data in regions.items():
             sub_region_sections = []
             
-            # 1. Sort sub-regions alphabetically by name
             sorted_sub_regions = sorted(data['sub_regions'].items(), key=lambda x: x[0].strip().lower())
 
             for sub_name, sub_artists in sorted_sub_regions:
-                # 2. Sort artists alphabetically by surname
                 sorted_artists = sorted(sub_artists, key=lambda x: x['surname'].strip().lower())
                 section_id = slugify(sub_name)
                 
@@ -333,16 +355,12 @@ def build_region_pages(artists_list):
             print(f"✅ Created Region Page: {coll_slug}/{reg_slug}.html")
 
 def cleanup_orphaned_files(active_artists):
-    """
-    Deletes artist folders and artwork HTML pages that no longer exist 
-    in the Google Sheet, while leaving image files completely untouched.
-    """
+    """Deletes artist folders and artwork HTML pages that no longer exist."""
     active_artist_slugs = set()
     active_work_slugs = set()
 
     for artist in active_artists:
         active_artist_slugs.add((slugify(artist['collection']), artist['slug']))
-
         for work in artist['processed_works']:
             active_work_slugs.add((slugify(artist['collection']), artist['slug'], work['slug']))
 
@@ -371,45 +389,27 @@ def cleanup_orphaned_files(active_artists):
                                     work_file.unlink()
                                     print(f"🗑️ Deleted Removed Artwork HTML: {coll}/artists/{artist_slug}/works/{work_file.name}")
 
-import re
-
 def format_artist_dates(date_str):
-    """Normalizes artist date formats for elegant web display:
-    - Removes apostrophes in decades ("1980's" -> "1980s")
-    - Converts slash decades to ranges ("1960s/70s/80s" -> "1960s – 1980s")
-    - Normalizes prefixes to lowercase without trailing spaces ("c.1914", "b.1945", "fl.1920")
-    - Fixes 'f.l.' typos to 'fl.'
-    - Formats hyphens/dashes cleanly ("c.1914 – 1979", "1914 – ")
-    """
+    """Normalizes artist date formats for web display."""
     if not date_str:
         return ""
-    
-    # Clean up outer space
     s = str(date_str).strip()
-    
-    # 1. Decades cleanup: remove apostrophes ("1980's" -> "1980s")
     s = re.sub(r'(\d{4})\'s', r'\1s', s, flags=re.IGNORECASE)
-    
-    # 2. Convert slash-separated decade ranges ("1970s/80s" or "1960s/70s/80s" -> "1960s-1980s")
     s = re.sub(r'(\d{4}s)(?:\/\d{2}s)+', lambda m: f"{m.group(1)}-19{m.group(0).split('/')[-1]}", s, flags=re.IGNORECASE)
-    
-    # 3. Standardize prefixes (c., b., d., fl.) to lowercase and remove spaces after them
     s = re.sub(r'\bf\.?l\.?\s*', 'fl.', s, flags=re.IGNORECASE)
     s = re.sub(r'\b([cbd])\.\s*', lambda m: m.group(1).lower() + '.', s, flags=re.IGNORECASE)
-    
-    # 4. Convert all hyphens/en-dashes to spaced en-dashes ("1914-1979" -> "1914 – 1979")
     s = re.sub(r'(\d{4}s?|\d{2}s?)\s*[-–]\s*(\d{4}s?|\d{2}s?|c\.|b\.|d\.|fl\.)', r'\1 – \2', s)
-    
-    # 5. Handle open-ended dates ("1914-" -> "1914 – ")
     s = re.sub(r'(\d+)\s*[-–]\s*$', r'\1 – ', s)
-    
     return s
 
 if __name__ == "__main__":
-    df = fetch_sheet_data()
-    if df is not None:
-        print("\n🔨 Generating site from Google Sheets...")
-        artists_data = process_sheets_dataframe(df)
+    print("\n📥 Fetching data from Google Sheet tabs...")
+    artists_df = fetch_sheet_tab(ARTIST_SHEET_NAME)
+    artworks_df = fetch_sheet_tab(ARTWORK_SHEET_NAME)
+
+    if artists_df is not None and artworks_df is not None:
+        print("\n🔨 Generating site from separate Artist and Artwork sheets...")
+        artists_data = process_artists_and_artworks(artists_df, artworks_df)
 
         cleanup_orphaned_files(artists_data)
         

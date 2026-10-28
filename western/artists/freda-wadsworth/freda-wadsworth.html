@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freda Wadsworth | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Freda Wadsworth</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Freda Wadsworth</h1>
+            
+            <p class="artist-years">1918 – 2003</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Freda Wadsworth studied at Brighton School of Art from 1936-39 but during the war years served as a volunteer nurse. At the war’s end she combined these two disciplines by training as a medical artist, and after various hospital appointments became the artist at the postgraduate Institute of Urology, University of London. The profession at this time was in its early days and the work was innovative, requiring a wide range of techniques and a detailed knowledge of anatomy. In 1968 she was elected Fellow of the Medical Artists Association. She later developed a technique of film animation using plasticene models for the clarification of surgical procedures and in 1979 was awarded an MBE for services to medicine. From 1979 onwards she made a complete break with representational work and developed a unique technique using gouache suitable for expressing a continuing fascination with geometrical forms. In 1984 she was elected Fellow of the Free Painters and Sculptors. Her abstracts were shown at the Barbican, Mall Galleries, Bloomsbury Galleries, and four one-person exhibitions at the Loggia Gallery. Her work was part of the Manhattan collection of women artists accumulated by influential feminist painter Sylvia Sleigh (wife of art critic Lawrence Alloway). This collection was bequeathed to the Rowan University Art Gallery, New Jersey and key works, including a 1990 gouache by Wadsworth, were shown in the 2011 exhibition ‘Groundbreaking’. Roy Rasmussen, president of the Society of Free Painters and Sculptors said “Freda Wadsworth’s paintings were superficially abstract, but conveyed other meanings, the references being sometimes in the titles. Using a painstaking technique they had luminosity and evoked medieval times and a world of secret symbols, and yet were undeniably modern paintings. There was a mystery in them, which was part of the artist’s intention. They were flights of the imagination, with a challenge to interpret them”.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1983-gouache-on-paperboard.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache on paperboard, 1983</span>
+                    </div>
+                </a>
+                
+                <a href="works/platonic-solid-i-the-cube.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Platonic Solid I: The Cube" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Platonic Solid I: The Cube</span>
+                        <span class="details">Gouache</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-gouache-on-paperboard.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache on paperboard</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

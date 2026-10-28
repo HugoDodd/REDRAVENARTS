@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esther Grainger | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">Esther Grainger</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Esther Grainger</h1>
+            
+            <p class="artist-years">1912 – 1990</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Esther Grainger was born and mostly based in Cardiff, south Wales, where she studied at the School of Art, 1928–34. She became a painter, teacher and artist in embroidery and in the 1930s Grainger taught crafts to the wives of unemployed miners, later organising painting classes and exhibitions at the Pontypridd Settlement. There she met Cedric Morris, who taught her at his Benton End East Anglian School. In 1950 with David Bell of the Arts Council, Grainger organised the first open exhibition of paintings at the National Eisteddfod and was secretary for the Welsh Pictures for Schools shows. Grainger, known best for her landscapes and portraits, was a member of the South Wales Group of artists and the Watercolour Society of Wales. Numerous solo shows included exhibitions at the Newport Museum and Art Gallery in 1954, at the Canaletto Gallery in 1968, a retrospective at the Minories, Colchester in 1973, National Library of Wales in 1975, the Oriel Gallery Cardiff during 1976 and at Manor House Fine Arts, also in Cardiff, in 1990. As well as the Arts Council of Wales, the National Museum in Cardiff and the University of South Wales hold examples of Grainger's artwork.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/portrait-of-elvic.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Portrait of Elvic" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Portrait of Elvic</span>
+                        <span class="details">Oil on board</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

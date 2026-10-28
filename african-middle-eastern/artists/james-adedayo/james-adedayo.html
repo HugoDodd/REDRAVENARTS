@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Adedayo | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">James Adedayo</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">James Adedayo</h1>
+            
+            <p class="artist-years">b.1941</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>James Ishola Adedayo was born on 1st January 1941 in Ila-Orangun, Nigeria. He gained his artistic training at the Oshogbo art workshops 1966-68 and then at Ori-Olukun Cultural Centre at the University of Ife 1969-1972. There Adedayo studied experimental printing techniques including metal embossing, etching and wax plus batik. Notable exhibitions included solo shows in 1972 at the Ori-Olukun Cultural Centre in Ife Ife and in Nairobi, Kenya, in 1973 in Budapest, Hungary and in 1977 at USIS in Lagos. A Sydney University show, also in 1977, featured 97 works of art and live singing, miming and dancing by Adedayo acting out the paintings’ themes. Major group shows in the 1970s included Kaduna, Ibadan and Lagos in Nigeria, and in 1974 at the Maxwell Art Centre in London and the Crocker Art Gallery in Sacramento, California, USA. His work was also in group exhibitions at the French Cultural Centres in Lome, Togo in 1988 and Cotonou, Benin in 1989 and in Atlanta, Georgia in 1988. Adedayo went on to found the Oshogbo Afro Art and Research centre in Oshun State, to foster collaboration and research amongst local artists. His work is in many permanent public collections in Nigeria and is also at the University of Ghana in Legon, Ghana, the Iwalewa-Haus, Bayreuth in Germany and Spelan College, Atlanta, Georgia in the United States. Adedayo’s work forms part of the Robin Williams collection and as such was part of a travelling Oshogbo art exhibition in the United States, most recently at the Waldron Arts Center, Indianapolis in 2024.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/oba-oguola-ewuare-who-dug-moat-round-benin.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Oba Oguola & Ewuare who dug moat round Benin" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Oba Oguola & Ewuare who dug moat round Benin</span>
+                        <span class="details">Screen print/monoprint?</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

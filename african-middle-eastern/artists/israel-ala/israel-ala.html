@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israel Ala ((Albert Odunsi)) | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">African & Middle Eastern</a> 
+            <span class="sep">/</span>
+            <a href="../../sub-saharan-african.html">Sub-Saharan African</a> 
+            <span class="sep">/</span>
+            <span class="current">Israel Ala ((Albert Odunsi))</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">Israel Ala ((Albert Odunsi))</h1>
+            
+            <p class="artist-years">1918 – c.1970s</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>Albert Odunsi (later Israel Ala), one of Nigeria’s pioneer modern artists, was born in Lagos. He studied in the late 1930s/1940s under Aina Onabolu, who was known for his landscapes and widely regarded as the founding father of modern Nigerian art. Onabolu cited one Odunsi painting Arrest, the Return, Accident, made when he was Onabolu’s pupil, as an example of the range of dynamic subject matters Onabolu was teaching. Odunsi contributed at least one painting, Going to the Market, to what in 1948 was the first ever group exhibition of Nigerian artists and thus has a claim to being one of the earliest landscape painters in Nigeria. This was organised by John A. Danford for the British Council and held in Lagos. The catalogue notes the painting as being by Israel Ala (also known as Albert Odunsi), and it seems to have been around this time that Odunsi was switching to using his new name. North Western University in Illinois, United States holds a 1947 drawing of a woman seated that is signed Albert Odunsi, probably one of the last. Ala became a founder member in 1963 of the Society of Nigerian Artists (SNA, formally inaugurated in January 1964) under the presidency of Yusuf Grillo. However, little is known of Ala’s activities in subsequent years and he is assumed to have stopped painting or died by the 1970s. Ala’s work is held in the Federal Society for Art and Humanities (FSAH) collection at the University of Lagos library. FSAH, set up in 1964, was the first attempt to build a public national collection of Nigerian art.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/untitled-1964-oil-on-canvas.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Oil on canvas, 1964</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../sub-saharan-african.html">Return to Sub-Saharan African</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

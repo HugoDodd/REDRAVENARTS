@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Lowe ((Jim Lowe)) | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../british-european.html">British & European</a> 
+            <span class="sep">/</span>
+            <span class="current">James Lowe ((Jim Lowe))</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">James Lowe ((Jim Lowe))</h1>
+            
+            <p class="artist-years">b.1943</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>James (Jim) Lowe was born in Bath and attended Kingston School of Art and Royal Academy Schools, teachers including Bryan Kneale and William Scott. In 1967 Lowe won the Peter Stuyvesant and Arts Council prizes plus two scholarships. He showed with the London Group in 1965 and in 1967 with both Young Contemporaries at the Tate Gallery and Arts Council touring exhibitions. Lowe was noted for bold, bright and geometrically taut work, often being in acrylic on canvas raised on wood, with gouaches and watercolours prepared as studies. Lowe’s first solo show was at the Redfern Gallery, London in 1969 and he contributed to the Redfern’s Summer exhibitions from 1967-70 and its Seven Artists show in 1971. His Op Art inspired designs for the covers of the Fontana Modern Classics book series from 1975-1984 won many plaudits. Lowe taught art at Highgate School in London from 1969-72 but returned to Somerset in 1976 and, after a period in Wales, moved permanently to Bath. Later solo shows included Festival Gallery, Bath in 1980, Theatr Mwldan in Cardigan in 1995 and Eden House, Somerset in 2013. Leicester Education Authority holds examples of Lowe’s work as do many private collections in the UK and USA. “These really are optimistic works, profoundly jolly, something so much harder to achieve than profound melancholy. They are resolved and not resolved, and with their quantitively cut-off colour they give wings to a wall.” Oswell Blakeston reviewing the solo exhibition at the Redfern Gallery in Arts Review on 18th January 1969</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/red-key.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Red Key" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Red Key</span>
+                        <span class="details">Gouache, 1978</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1972-gouache.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache, 1972</span>
+                    </div>
+                </a>
+                
+                <a href="works/untitled-1971-gouache.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Untitled" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Untitled</span>
+                        <span class="details">Gouache, 1971</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../british-european.html">Return to British & European</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>

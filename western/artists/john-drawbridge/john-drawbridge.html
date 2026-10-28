@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Drawbridge | Red Raven Arts</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+</head>
+<body class="artist-page">
+
+    <nav class="navbar">
+        <div class="breadcrumb">
+            <a href="../../../index.html">Red Raven Arts</a> 
+            <span class="sep">/</span> 
+            <a href="../../index.html">Western</a> 
+            <span class="sep">/</span>
+            <a href="../../americas-other-western.html">Americas & Other Western</a> 
+            <span class="sep">/</span>
+            <span class="current">John Drawbridge</span>
+        </div>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
+                <span class="search-icon"></span>
+            </div>
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+    </nav>
+
+    <main class="artist-container">
+        <header class="artist-header">
+            <h1 class="artist-title">John Drawbridge</h1>
+            
+            <p class="artist-years">1930 – 2005</p>
+            
+        </header>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tab-link" onclick="openTab(event, 'Works')">Works</button>
+        </div>
+
+        <div id="Overview" class="tab-content active">
+            <div class="overview-flex">
+                <div class="bio-column">
+                    <h3>Artist Biography</h3>
+                    
+                        
+                            
+                            <p>John Drawbridge was one of New Zealand’s most celebrated artists. Born in Wellington, he won a national travelling scholarship in 1957. He studied 1957-60 at the Central School of Arts and Crafts, London and then studied printmaking in Paris 1960-61 under S.W.Hayter and Johnny Friedlander. His first solo show was in 1962 at the Redfern Gallery in London. The same year he was commissioned to paint a mural for New Zealand House in London. In 1965, suffering homesickness, he returned to New Zealand and later produced perhaps New Zealand’s most famous murals; 1973-76 saw the Beehive Mural at the Parliament Buildings, Wellington and in 1987 he completed the mural for the National Library, Wellington. He was the recipient of a number of major international prizes and a major retrospective of his work – entitled DRAWBRIDGE - was held at the City Gallery, Wellington in 2001. In 1990 he was awarded the most prestigious art prize in New Zealand, The Governor General Art Award. A monograph was published on Drawbridge in 2001, entitled ‘The Wide Open Interior’. His work is held in many public collections including the Victoria and Albert and British Museums in London, Cincinnati Museum USA, Museo Gaccio in Lugano, Switzerland and the New Zealand National Art Gallery.</p>
+                            
+                        
+                    
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div id="Works" class="tab-content">
+            <div class="works-gallery">
+                
+                <a href="works/loire-near-saumur.html" class="artwork-item">
+                    <div class="artwork-image-container">
+                        <img src="../../images/" alt="Loire near Saumur" loading="lazy">
+                    </div>
+                    <div class="artwork-info">
+                        <span class="title">Loire near Saumur</span>
+                        <span class="details">Drypoint etching with acquatint, 1950</span>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
+        <a href="../../americas-other-western.html">Return to Americas & Other Western</a>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="../../../search.js"></script>
+</body>
+</html>
