@@ -158,7 +158,7 @@ def process_artists_and_artworks(artists_df, artworks_df):
             if title.lower() == 'untitled' or not title:
                 year_str = f"-{year}" if year else ""
                 medium_str = f"-{slugify(medium)}" if medium else ""
-                work_slug = f"untitled{year_str}{medium_str}"
+                work_slug = f"untitled{year_str}{medium_str}{artwork_count}"
             else:
                 work_slug = slugify(title)
 
@@ -188,7 +188,7 @@ def process_artists_and_artworks(artists_df, artworks_df):
 
     for artist_id, artist in artists_dict.items():
         works = artist['works']
-        standard_gallery = [w for w in works if 0.75 <= w['aspect_ratio'] <= 1.4]
+        standard_gallery = [w for w in works if 0.5 <= w['aspect_ratio'] <= 1.4]
         bottom_line_gallery = [w for w in works if w not in standard_gallery]
         bottom_line_gallery.sort(key=lambda x: x['aspect_ratio'])
         
