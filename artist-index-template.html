@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;800&display=swap" rel="stylesheet">
 </head>
 <body class="artist-page">
 
@@ -61,7 +61,7 @@
                 {% if artist.featured_image %}
                 <div class="image-column">
                     <div class="artist-portrait-wrapper">
-                        <img src="../../images/{{ artist.featured_image }}" alt="{{ artist.artist_name }}">
+                        <img src="../../../images/{{ artist.featured_image }}" alt="{{ artist.artist_name }}">
                         {% if artist.featured_caption %}
                         <span class="image-caption">{{ artist.featured_caption }}</span>
                         {% endif %}
@@ -76,7 +76,7 @@
                 {% for work in gallery_works %}
                 <a href="works/{{ work.slug }}.html" class="artwork-item">
                     <div class="artwork-image-container">
-                        <img src="../../images/{{ work.image_filename }}" alt="{{ work.title }}" loading="lazy">
+                        <img src="../../../images/{{ work.image_filename }}" alt="{{ work.title }}" loading="lazy">
                     </div>
                     <div class="artwork-info">
                         <span class="title">{{ work.title }}</span>

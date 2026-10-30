@@ -16,6 +16,7 @@ ARTWORK_SHEET_NAME = "ArtworkInfo"
 
 BASE_DIR = Path(__file__).parent
 SEARCH_JS_FILE = BASE_DIR / "search.js"
+IMAGES_DIR = BASE_DIR / "images"  # single shared images folder in the site root
 
 def slugify(text):
     if not text or pd.isna(text):
@@ -402,6 +403,26 @@ def format_artist_dates(date_str):
     s = re.sub(r'(\d+)\s*[-–]\s*$', r'\1 – ', s)
     return s
 
+def check_images(artists_list):
+    """Warns about artwork images that are missing from the root images folder."""
+    on_disk = {p.name for p in IMAGES_DIR.iterdir() if p.is_file()} if IMAGES_DIR.exists() else set()
+    lower_map = {n.lower(): n for n in on_disk}
+    problems = 0
+    for artist in artists_list:
+        for work in artist['processed_works']:
+            fn = work['image_filename']
+            if fn in on_disk:
+                continue
+            problems += 1
+            label = f"{artist['artist_name']} - {work['title'] or work['slug']}"
+            if not fn:
+                print(f"⚠️ No image filename: {label}")
+            elif fn.lower() in lower_map:
+                print(f"⚠️ Case mismatch: {label}: sheet says '{fn}', file is '{lower_map[fn.lower()]}'")
+            else:
+                print(f"⚠️ Missing image: {label}: '{fn}'")
+    print(f"🖼️ Image check complete: {problems} problem(s) found.")
+
 if __name__ == "__main__":
     print("\n📥 Fetching data from Google Sheet tabs...")
     artists_df = fetch_sheet_tab(ARTIST_SHEET_NAME)
@@ -410,6 +431,7 @@ if __name__ == "__main__":
     if artists_df is not None and artworks_df is not None:
         print("\n🔨 Generating site from separate Artist and Artwork sheets...")
         artists_data = process_artists_and_artworks(artists_df, artworks_df)
+        check_images(artists_data)
 
         cleanup_orphaned_files(artists_data)
         
