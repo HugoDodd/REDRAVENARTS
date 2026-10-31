@@ -19,12 +19,54 @@ BASE_DIR = Path(__file__).parent
 SEARCH_JS_FILE = BASE_DIR / "search.js"
 IMAGES_DIR = BASE_DIR / "images"  # single shared images folder in the site root
 
+# The Western / Asian / African & Middle Eastern index pages no longer exist, so the
+# collection crumb ("Red Raven Arts / <Collection> / <Region> / ...") is removed from
+# every generated page. Set to False to put it back.
+HIDE_COLLECTION_IN_BREADCRUMB = True
+CRUMB_STATS = {'pages': 0, 'stripped': 0}
+
 def slugify(text):
     if not text or pd.isna(text):
         return ""
     text = str(text).lower().strip()
     text = re.sub(r'[^\w\s-]', '', text)
     return re.sub(r'[\s_-]+', '-', text)
+
+def _loose_pattern(text):
+    """Regex for a label that matches '&' and '&amp;' and any run of whitespace."""
+    tokens = [t for t in re.split(r'\s+', str(text).strip()) if t]
+    def token(t):
+        return '(?:&|&amp;)'.join(re.escape(part) for part in t.split('&'))
+    return r'\s+'.join(token(t) for t in tokens)
+
+def strip_collection_crumb(html, collection_name):
+    """
+    Removes the collection crumb (link + its '/' separator) from the page breadcrumb,
+    e.g. 'Red Raven Arts / Western / British & European / Artist'
+      -> 'Red Raven Arts / British & European / Artist'.
+    Only touches the first match inside the breadcrumb block.
+    """
+    CRUMB_STATS['pages'] += 1
+    if not HIDE_COLLECTION_IN_BREADCRUMB or not collection_name:
+        return html
+
+    block_re = re.compile(
+        r'(<(div|nav|ol|ul)\b[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>)(.*?)(</\2>)',
+        re.DOTALL | re.IGNORECASE
+    )
+    crumb_re = re.compile(
+        r'<a\b[^>]*>\s*' + _loose_pattern(collection_name) + r'\s*</a>'
+        r'\s*(?:<span\b[^>]*\bsep\b[^>]*>\s*/\s*</span>|/)?\s*',
+        re.IGNORECASE
+    )
+
+    def fix_block(m):
+        inner, n = crumb_re.subn('', m.group(3), count=1)
+        if n:
+            CRUMB_STATS['stripped'] += 1
+        return m.group(1) + inner + m.group(4)
+
+    return block_re.sub(fix_block, html, count=1)
 
 def short_hash(text, length=6):
     """Deterministic short hash: the same input always gives the same result, on every build."""
@@ -241,7 +283,17 @@ def process_artists_and_artworks(artists_df, artworks_df):
             artist['featured_image'] = ''
             artist['featured_caption'] = ''
 
-    return list(artists_dict.values())
+    # Artists with no artworks are left off the site. Their folder is then deleted by
+    # cleanup_orphaned_files, and they drop out of the search index and region pages.
+    visible = [a for a in artists_dict.values() if a['works']]
+    hidden = [a for a in artists_dict.values() if not a['works']]
+    if hidden:
+        print(f"\n🙈 Hiding {len(hidden)} artist(s) with no artworks:")
+        for a in hidden:
+            print(f"   - {a['artist_name']} ({a['collection']})")
+        print("   (If one of these should have works, check the Artist ID in the ArtworkInfo tab.)")
+
+    return visible
 
 def build_artist_pages(artist):
     """Renders HTML artist pages and individual artwork detail (works) pages."""
@@ -264,6 +316,8 @@ def build_artist_pages(artist):
             artist_file=f"{artist_slug}.html"
         )
 
+        rendered_index = strip_collection_crumb(rendered_index, artist['collection'])
+
         with open(artist_dir / f"{artist_slug}.html", 'w', encoding='utf-8') as f:
             f.write(rendered_index)
         print(f"✅ Created Artist Page: {collection_slug}/artists/{artist_slug}/{artist_slug}.html")
@@ -280,6 +334,7 @@ def build_artist_pages(artist):
                 work=work,
                 artist_file=f"{artist_slug}.html"
             )
+            rendered_detail = strip_collection_crumb(rendered_detail, artist['collection'])
             with open(works_dir / f"{work['slug']}.html", 'w', encoding='utf-8') as f:
                 f.write(rendered_detail)
 
@@ -384,6 +439,8 @@ def build_region_pages(artists_list):
                 sub_region_sections=sub_region_sections
             )
 
+            rendered_html = strip_collection_crumb(rendered_html, data['collection_name'])
+
             output_path = BASE_DIR / coll_slug / f"{reg_slug}.html"
             output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -478,4 +535,10 @@ if __name__ == "__main__":
         build_region_pages(artists_data)
 
         update_search_js(artists_data)
+
+        if HIDE_COLLECTION_IN_BREADCRUMB:
+            print(f"\n🧭 Breadcrumbs: removed the collection crumb from {CRUMB_STATS['stripped']} of {CRUMB_STATS['pages']} pages.")
+            if CRUMB_STATS['stripped'] < CRUMB_STATS['pages']:
+                print("⚠️ Some pages still show the collection. Their template may build the breadcrumb "
+                      "differently; check the breadcrumb markup in the templates.")
         print("\n🎉 Website generation complete!")

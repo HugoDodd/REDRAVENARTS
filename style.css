@@ -1412,3 +1412,457 @@ body:has(.country-section:only-of-type) .country-section.is-below {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+/* Parent heading: same small tracked style as "EXPLORE COLLECTIONS" */
+.group-label {
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.home-split-content .group-label a {
+    color: var(--accent) !important;
+    transition: color 0.3s ease;
+}
+
+.home-split-content .group-label a:hover,
+.home-split-content .group-label a:focus-visible {
+    color: var(--black) !important;
+}
+
+/* Seven rows must fit one viewport, so tighter than the old 45px rows */
+.home-split-content.grouped .region-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    transition: transform 0.4s cubic-bezier(.25, 1, .5, 1), opacity 0.4s ease;
+}
+
+.home-split-content.grouped .region-title {
+    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    flex: 1;
+}
+
+/* Dim every other row while one is hovered or focused */
+.grouped:has(.region-row:hover, .region-row:focus-visible) .region-row:not(:hover):not(:focus-visible) {
+    opacity: 0.35;
+}
+
+.home-split-content.grouped .region-row:focus-visible {
+    outline: 1px solid var(--black);
+    outline-offset: 4px;
+}
+
+/* Thumbnails only appear on small screens, where there is no hover */
+.row-thumb {
+    display: none;
+}
+
+/* Optional caption over the artwork (hidden when empty) */
+.visual-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    margin: 0;
+    padding: 60px 32px 24px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.visual-caption.show {
+    opacity: 1;
+}
+
+.visual-caption:empty {
+    display: none;
+}
+
+/* Focal points for the seven previews. Tune each to protect the artwork. */
+#img-br-eu, #img-aow, #img-east, #img-south,
+#img-southeast, #img-name, #img-ssa {
+    object-position: center !important;
+}
+
+@media (max-width: 768px) {
+    .home-split-content.grouped .region-row {
+        padding: 12px 0;
+        gap: 12px;
+    }
+
+    .home-split-content.grouped .region-num {
+        display: none;
+    }
+
+    .home-split-content.grouped .region-title {
+        font-size: 1.35rem !important;
+    }
+
+    .row-thumb {
+        display: block;
+        width: 56px;
+        height: 72px;
+        object-fit: cover;
+        order: -1;
+        flex: none;
+    }
+
+    .grouped:has(.region-row:hover) .region-row:not(:hover) {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-layer,
+    .home-split-content .region-row,
+    .visual-caption {
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+   GROUPED HOMEPAGE (v3) — three large collection titles, quiet sub-links,
+   artwork hung whole on a pale gallery wall with a museum label.
+   Replaces the earlier "GROUPED HOMEPAGE" block at the bottom of style.css.
+   ========================================================================== */
+
+:root {
+    --home-gutter: clamp(24px, 4vw, 72px); /* one shared left/right margin */
+    --nav-h: 90px;                         /* fallback; the page script measures the real header */
+    --wall: #efeeeb;                       /* gallery wall colour */
+}
+
+/* Fit the page to the real header height so no scrollbar appears */
+.home-split-container {
+    min-height: calc(100vh - var(--nav-h));
+}
+
+/* Header and list share one left edge */
+body:has(.home-split-container) .navbar-empty {
+    padding-left: var(--home-gutter);
+    padding-right: var(--home-gutter);
+}
+
+/* The heading stays for screen readers only */
+.home-split-container .grouped .home-split-header {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.home-split-container .home-split-content.grouped {
+    box-sizing: border-box;
+    flex: none;
+    justify-content: center;
+    padding: 56px var(--home-gutter);
+}
+
+@media (min-width: 901px) {
+    .home-split-container .home-split-content.grouped {
+        flex: 0 0 52%;
+    }
+}
+
+/* ---------- Collections ---------- */
+
+.home-split-container .grouped .region-group {
+    transition: opacity 0.5s ease;
+}
+
+.home-split-container .grouped .region-group + .region-group {
+    margin-top: clamp(2.5rem, 8vh, 5rem);
+}
+
+.home-split-container .grouped .group-title {
+    margin: 0;
+    /* Same voice as .country-heading on the inner pages: bold, uppercase, tracked */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.4rem, min(2.2vw, 5vh), 2.4rem);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+}
+
+.home-split-container .grouped .group-title {
+    color: #000;
+}
+
+.home-split-container .grouped .group-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.25rem;
+    margin-top: clamp(0.7rem, 1.6vh, 1.1rem);
+}
+
+/* Sub-categories: grey text that wipes to black, left to right, on hover */
+.home-split-container .grouped .sub-link {
+    display: inline-block;
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #6b6b6b !important;
+    transition: opacity 0.4s ease;
+}
+
+.home-split-container .grouped .sub-link span {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+    .home-split-container .grouped .sub-link span {
+        background: linear-gradient(90deg, #000 50%, #6b6b6b 50%) 100% 0 / 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background-position 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .home-split-container .grouped .sub-link:hover span,
+    .home-split-container .grouped .sub-link:focus-visible span {
+        background-position: 0 0;
+    }
+}
+
+.home-split-container .grouped .sub-link:hover span,
+.home-split-container .grouped .sub-link:focus-visible span {
+    transform: translateX(4px);
+}
+
+.home-split-container .grouped a:focus-visible {
+    outline: 1px solid var(--black);
+    outline-offset: 6px;
+}
+
+/* While one collection is in use, the others recede */
+.grouped:has(.region-group:hover, .region-group:focus-within) .region-group:not(:hover):not(:focus-within) {
+    opacity: 0.3;
+}
+
+.home-split-container .grouped .group-links:hover .sub-link:not(:hover),
+.home-split-container .grouped .group-links:focus-within .sub-link:not(:focus-visible) {
+    opacity: 0.35;
+}
+
+.row-thumb {
+    display: none;
+}
+
+/* ---------- Gallery wall ---------- */
+
+.home-split-container .home-split-visual {
+    --wall-x: 24px;
+    --wall-top: 24px;
+    --wall-bottom: 24px;
+    background: var(--wall);
+}
+
+@media (min-width: 901px) {
+    .home-split-container .home-split-visual {
+        --wall-x: var(--home-gutter);
+        --wall-top: calc(var(--nav-h) + 24px);
+        --wall-bottom: 130px;
+        flex: 1;
+        top: 0;
+        height: 100vh;
+        margin-top: calc(var(--nav-h) * -1); /* wall runs up behind the header */
+    }
+}
+
+/* One frame on the wall. Script sizes it to the current painting's proportions
+   and it glides to the next painting's proportions, so the outline never jumps. */
+.home-split-container .home-split-visual .stage-area {
+    position: absolute;
+    top: var(--wall-top);
+    left: var(--wall-x);
+    right: var(--wall-x);
+    bottom: var(--wall-bottom);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-split-container .home-split-visual .stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.home-split-container .home-split-visual .stage.ready {
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Without script the painting is simply shown whole; with it, it fills the frame */
+.home-split-container .home-split-visual .stage .fade-layer {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: none;
+    /* leaving image: stays put until the new one has fully faded in over it */
+    transition: opacity 0s linear 0.7s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-split-container .home-split-visual .stage.fitted .fade-layer {
+    object-fit: cover;
+}
+
+.home-split-container .home-split-visual .stage .fade-layer.active {
+    transition: opacity 0.7s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Earlier rules pin focal points by id; contain needs them centred */
+#img-default, #img-western, #img-asian, #img-african, #img-european,
+#img-br-eu, #img-aow, #img-east, #img-south, #img-southeast, #img-name, #img-ssa {
+    object-position: center !important;
+}
+
+/* Museum label: artist, then title and year */
+.visual-caption {
+    position: absolute;
+    left: var(--home-gutter);
+    right: var(--home-gutter);
+    bottom: 44px;
+    z-index: 3;
+    margin: 0;
+    padding: 0;
+    background: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.visual-caption {
+    transition: opacity 0.3s ease;
+}
+
+.visual-caption.show {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+.visual-caption:empty { display: none; }
+
+.visual-caption .cap-artist,
+.visual-caption .cap-title {
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+.visual-caption .cap-artist { font-weight: 500; color: var(--black); }
+.visual-caption .cap-title  { font-weight: 400; color: #6b6b6b; }
+
+@media (max-width: 900px) {
+    .visual-caption { display: none; }
+}
+
+/* ---------- Phones: no hover, so sub-links carry a thumbnail ---------- */
+@media (max-width: 768px) {
+    .home-split-container .grouped .region-group + .region-group {
+        margin-top: 2.25rem;
+    }
+
+    .home-split-container .grouped .group-title {
+        font-size: 1.4rem;
+    }
+
+    .home-split-container .grouped .group-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .home-split-container .grouped .sub-link {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 1rem;
+    }
+
+    .home-split-container .grouped .sub-link span {
+        background: none;
+        -webkit-text-fill-color: #6b6b6b;
+        transform: none;
+    }
+
+    .row-thumb {
+        display: block;
+        width: 56px;
+        height: 72px;
+        object-fit: cover;
+        flex: none;
+    }
+
+    .grouped:has(.region-group:hover) .region-group:not(:hover) {
+        opacity: 1;
+    }
+
+    .home-split-container .grouped .group-links:hover .sub-link:not(:hover) {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-layer,
+    .stage,
+    .region-group,
+    .sub-link,
+    .sub-link span,
+    .visual-caption {
+        transition: none !important;
+    }
+}
+
+/* ---------- Search box on the gallery wall ----------
+   The header sits over the grey wall on desktop, so the default pale search
+   styling disappears. Darken it here (home page only). */
+@media (min-width: 901px) {
+    body:has(.home-split-container) #artistSearch {
+        border-bottom-color: #9a9a9a;
+    }
+
+    body:has(.home-split-container) #artistSearch::placeholder {
+        color: #6b6b6b;
+    }
+
+    body:has(.home-split-container) #artistSearch:focus {
+        border-bottom-color: #000;
+    }
+
+    body:has(.home-split-container) .search-icon {
+        border-color: #6b6b6b;
+    }
+
+    body:has(.home-split-container) .search-icon::after {
+        background-color: #6b6b6b;
+    }
+
+    body:has(.home-split-container) #artistSearch:focus + .search-icon {
+        border-color: #000;
+    }
+
+    body:has(.home-split-container) #artistSearch:focus + .search-icon::after {
+        background-color: #000;
+    }
+}

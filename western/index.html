@@ -2,99 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A global collection of pioneer and modern art.">
-    <title>Western | Red Raven Arts</title>
-    
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;800&display=swap" rel="stylesheet">
+    <title>Red Raven Arts</title>
+    <meta http-equiv="refresh" content="0; url=../index.html">
+    <link rel="canonical" href="../index.html">
 </head>
 <body>
-
-    <nav class="navbar-empty">
-        <div class="breadcrumb">
-            <a href="../index.html">Red Raven Arts</a> 
-            <span class="sep">/</span> 
-            <span class="current">Western</span>
-        </div>
-        <div class="search-wrapper">
-            <div class="search-container">
-                <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
-                <span class="search-icon"></span>
-            </div>
-            <div id="searchResults" class="search-results-dropdown"></div>
-        </div>
-    </nav>
-
-
-    <main class="split-container">
-        <div class="split-visual" id="split-visual-box">
-            <img id="img-default" class="fade-layer active" src="../images/Cordell.JPG" alt="Collection Preview">
-            <img id="img-br-eu" class="fade-layer" src="../images/EnglishLastDraw.JPG" alt="British Preview">
-            <img id="img-aow" class="fade-layer" src="../images/Zev59c.JPG" alt="Americas & Other Western Preview">
-        </div>
-
-        <div class="split-content">
-            <header class="split-header">
-                <h1>WESTERN</h1>
-            </header>
-
-            <div class="index-list">
-                <a href="british-european.html" class="region-row" data-target="img-br-eu">
-                    <span class="region-num">01</span>
-                    <span class="region-title">British & European</span>
-                </a>
-
-                <a href="americas-other-western.html" class="region-row" data-target="img-aow">
-                    <span class="region-num">02</span>
-                    <span class="region-title">Americas & Other Western</span>
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const rows = document.querySelectorAll('.region-row');
-            const allImages = document.querySelectorAll('.fade-layer');
-            const defaultImg = document.getElementById('img-default');
-
-            rows.forEach(row => {
-                row.addEventListener('mouseenter', () => {
-                    const targetId = row.getAttribute('data-target');
-                    
-                    allImages.forEach(img => {
-                        if (img.id === targetId) {
-                            img.classList.add('active');
-                        } else {
-                            img.classList.remove('active');
-                        }
-                    });
-                });
-            });
-
-            // Optional: When the mouse completely leaves the list area, smoothly bring back your default image
-            const indexList = document.querySelector('.index-list');
-            indexList.addEventListener('mouseleave', () => {
-                allImages.forEach(img => {
-                    if (img.id === 'img-default') {
-                        img.classList.add('active');
-                    } else {
-                        img.classList.remove('active');
-                    }
-                });
-            });
-        });
-    </script>
-
-    <footer class="minimal-footer">
-        <p>© Red Raven Arts. Private Collection — Not for Sale.</p>
-        <a href="../index.html">Return to Collections</a>
-    </footer>
-
-    <script src="../search.js"></script>
-
+    <a href="../index.html">Continue to Red Raven Arts</a>
 </body>
 </html>

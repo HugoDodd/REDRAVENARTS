@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A global collection of pioneer and modern art.">
     <title>Red Raven Arts</title>
-    
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -27,37 +27,87 @@
     </nav>
 
     <main class="home-split-container">
-        
-        <div class="home-split-content">
+
+        <div class="home-split-content grouped">
             <header class="home-split-header">
-                <h1>EXPLORE COLLECTIONS</h1>
+                <h1>Collections</h1>
             </header>
 
-            <div class="index-list">
-                <a href="western/index.html" class="region-row" data-target="img-western">
-                    <span class="region-num">01</span>
-                    <span class="region-title">Western</span>
-                </a>
+            <!--
+                Museum labels: fill in data-caption on any link, as "Artist | Title, Year".
+                Leave it empty and no label is shown for that link.
+            -->
+            <div id="collectionList">
 
-                <a href="asian/index.html" class="region-row" data-target="img-asian">
-                    <span class="region-num">02</span>
-                    <span class="region-title">Asian</span>
-                </a>
+                <section class="region-group" aria-labelledby="g-western">
+                    <h2 class="group-title" id="g-western">
+                        Western
+                    </h2>
+                    <div class="group-links">
+                        <a href="western/british-european.html" class="sub-link" data-target="img-br-eu" data-caption="">
+                            <img class="row-thumb" src="images/EnglishLastDraw.JPG" alt="" loading="lazy">
+                            <span>British &amp; European</span>
+                        </a>
+                        <a href="western/americas-other-western.html" class="sub-link" data-target="img-aow" data-caption="">
+                            <img class="row-thumb" src="images/Zev59c.JPG" alt="" loading="lazy">
+                            <span>Americas &amp; Other Western</span>
+                        </a>
+                    </div>
+                </section>
 
-                <a href="african-middle-eastern/index.html" class="region-row" data-target="img-african">
-                    <span class="region-num">03</span>
-                    <span class="region-title">African & Middle Eastern</span>
-                </a>
+                <section class="region-group" aria-labelledby="g-asian">
+                    <h2 class="group-title" id="g-asian">
+                        Asian
+                    </h2>
+                    <div class="group-links">
+                        <a href="asian/east-asian.html" class="sub-link" data-target="img-east" data-caption="">
+                            <img class="row-thumb" src="images/LiMeishuC2.JPG" alt="" loading="lazy">
+                            <span>East Asian</span>
+                        </a>
+                        <a href="asian/south-asian.html" class="sub-link" data-target="img-south" data-caption="">
+                            <img class="row-thumb" src="images/Paulrajoil.JPG" alt="" loading="lazy">
+                            <span>South Asian</span>
+                        </a>
+                        <a href="asian/south-east-asian.html" class="sub-link" data-target="img-southeast" data-caption="">
+                            <img class="row-thumb" src="images/DucP12.JPG" alt="" loading="lazy">
+                            <span>South East Asian</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="region-group" aria-labelledby="g-african">
+                    <h2 class="group-title" id="g-african">
+                        African &amp; Middle Eastern
+                    </h2>
+                    <div class="group-links">
+                        <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link" data-target="img-name" data-caption="">
+                            <img class="row-thumb" src="images/RaghebS.JPG" alt="" loading="lazy">
+                            <span>North African &amp; Middle Eastern</span>
+                        </a>
+                        <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link" data-target="img-ssa" data-caption="">
+                            <img class="row-thumb" src="images/Buraimohunsig.JPG" alt="" loading="lazy">
+                            <span>Sub-Saharan African</span>
+                        </a>
+                    </div>
+                </section>
+
             </div>
         </div>
 
-        <div class="home-split-visual">
-            <img id="img-default" class="fade-layer active" src="images/Englishlady.JPG" alt="Collection Gateway Artwork">
-            <img id="img-western" class="fade-layer" src="images/ColqCorsica38.JPG" alt="Western Art Canvas">
-            <img id="img-asian" class="fade-layer" src="images/Lin68.JPG" alt="Asian Art Canvas">
-            <img id="img-african" class="fade-layer" src="images/OgundeleBayoJesus.JPG" alt="African Art Canvas">
+        <div class="home-split-visual" aria-hidden="true">
+            <div class="stage-area"><div class="stage" id="stage">
+            <img id="img-default" class="fade-layer active" src="images/Twins77Antibirdghost.JPG" alt="">
+            <img id="img-br-eu" class="fade-layer" src="images/Cordell.JPG" alt="">
+            <img id="img-aow" class="fade-layer" src="images/Jadured.JPG" alt="">
+            <img id="img-east" class="fade-layer" src="images/Lin68.JPG" alt="">
+            <img id="img-south" class="fade-layer" src="images/QuadriVanniFucci.jpg" alt="">
+            <img id="img-southeast" class="fade-layer" src="images/BaliTibah.JPG" alt="">
+            <img id="img-name" class="fade-layer" src="images/ShariffeKoranic1.JPG" alt="">
+            <img id="img-ssa" class="fade-layer" src="images/OgundeleBmask.JPG" alt="">
+            </div></div>
+            <p class="visual-caption" id="visualCaption"></p>
         </div>
-        
+
     </main>
 
     <footer class="gallery-statement">
@@ -76,36 +126,87 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const rows = document.querySelectorAll('.region-row');
-            const allImages = document.querySelectorAll('.fade-layer');
+            const list = document.getElementById('collectionList');
+            const targets = list.querySelectorAll('[data-target]');
+            const layers = document.querySelectorAll('.fade-layer');
+            const caption = document.getElementById('visualCaption');
 
-            rows.forEach(row => {
-                row.addEventListener('mouseenter', () => {
-                    const targetId = row.getAttribute('data-target');
-                    
-                    allImages.forEach(img => {
-                        if (img.id === targetId) {
-                            img.classList.add('active');
-                        } else {
-                            img.classList.remove('active');
-                        }
-                    });
-                });
+            // The frame: sized to the current painting, glides to the next one's proportions
+            const stage = document.getElementById('stage');
+            const area = stage.parentElement;
+            let current = document.getElementById('img-default');
+
+            function fit(img) {
+                if (!img || !img.naturalWidth) return;   // sized when the image finishes loading
+                const ratio = img.naturalWidth / img.naturalHeight;
+                const w = Math.min(area.clientWidth, area.clientHeight * ratio);
+                stage.style.width = w + 'px';
+                stage.style.height = (w / ratio) + 'px';
+                if (!stage.classList.contains('fitted')) {
+                    stage.classList.add('fitted');
+                    // enable the glide only after the first sizing, so the page doesn't animate on load
+                    requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('ready')));
+                }
+            }
+
+            layers.forEach(img => {
+                img.addEventListener('load', () => { if (img === current) fit(img); });
+            });
+            fit(current);
+
+            let captionTimer;
+            function show(id, text) {
+                layers.forEach(img => img.classList.toggle('active', img.id === id));
+                current = document.getElementById(id);
+                fit(current);
+
+                // Hide the caption, swap its text once hidden, then show it with the new image
+                clearTimeout(captionTimer);
+                caption.classList.remove('show');
+                captionTimer = setTimeout(() => {
+                    caption.textContent = '';
+                    const parts = (text || '').split('|').map(s => s.trim()).filter(Boolean);
+                    if (parts.length > 1) {
+                        const artist = document.createElement('span');
+                        artist.className = 'cap-artist';
+                        artist.textContent = parts[0];
+                        caption.appendChild(artist);
+                    }
+                    if (parts.length) {
+                        const title = document.createElement('span');
+                        title.className = 'cap-title';
+                        title.textContent = parts[parts.length - 1];
+                        caption.appendChild(title);
+                    }
+                    caption.classList.toggle('show', parts.length > 0);
+                }, 300);
+            }
+
+            targets.forEach(el => {
+                const reveal = () => show(el.dataset.target, el.dataset.caption);
+                el.addEventListener('mouseenter', reveal);
+                el.addEventListener('focus', reveal); // keyboard users get the preview too
             });
 
-            // Return to the default artwork when mouse leaves the list area
-            const indexList = document.querySelector('.index-list');
-            if (indexList) {
-                indexList.addEventListener('mouseleave', () => {
-                    allImages.forEach(img => {
-                        if (img.id === 'img-default') {
-                            img.classList.add('active');
-                        } else {
-                            img.classList.remove('active');
-                        }
-                    });
-                });
-            }
+            // Measure the header so the gallery wall meets the top of the window exactly
+            const nav = document.querySelector('.navbar-empty');
+            const syncNav = () => {
+                document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+                // resize the frame instantly (no glide) when the window or header changes
+                stage.classList.remove('ready');
+                fit(current);
+                requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('ready')));
+            };
+            syncNav();
+            window.addEventListener('resize', syncNav);
+            if (document.fonts) document.fonts.ready.then(syncNav);
+
+            // Back to the default artwork when the pointer or focus leaves the list
+            const reset = () => show('img-default', '');
+            list.addEventListener('mouseleave', reset);
+            list.addEventListener('focusout', e => {
+                if (!list.contains(e.relatedTarget)) reset();
+            });
         });
     </script>
 
