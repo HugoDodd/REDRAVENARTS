@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import hashlib
 import shutil
 import pandas as pd
 from pathlib import Path
@@ -24,6 +25,42 @@ def slugify(text):
     text = str(text).lower().strip()
     text = re.sub(r'[^\w\s-]', '', text)
     return re.sub(r'[\s_-]+', '-', text)
+
+def short_hash(text, length=6):
+    """Deterministic short hash: the same input always gives the same result, on every build."""
+    return hashlib.sha1(str(text).encode('utf-8')).hexdigest()[:length]
+
+def make_work_slug(title, year, medium, img_filename, custom_slug, used_slugs):
+    """
+    Builds a URL slug for an artwork that is unique within one artist's works folder.
+
+    - custom_slug (optional "Slug" column in the sheet) wins if provided.
+    - Untitled works:  untitled-<year>-<hash>   (always hashed, since they collide constantly)
+    - Titled works:    <title>   (clean). If the artist already has a work with that slug,
+                       the later one becomes <title>-<hash>.
+    The hash comes from the image filename, so it does not change when you add, remove
+    or reorder rows in the sheet.
+    """
+    # Stable fingerprint: image filename is the best unique ID; fall back to the other fields
+    fingerprint = img_filename or f"{title}|{year}|{medium}"
+
+    if custom_slug:
+        slug = custom_slug
+    elif not title or title.lower() == 'untitled':
+        parts = ["untitled"]
+        slug = "-".join(p for p in parts if p) + "-" + short_hash(fingerprint)
+    else:
+        slug = slugify(title) or "work"
+        if slug in used_slugs:
+            slug = f"{slug}-{short_hash(fingerprint)}"
+
+    # Safety net: guarantees uniqueness even if two works share an image filename
+    candidate, n = slug, 2
+    while candidate in used_slugs:
+        candidate = f"{slug}-{n}"
+        n += 1
+    used_slugs.add(candidate)
+    return candidate
 
 def fetch_sheet_tab(sheet_name):
     """Fetches a specific Google Sheet tab directly as a Pandas Dataframe with cache-busting."""
@@ -110,6 +147,7 @@ def process_artists_and_artworks(artists_df, artworks_df):
     # ==========================================
     print("\n🖼️ Processing Artwork Info tab...")
     artwork_count = 0
+    used_slugs_by_artist = {}  # artist_id -> set of work slugs already taken
     for _, row in artworks_df.iterrows():
         artist_id = get_val(row, ['Artist ID', 'ArtistID', 'ID', 'artist_id'])
         
@@ -156,12 +194,11 @@ def process_artists_and_artworks(artists_df, artworks_df):
 
             ratio = w_val / h_val if h_val != 0 else 1.0
 
-            if title.lower() == 'untitled' or not title:
-                year_str = f"-{year}" if year else ""
-                medium_str = f"-{slugify(medium)}" if medium else ""
-                work_slug = f"untitled{year_str}{medium_str}{artwork_count}"
-            else:
-                work_slug = slugify(title)
+            work_slug = make_work_slug(
+                title, year, medium, img_filename,
+                slugify(get_val(row, ['Slug', 'Artwork Slug'])),
+                used_slugs_by_artist.setdefault(artist_id, set())
+            )
 
             caption = f"{title}, {year}" if year else title
 
