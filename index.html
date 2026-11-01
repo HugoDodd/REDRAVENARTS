@@ -45,11 +45,11 @@
                     </h2>
                     <div class="group-links">
                         <a href="western/british-european.html" class="sub-link" data-target="img-br-eu" data-caption="">
-                            <img class="row-thumb" src="images/EnglishLastDraw.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>British &amp; European</span>
                         </a>
                         <a href="western/americas-other-western.html" class="sub-link" data-target="img-aow" data-caption="">
-                            <img class="row-thumb" src="images/Zev59c.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>Americas &amp; Other Western</span>
                         </a>
                     </div>
@@ -61,15 +61,15 @@
                     </h2>
                     <div class="group-links">
                         <a href="asian/east-asian.html" class="sub-link" data-target="img-east" data-caption="">
-                            <img class="row-thumb" src="images/LiMeishuC2.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>East Asian</span>
                         </a>
                         <a href="asian/south-asian.html" class="sub-link" data-target="img-south" data-caption="">
-                            <img class="row-thumb" src="images/Paulrajoil.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>South Asian</span>
                         </a>
                         <a href="asian/south-east-asian.html" class="sub-link" data-target="img-southeast" data-caption="">
-                            <img class="row-thumb" src="images/DucP12.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>South East Asian</span>
                         </a>
                     </div>
@@ -81,11 +81,11 @@
                     </h2>
                     <div class="group-links">
                         <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link" data-target="img-name" data-caption="">
-                            <img class="row-thumb" src="images/RaghebS.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>North African &amp; Middle Eastern</span>
                         </a>
                         <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link" data-target="img-ssa" data-caption="">
-                            <img class="row-thumb" src="images/Buraimohunsig.JPG" alt="" loading="lazy">
+                            <img class="row-thumb" alt="" loading="lazy">
                             <span>Sub-Saharan African</span>
                         </a>
                     </div>
@@ -130,6 +130,13 @@
             const targets = list.querySelectorAll('[data-target]');
             const layers = document.querySelectorAll('.fade-layer');
             const caption = document.getElementById('visualCaption');
+
+            // Mobile thumbnails reuse each preview image's file, so images are only edited in one place
+            list.querySelectorAll('.sub-link').forEach(link => {
+                const thumb = link.querySelector('.row-thumb');
+                const source = document.getElementById(link.dataset.target);
+                if (thumb && source) thumb.src = source.getAttribute('src');
+            });
 
             // The frame: sized to the current painting, glides to the next one's proportions
             const stage = document.getElementById('stage');
