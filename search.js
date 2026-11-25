@@ -283,6 +283,10 @@ const artists = [
     { name: "Burigude Zhang", url: "asian/artists/burigude-zhang/burigude-zhang.html" },
 ];
 
+// The site root is wherever this file lives, so links work on any computer, any folder
+// name, GitHub Pages or a custom domain. (Read now, while the script is first running.)
+const SITE_ROOT = new URL('.', document.currentScript.src).href;
+
 // 2. The Search Logic (Supports local file:///, GitHub Pages, & root domains)
 function filterArtists() {
     const input = document.getElementById('artistSearch');
@@ -307,31 +311,8 @@ function filterArtists() {
         filtered.forEach(artist => {
             const link = document.createElement('a');
             
-            const isLocal = window.location.protocol === 'file:';
-            let finalUrl = '';
-
-            if (isLocal) {
-                // Resolves pathing dynamically by finding your local root folder
-                const path = window.location.pathname;
-                const folderName = 'REDRAVENARTS/';
-                const rootIndex = path.indexOf(folderName);
-                
-                if (rootIndex !== -1) {
-                    const rootPath = path.substring(0, rootIndex + folderName.length);
-                    finalUrl = rootPath + artist.url;
-                } else {
-                    finalUrl = artist.url;
-                }
-            } else {
-                // Hosted web server (GitHub Pages vs Custom Domain)
-                if (window.location.hostname.endsWith('github.io')) {
-                    // Always locks to the repo name regardless of deep nested subpages
-                    finalUrl = '/REDRAVENARTS/' + artist.url;
-                } else {
-                    // Custom domain / root deployment
-                    finalUrl = '/' + artist.url;
-                }
-            }
+            // Every link is built from the folder search.js itself lives in (the site root)
+            const finalUrl = SITE_ROOT + artist.url;
 
             link.href = finalUrl;
             link.classList.add('search-item');

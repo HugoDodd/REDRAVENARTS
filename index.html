@@ -34,8 +34,9 @@
             </header>
 
             <!--
-                Museum labels: fill in data-caption on any link, as "Artist | Title, Year".
-                Leave it empty and no label is shown for that link.
+                Museum labels: fill in data-caption on any link, and on the default image
+                (<img id="img-default">) for the picture shown when the page first loads.
+                Leave it empty and no label is shown.
             -->
             <div id="collectionList">
 
@@ -44,11 +45,11 @@
                         Western
                     </h2>
                     <div class="group-links">
-                        <a href="western/british-european.html" class="sub-link" data-target="img-br-eu" data-caption="">
+                        <a href="western/british-european.html" class="sub-link" data-target="img-br-eu" data-caption="Android, Magda Cordell">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>British &amp; European</span>
                         </a>
-                        <a href="western/americas-other-western.html" class="sub-link" data-target="img-aow" data-caption="">
+                        <a href="western/americas-other-western.html" class="sub-link" data-target="img-aow" data-caption="Untitled, Anthony Jadunath">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>Americas &amp; Other Western</span>
                         </a>
@@ -60,15 +61,15 @@
                         Asian
                     </h2>
                     <div class="group-links">
-                        <a href="asian/east-asian.html" class="sub-link" data-target="img-east" data-caption="">
+                        <a href="asian/east-asian.html" class="sub-link" data-target="img-east" data-caption="August 1968, Richard Lin (Lin Show Yu)">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>East Asian</span>
                         </a>
-                        <a href="asian/south-asian.html" class="sub-link" data-target="img-south" data-caption="">
+                        <a href="asian/south-asian.html" class="sub-link" data-target="img-south" data-caption="Untitled, G. D. Paulraj">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>South Asian</span>
                         </a>
-                        <a href="asian/south-east-asian.html" class="sub-link" data-target="img-southeast" data-caption="">
+                        <a href="asian/south-east-asian.html" class="sub-link" data-target="img-southeast" data-caption="Untitled, Ida Bagus Made Tibah">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>South East Asian</span>
                         </a>
@@ -80,11 +81,11 @@
                         African &amp; Middle Eastern
                     </h2>
                     <div class="group-links">
-                        <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link" data-target="img-name" data-caption="">
+                        <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link" data-target="img-name" data-caption="Koranic Place II, Hussein Shariffe">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>North African &amp; Middle Eastern</span>
                         </a>
-                        <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link" data-target="img-ssa" data-caption="">
+                        <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link" data-target="img-ssa" data-caption="Epa Mask, Bayo Ogundele">
                             <img class="row-thumb" alt="" loading="lazy">
                             <span>Sub-Saharan African</span>
                         </a>
@@ -96,11 +97,11 @@
 
         <div class="home-split-visual" aria-hidden="true">
             <div class="stage-area"><div class="stage" id="stage">
-            <img id="img-default" class="fade-layer active" src="images/Twins77Antibirdghost.JPG" alt="">
+            <img id="img-default" class="fade-layer active" src="images/Twins77Antibirdghost.JPG" alt="" data-caption="Anti-Bird Ghost, Twins Seven Seven">
             <img id="img-br-eu" class="fade-layer" src="images/Cordell.JPG" alt="">
             <img id="img-aow" class="fade-layer" src="images/Jadured.JPG" alt="">
             <img id="img-east" class="fade-layer" src="images/Lin68.JPG" alt="">
-            <img id="img-south" class="fade-layer" src="images/QuadriVanniFucci.jpg" alt="">
+            <img id="img-south" class="fade-layer" src="images/Paulrajoil.JPG" alt="">
             <img id="img-southeast" class="fade-layer" src="images/BaliTibah.JPG" alt="">
             <img id="img-name" class="fade-layer" src="images/ShariffeKoranic1.JPG" alt="">
             <img id="img-ssa" class="fade-layer" src="images/OgundeleBmask.JPG" alt="">
@@ -138,55 +139,59 @@
                 if (thumb && source) thumb.src = source.getAttribute('src');
             });
 
-            // The frame: sized to the current painting, glides to the next one's proportions
-            const stage = document.getElementById('stage');
-            const area = stage.parentElement;
-            let current = document.getElementById('img-default');
+            // Each painting is sized once, to its own proportions, to fit the wall
+            const area = document.querySelector('.stage-area');
 
-            function fit(img) {
-                if (!img || !img.naturalWidth) return;   // sized when the image finishes loading
+            function sizeLayer(img) {
+                if (!img.naturalWidth) return;   // sized when the image finishes loading
                 const ratio = img.naturalWidth / img.naturalHeight;
                 const w = Math.min(area.clientWidth, area.clientHeight * ratio);
-                stage.style.width = w + 'px';
-                stage.style.height = (w / ratio) + 'px';
-                if (!stage.classList.contains('fitted')) {
-                    stage.classList.add('fitted');
-                    // enable the glide only after the first sizing, so the page doesn't animate on load
-                    requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('ready')));
-                }
+                img.style.width = w + 'px';
+                img.style.height = (w / ratio) + 'px';
             }
 
             layers.forEach(img => {
-                img.addEventListener('load', () => { if (img === current) fit(img); });
+                img.addEventListener('load', () => sizeLayer(img));
+                if (img.complete) sizeLayer(img);
             });
-            fit(current);
 
-            let captionTimer;
+            function setCaption(text) {
+                caption.textContent = '';
+                const parts = (text || '').split('|').map(s => s.trim()).filter(Boolean);
+                if (parts.length > 1) {
+                    const artist = document.createElement('span');
+                    artist.className = 'cap-artist';
+                    artist.textContent = parts[0];
+                    caption.appendChild(artist);
+                }
+                if (parts.length) {
+                    const title = document.createElement('span');
+                    title.className = 'cap-title';
+                    title.textContent = parts[parts.length - 1];
+                    caption.appendChild(title);
+                }
+                caption.classList.toggle('show', parts.length > 0);
+            }
+
+            setCaption(document.getElementById('img-default').dataset.caption);   // caption on page load
+
+            // One image at a time: the current one fades out completely, then the next fades in.
+            // If you move across several links quickly, only the one you stop on appears.
+            const FADE_OUT = 250;   // ms; keep equal to the fade-out time in home-grouped.css
+            let target = 'img-default';
+            let swapTimer;
             function show(id, text) {
-                layers.forEach(img => img.classList.toggle('active', img.id === id));
-                current = document.getElementById(id);
-                fit(current);
+                if (id === target) return;   // already showing (or about to show) this one
+                target = id;
 
-                // Hide the caption, swap its text once hidden, then show it with the new image
-                clearTimeout(captionTimer);
+                layers.forEach(img => img.classList.remove('active'));
                 caption.classList.remove('show');
-                captionTimer = setTimeout(() => {
-                    caption.textContent = '';
-                    const parts = (text || '').split('|').map(s => s.trim()).filter(Boolean);
-                    if (parts.length > 1) {
-                        const artist = document.createElement('span');
-                        artist.className = 'cap-artist';
-                        artist.textContent = parts[0];
-                        caption.appendChild(artist);
-                    }
-                    if (parts.length) {
-                        const title = document.createElement('span');
-                        title.className = 'cap-title';
-                        title.textContent = parts[parts.length - 1];
-                        caption.appendChild(title);
-                    }
-                    caption.classList.toggle('show', parts.length > 0);
-                }, 300);
+
+                clearTimeout(swapTimer);
+                swapTimer = setTimeout(() => {
+                    document.getElementById(id).classList.add('active');
+                    setCaption(text);
+                }, FADE_OUT);
             }
 
             targets.forEach(el => {
@@ -199,21 +204,11 @@
             const nav = document.querySelector('.navbar-empty');
             const syncNav = () => {
                 document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
-                // resize the frame instantly (no glide) when the window or header changes
-                stage.classList.remove('ready');
-                fit(current);
-                requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('ready')));
+                layers.forEach(sizeLayer);   // re-fit the paintings when the window changes
             };
             syncNav();
             window.addEventListener('resize', syncNav);
             if (document.fonts) document.fonts.ready.then(syncNav);
-
-            // Back to the default artwork when the pointer or focus leaves the list
-            const reset = () => show('img-default', '');
-            list.addEventListener('mouseleave', reset);
-            list.addEventListener('focusout', e => {
-                if (!list.contains(e.relatedTarget)) reset();
-            });
         });
     </script>
 
