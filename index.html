@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;800&display=swap" rel="stylesheet">
+    <noscript><style>.fade-layer { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
 
@@ -33,11 +34,6 @@
                 <h1>Collections</h1>
             </header>
 
-            <!--
-                Museum labels: fill in data-caption on any link, and on the default image
-                (<img id="img-default">) for the picture shown when the page first loads.
-                Leave it empty and no label is shown.
-            -->
             <div id="collectionList">
 
                 <section class="region-group" aria-labelledby="g-western">
@@ -45,12 +41,10 @@
                         Western
                     </h2>
                     <div class="group-links">
-                        <a href="western/british-european.html" class="sub-link" data-target="img-br-eu" data-caption="Android, Magda Cordell">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="western/british-european.html" class="sub-link">
                             <span>British &amp; European</span>
                         </a>
-                        <a href="western/americas-other-western.html" class="sub-link" data-target="img-aow" data-caption="Untitled, Anthony Jadunath">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="western/americas-other-western.html" class="sub-link">
                             <span>Americas &amp; Other Western</span>
                         </a>
                     </div>
@@ -61,16 +55,13 @@
                         Asian
                     </h2>
                     <div class="group-links">
-                        <a href="asian/east-asian.html" class="sub-link" data-target="img-east" data-caption="August 1968, Richard Lin (Lin Show Yu)">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="asian/east-asian.html" class="sub-link">
                             <span>East Asian</span>
                         </a>
-                        <a href="asian/south-asian.html" class="sub-link" data-target="img-south" data-caption="Untitled, G. D. Paulraj">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="asian/south-asian.html" class="sub-link">
                             <span>South Asian</span>
                         </a>
-                        <a href="asian/south-east-asian.html" class="sub-link" data-target="img-southeast" data-caption="Untitled, Ida Bagus Made Tibah">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="asian/south-east-asian.html" class="sub-link">
                             <span>South East Asian</span>
                         </a>
                     </div>
@@ -81,12 +72,10 @@
                         African &amp; Middle Eastern
                     </h2>
                     <div class="group-links">
-                        <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link" data-target="img-name" data-caption="Koranic Place II, Hussein Shariffe">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="african-middle-eastern/north-african-middle-eastern.html" class="sub-link">
                             <span>North African &amp; Middle Eastern</span>
                         </a>
-                        <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link" data-target="img-ssa" data-caption="Epa Mask, Bayo Ogundele">
-                            <img class="row-thumb" alt="" loading="lazy">
+                        <a href="african-middle-eastern/sub-saharan-african.html" class="sub-link">
                             <span>Sub-Saharan African</span>
                         </a>
                     </div>
@@ -95,18 +84,12 @@
             </div>
         </div>
 
-        <div class="home-split-visual" aria-hidden="true">
+        <div class="home-split-visual" role="region" aria-label="Featured works">
             <div class="stage-area"><div class="stage" id="stage">
-            <img id="img-default" class="fade-layer active" src="images/Twins77Antibirdghost.JPG" alt="" data-caption="Anti-Bird Ghost, Twins Seven Seven">
-            <img id="img-br-eu" class="fade-layer" src="images/Cordell.JPG" alt="">
-            <img id="img-aow" class="fade-layer" src="images/Jadured.JPG" alt="">
-            <img id="img-east" class="fade-layer" src="images/Lin68.JPG" alt="">
-            <img id="img-south" class="fade-layer" src="images/Paulrajoil.JPG" alt="">
-            <img id="img-southeast" class="fade-layer" src="images/BaliTibah.JPG" alt="">
-            <img id="img-name" class="fade-layer" src="images/ShariffeKoranic1.JPG" alt="">
-            <img id="img-ssa" class="fade-layer" src="images/OgundeleBmask.JPG" alt="">
+                <img id="img-default" class="fade-layer" alt="Featured artwork">
             </div></div>
-            <p class="visual-caption" id="visualCaption"></p>
+            <a class="visual-caption" id="visualCaption"></a>
+            <button type="button" class="slide-toggle" id="slideToggle" aria-label="Pause slideshow">Pause</button>
         </div>
 
     </main>
@@ -127,84 +110,206 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const list = document.getElementById('collectionList');
-            const targets = list.querySelectorAll('[data-target]');
-            const layers = document.querySelectorAll('.fade-layer');
+
+            /* ------------------------------------------------------------------
+               THE SLIDES. Add, remove or reorder paintings here.
+               caption:  "Title, Artist" as it should read under the painting
+               category: the sub-collection, shown in small capitals beneath
+               url:      the artist's page (leave '' for a caption that isn't a link)
+               The first slide is the one that appears when the page opens.
+               ------------------------------------------------------------------ */
+            const SLIDES = [
+                { src: 'images/Twins77Antibirdghost.JPG',  caption: 'Anti-Bird Ghost, Twins Seven Seven',                                  category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/twins-seven-seven/works/the-anti-bird-ghost.html' },
+                { src: 'images/OgundeleBmask.JPG',         caption: 'Epa Mask, Bayo Ogundele',                                             category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/bayo-ogundele/works/epa-mask.html' },
+                { src: 'images/OgundeleRWalnut.JPG',       caption: 'One-legged Spirit of Walnut, Rufus Ogundele',                         category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/rufus-ogundele/works/one-legged-spirit-of-walnut.html' },
+                { src: 'images/Niang.JPG',                 caption: 'Untitled, Modou Niang',                                               category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/modou-niang/works/untitled-62f32c.html' },
+                { src: 'images/ShariffeKoranic1.JPG',      caption: 'Koranic Place II, Hussein Shariffe',                                  category: 'North African & Middle Eastern', url: 'african-middle-eastern/artists/hussein-shariffe/works/koranic-place-ii.html' },
+                { src: 'images/RaghebS.JPG',               caption: 'Lady with a White Shawl, Sabry Ragheb',                               category: 'North African & Middle Eastern', url: 'african-middle-eastern/artists/sabry-ragheb/works/lady-with-a-white-shawl.html' },
+                { src: 'images/Lin68.JPG',                 caption: 'August 1968, Richard Lin (Lin Show Yu)',                              category: 'East Asian',                     url: 'asian/artists/richard-lin/works/august-1968.html' },
+                { src: 'images/ChienChingYangcottage.JPG', caption: 'Lake shore cottage, Chien-Ying Chang',                                category: 'East Asian',                     url: 'asian/artists/chien-ying-chang/works/lake-shore-cottage.html' },
+                { src: 'images/Jadured.JPG',               caption: 'Untitled, Anthony Jadunath',                                          category: 'Americas & Other Western',       url: 'western/artists/anthony-jadunath/works/untitled-f9cedf.html' },
+                { src: 'images/Pohlmoss.JPG',              caption: 'Mossy Rocks, Louis Pohl',                                             category: 'Americas & Other Western',       url: 'western/artists/louis-pohl/works/mossy-rocks.html' },
+                { src: 'images/KrishnaMask.JPG',           caption: 'Mask, Mary Krishna (Indumati Roop Krishna)',                          category: 'South Asian',                    url: 'asian/artists/mary-krishna/works/mask.html' },
+                { src: 'images/Paulrajoil.JPG',            caption: 'Untitled, G. D. Paulraj',                                             category: 'South Asian',                    url: 'asian/artists/g-d-paulraj/works/untitled-85b70a.html' },
+                { src: 'images/Chandra62philos.JPG',       caption: 'Philosophers, Avinash Chandra',                                       category: 'South Asian',                    url: 'asian/artists/avinash-chandra/works/philosophers.html' },
+                { src: 'images/BaliTibah.JPG',             caption: 'Untitled, Ida Bagus Made Tibah',                                      category: 'South East Asian',               url: 'asian/artists/ida-bagus-made-tibah/works/untitled-e58dd7.html' },
+                { src: 'images/ColqBikini.jpg',            caption: 'Bikini, Ithell Colquhoun',                                            category: 'British & European',             url: 'western/artists/ithell-colquhoun/works/bikini.html' },
+                { src: 'images/Cordell.JPG',               caption: 'Android, Magda Cordell',                                              category: 'British & European',             url: 'western/artists/magda-cordell/works/android.html' },
+                { src: 'images/Englishlady.JPG',           caption: 'Untitled, Monica English',                                            category: 'British & European',             url: 'western/artists/monica-english/works/untitled-96a253.html' },
+                { src: 'images/Beanland mott.JPG',         caption: 'Mottled Ground, 3 Discs, Frank Beanland',                             category: 'British & European',             url: 'western/artists/frank-beanland/works/mottled-ground-3-discs.html' },
+                { src: 'images/ChristofBlackMask.jpg',     caption: 'Black Mask, John Christoforou',                                       category: 'British & European',             url: 'western/artists/john-christoforou/works/black-mask.html' },
+                { src: 'images/BratbyNov111.jpg',          caption: 'Nov 6 Sun behind Sunflower 1, John Bratby RA',                        category: 'British & European',             url: 'western/artists/john-bratby-ra/works/nov-6-sun-behind-sunflower-1.html' }
+            ];
+            const HOLD = 7500;       // ms each painting stays fully visible, after it has faded in
+            const SHUFFLE = true;   // true: a new random order on every visit
+
+            const stage = document.getElementById('stage');
+            const area = stage.parentElement;
             const caption = document.getElementById('visualCaption');
+            const toggle = document.getElementById('slideToggle');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            // Mobile thumbnails reuse each preview image's file, so images are only edited in one place
-            list.querySelectorAll('.sub-link').forEach(link => {
-                const thumb = link.querySelector('.row-thumb');
-                const source = document.getElementById(link.dataset.target);
-                if (thumb && source) thumb.src = source.getAttribute('src');
-            });
+            // Fade lengths come from the CSS variables, so they are only ever set in one place
+            const cssMs = name => {
+                const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+                return v.endsWith('ms') ? parseFloat(v) : parseFloat(v) * 1000;
+            };
+            const FADE_OUT = cssMs('--fade-out') || 1200;
+            const FADE_IN = cssMs('--fade-in') || 1600;
+            const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-            // Each painting is sized once, to its own proportions, to fit the wall
-            const area = document.querySelector('.stage-area');
+            if (SHUFFLE) {
+                for (let i = SLIDES.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [SLIDES[i], SLIDES[j]] = [SLIDES[j], SLIDES[i]];
+                }
+            }
 
+
+            /* ---- Pause conditions: the pointer over the painting or caption, keyboard focus,
+                    the pause button, a hidden browser tab, or a request for reduced motion ---- */
+            const holds = { art: false, caption: false, focus: false };
+            let userPaused = false;
+            let tabHidden = document.hidden;
+            const running = () =>
+                !userPaused && !tabHidden && !reducedMotion && SLIDES.length > 1 &&
+                !Object.values(holds).some(Boolean);
+
+            /* ---- Paintings: each is sized once to its own proportions, and loaded only when needed ---- */
             function sizeLayer(img) {
-                if (!img.naturalWidth) return;   // sized when the image finishes loading
+                if (!img.naturalWidth) return;
                 const ratio = img.naturalWidth / img.naturalHeight;
                 const w = Math.min(area.clientWidth, area.clientHeight * ratio);
                 img.style.width = w + 'px';
                 img.style.height = (w / ratio) + 'px';
             }
 
-            layers.forEach(img => {
-                img.addEventListener('load', () => sizeLayer(img));
-                if (img.complete) sizeLayer(img);
+            const layers = [];
+            function loadLayer(i) {
+                if (layers[i]) return layers[i];
+                layers[i] = new Promise(resolve => {
+                    const adopted = i === 0 ? document.getElementById('img-default') : null;
+                    const img = adopted || document.createElement('img');
+                    if (!adopted) {
+                        img.className = 'fade-layer';
+                        img.decoding = 'async';
+                        stage.appendChild(img);
+                    }
+                    img.alt = SLIDES[i].caption;
+                    img.addEventListener('mouseenter', () => { holds.art = true; sync(); });
+                    img.addEventListener('mouseleave', () => { holds.art = false; sync(); });
+
+                    const ready = () => { sizeLayer(img); resolve(img); };
+                    img.addEventListener('load', ready, { once: true });
+                    img.addEventListener('error', () => resolve(null), { once: true });
+
+                    requestAnimationFrame(() => {
+                        img.src = SLIDES[i].src;
+                        if (adopted && img.complete) {
+                            img.naturalWidth ? ready() : resolve(null);
+                        }
+                    });
+                });
+                return layers[i];
+            }
+
+            function setCaption(slide) {
+                caption.textContent = '';
+                const main = document.createElement('span');
+                main.className = 'cap-main';
+                main.textContent = slide.caption;
+                caption.appendChild(main);
+                if (slide.url) caption.setAttribute('href', slide.url);
+                else caption.removeAttribute('href');
+                caption.classList.add('show');
+            }
+
+            /* ---- The slideshow: old painting fades out completely, then the next fades in ---- */
+            let index = 0;
+            let current = null;
+            let busy = false;
+            let timer = null;
+            let deadline = 0;
+            let remaining = HOLD;
+
+            async function show(i, img) {
+                if (current) {
+                    current.classList.remove('active');
+                    caption.classList.remove('show');
+                    await sleep(FADE_OUT);
+                }
+                void img.offsetWidth;            // make sure the starting (hidden) state is painted
+                img.classList.add('active');
+                current = img;
+                index = i;
+                setCaption(SLIDES[i]);
+                loadLayer((i + 1) % SLIDES.length);   // quietly fetch the next painting while this one is on show
+            }
+
+            async function advance() {
+                timer = null;
+                if (!running()) return;
+                busy = true;
+                let next = (index + 1) % SLIDES.length;
+                let img = null;
+                for (let tries = 0; !img && tries < SLIDES.length; tries++) {
+                    img = await loadLayer(next);
+                    if (!img) next = (next + 1) % SLIDES.length;   // skip any image that fails to load
+                }
+                if (img) await show(next, img);
+                busy = false;
+                arm(FADE_IN + HOLD);
+            }
+
+            function arm(ms) {
+                clearTimeout(timer);
+                timer = null;
+                remaining = ms;
+                deadline = Date.now() + ms;
+                if (running()) timer = setTimeout(advance, ms);
+            }
+
+            function sync() {                    // called whenever a pause condition changes
+                if (running() && !timer && !busy) {
+                    const ms = Math.max(remaining, 1500);   // never resume with an abrupt change
+                    deadline = Date.now() + ms;
+                    timer = setTimeout(advance, ms);
+                } else if (!running() && timer) {
+                    clearTimeout(timer);
+                    timer = null;
+                    remaining = Math.max(deadline - Date.now(), 0);
+                }
+            }
+
+            caption.addEventListener('mouseenter', () => { holds.caption = true; sync(); });
+            caption.addEventListener('mouseleave', () => { holds.caption = false; sync(); });
+            caption.addEventListener('focusin', () => { holds.focus = true; sync(); });
+            caption.addEventListener('focusout', () => { holds.focus = false; sync(); });
+
+            toggle.hidden = reducedMotion || SLIDES.length < 2;
+            toggle.addEventListener('click', () => {
+                userPaused = !userPaused;
+                toggle.textContent = userPaused ? 'Play' : 'Pause';
+                toggle.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+                sync();
             });
 
-            function setCaption(text) {
-                caption.textContent = '';
-                const parts = (text || '').split('|').map(s => s.trim()).filter(Boolean);
-                if (parts.length > 1) {
-                    const artist = document.createElement('span');
-                    artist.className = 'cap-artist';
-                    artist.textContent = parts[0];
-                    caption.appendChild(artist);
+            document.addEventListener('visibilitychange', () => { tabHidden = document.hidden; sync(); });
+
+            // First painting fades in slowly as the page opens, then the show begins
+            loadLayer(0).then(img => {
+                if (img) {
+                    show(0, img).then(() => arm(FADE_IN + HOLD));
+                } else {
+                    arm(0);
                 }
-                if (parts.length) {
-                    const title = document.createElement('span');
-                    title.className = 'cap-title';
-                    title.textContent = parts[parts.length - 1];
-                    caption.appendChild(title);
-                }
-                caption.classList.toggle('show', parts.length > 0);
-            }
-
-            setCaption(document.getElementById('img-default').dataset.caption);   // caption on page load
-
-            // One image at a time: the current one fades out completely, then the next fades in.
-            // If you move across several links quickly, only the one you stop on appears.
-            const FADE_OUT = 250;   // ms; keep equal to the fade-out time in home-grouped.css
-            let target = 'img-default';
-            let swapTimer;
-            function show(id, text) {
-                if (id === target) return;   // already showing (or about to show) this one
-                target = id;
-
-                layers.forEach(img => img.classList.remove('active'));
-                caption.classList.remove('show');
-
-                clearTimeout(swapTimer);
-                swapTimer = setTimeout(() => {
-                    document.getElementById(id).classList.add('active');
-                    setCaption(text);
-                }, FADE_OUT);
-            }
-
-            targets.forEach(el => {
-                const reveal = () => show(el.dataset.target, el.dataset.caption);
-                el.addEventListener('mouseenter', reveal);
-                el.addEventListener('focus', reveal); // keyboard users get the preview too
             });
 
             // Measure the header so the gallery wall meets the top of the window exactly
             const nav = document.querySelector('.navbar-empty');
             const syncNav = () => {
                 document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
-                layers.forEach(sizeLayer);   // re-fit the paintings when the window changes
+                stage.querySelectorAll('.fade-layer').forEach(sizeLayer);   // re-fit paintings to the new size
             };
             syncNav();
             window.addEventListener('resize', syncNav);
