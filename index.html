@@ -7,6 +7,8 @@
     <title>Red Raven Arts</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;800&display=swap" rel="stylesheet">
@@ -15,9 +17,9 @@
 <body>
 
     <nav class="navbar-empty">
-        <div class="breadcrumb">
-            <span class="current" style="letter-spacing: 2px;">RED RAVEN ARTS</span>
-        </div>
+        <a class="site-logo" href="index.html" aria-label="Red Raven Arts, home">
+            <img src="images/logo.png" alt="Red Raven Arts" width="800" height="800" fetchpriority="high">
+        </a>
         <div class="search-wrapper">
             <div class="search-container">
                 <input type="text" id="artistSearch" placeholder="Search" onkeyup="filterArtists()">
@@ -114,26 +116,25 @@
             /* ------------------------------------------------------------------
                THE SLIDES. Add, remove or reorder paintings here.
                caption:  "Title, Artist" as it should read under the painting
-               category: the sub-collection, shown in small capitals beneath
                url:      the artist's page (leave '' for a caption that isn't a link)
                The first slide is the one that appears when the page opens.
                ------------------------------------------------------------------ */
             const SLIDES = [
-                { src: 'images/Twins77Antibirdghost.JPG',  caption: 'Anti-Bird Ghost, Twins Seven Seven',                                  category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/twins-seven-seven/works/the-anti-bird-ghost.html' },
-                { src: 'images/OgundeleBmask.JPG',         caption: 'Epa Mask, Bayo Ogundele',                                             category: 'Sub-Saharan African',            url: 'african-middle-eastern/artists/bayo-ogundele/works/epa-mask.html' },
-                { src: 'images/ShariffeKoranic1.JPG',      caption: 'Koranic Place II, Hussein Shariffe',                                  category: 'North African & Middle Eastern', url: 'african-middle-eastern/artists/hussein-shariffe/works/koranic-place-ii.html' },
-                { src: 'images/RaghebS.JPG',               caption: 'Lady with a White Shawl, Sabry Ragheb',                               category: 'North African & Middle Eastern', url: 'african-middle-eastern/artists/sabry-ragheb/works/lady-with-a-white-shawl.html' },
-                { src: 'images/Lin68.JPG',                 caption: 'August 1968, Richard Lin (Lin Show Yu)',                              category: 'East Asian',                     url: 'asian/artists/richard-lin/works/august-1968.html' },
-                { src: 'images/ChienChingYangcottage.JPG', caption: 'Lake shore cottage, Chien-Ying Chang',                                category: 'East Asian',                     url: 'asian/artists/chien-ying-chang/works/lake-shore-cottage.html' },
-                { src: 'images/Jadured.JPG',               caption: 'Untitled, Anthony Jadunath',                                          category: 'Americas & Other Western',       url: 'western/artists/anthony-jadunath/works/untitled-f9cedf.html' },
-                { src: 'images/Pohlmoss.JPG',              caption: 'Mossy Rocks, Louis Pohl',                                             category: 'Americas & Other Western',       url: 'western/artists/louis-pohl/works/mossy-rocks.html' },
-                { src: 'images/Paulrajoil.JPG',            caption: 'Untitled, G. D. Paulraj',                                             category: 'South Asian',                    url: 'asian/artists/g-d-paulraj/works/untitled-85b70a.html' },
-                { src: 'images/Chandra62philos.JPG',       caption: 'Philosophers, Avinash Chandra',                                       category: 'South Asian',                    url: 'asian/artists/avinash-chandra/works/philosophers.html' },
-                { src: 'images/BaliTibah.JPG',             caption: 'Untitled, Ida Bagus Made Tibah',                                      category: 'South East Asian',               url: 'asian/artists/ida-bagus-made-tibah/works/untitled-e58dd7.html' },
-                { src: 'images/ColqBikini.jpg',            caption: 'Bikini, Ithell Colquhoun',                                            category: 'British & European',             url: 'western/artists/ithell-colquhoun/works/bikini.html' },
-                { src: 'images/Cordell.JPG',               caption: 'Android, Magda Cordell',                                              category: 'British & European',             url: 'western/artists/magda-cordell/works/android.html' },
-                { src: 'images/Beanland mott.JPG',         caption: 'Mottled Ground, 3 Discs, Frank Beanland',                             category: 'British & European',             url: 'western/artists/frank-beanland/works/mottled-ground-3-discs.html' },
-                { src: 'images/ChristofBlackMask.jpg',     caption: 'Black Mask, John Christoforou',                                       category: 'British & European',             url: 'western/artists/john-christoforou/works/black-mask.html' },
+                { src: 'images/Twins77Antibirdghost.JPG',  caption: 'Anti-Bird Ghost, Twins Seven Seven',                                  url: 'african-middle-eastern/artists/twins-seven-seven/works/the-anti-bird-ghost.html' },
+                { src: 'images/OgundeleBmask.JPG',         caption: 'Epa Mask, Bayo Ogundele',                                             url: 'african-middle-eastern/artists/bayo-ogundele/works/epa-mask.html' },
+                { src: 'images/ShariffeKoranic1.JPG',      caption: 'Koranic Place II, Hussein Shariffe',                                  url: 'african-middle-eastern/artists/hussein-shariffe/works/koranic-place-ii.html' },
+                { src: 'images/RaghebS.JPG',               caption: 'Lady with a White Shawl, Sabry Ragheb',                               url: 'african-middle-eastern/artists/sabry-ragheb/works/lady-with-a-white-shawl.html' },
+                { src: 'images/Lin68.JPG',                 caption: 'August 1968, Richard Lin (Lin Show Yu)',                              url: 'asian/artists/richard-lin/works/august-1968.html' },
+                { src: 'images/ChienChingYangcottage.JPG', caption: 'Lake shore cottage, Chien-Ying Chang',                                url: 'asian/artists/chien-ying-chang/works/lake-shore-cottage.html' },
+                { src: 'images/Jadured.JPG',               caption: 'Untitled, Anthony Jadunath',                                          url: 'western/artists/anthony-jadunath/works/untitled-f9cedf.html' },
+                { src: 'images/Pohlmoss.JPG',              caption: 'Mossy Rocks, Louis Pohl',                                             url: 'western/artists/louis-pohl/works/mossy-rocks.html' },
+                { src: 'images/Paulrajoil.JPG',            caption: 'Untitled, G. D. Paulraj',                                             url: 'asian/artists/g-d-paulraj/works/untitled-85b70a.html' },
+                { src: 'images/Chandra62philos.JPG',       caption: 'Philosophers, Avinash Chandra',                                       url: 'asian/artists/avinash-chandra/works/philosophers.html' },
+                { src: 'images/BaliTibah.JPG',             caption: 'Untitled, Ida Bagus Made Tibah',                                      url: 'asian/artists/ida-bagus-made-tibah/works/untitled-e58dd7.html' },
+                { src: 'images/ColqBikini.jpg',            caption: 'Bikini, Ithell Colquhoun',                                            url: 'western/artists/ithell-colquhoun/works/bikini.html' },
+                { src: 'images/Cordell.JPG',               caption: 'Android, Magda Cordell',                                              url: 'western/artists/magda-cordell/works/android.html' },
+                { src: 'images/Beanland mott.JPG',         caption: 'Mottled Ground, 3 Discs, Frank Beanland',                             url: 'western/artists/frank-beanland/works/mottled-ground-3-discs.html' },
+                { src: 'images/ChristofBlackMask.jpg',     caption: 'Black Mask, John Christoforou',                                       url: 'western/artists/john-christoforou/works/black-mask.html' },
             ];
             const HOLD = 7500;       // ms each painting stays fully visible, after it has faded in
             const SHUFFLE = true;   // true: a new random order on every visit

@@ -43,7 +43,7 @@
         <main class="content-area">
             {% for section in sub_region_sections %}
             <section id="{{ section.id }}" class="country-section">
-                <h2 class="country-heading" style="text-transform: uppercase;">{{ section.name }}</h2>
+                <h2 class="country-heading">{{ section.name }}</h2>
                 <div class="artist-grid">
                     {% for artist in section.artists %}
                     <div class="artist-card">

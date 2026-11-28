@@ -23,7 +23,20 @@ IMAGES_DIR = BASE_DIR / "images"  # single shared images folder in the site root
 # collection crumb ("Red Raven Arts / <Collection> / <Region> / ...") is removed from
 # every generated page. Set to False to put it back.
 HIDE_COLLECTION_IN_BREADCRUMB = True
-CRUMB_STATS = {'pages': 0, 'stripped': 0}
+CRUMB_STATS = {'pages': 0, 'stripped': 0, 'logo': 0, 'favicon': 0}
+
+# Puts the logo (a link to the homepage) at the top left of every generated page, and removes
+# the text "Red Raven Arts" crumb it replaces. The logo file lives at <site root>/images/logo.png.
+ADD_LOGO_TO_PAGES = False
+LOGO_PATH = "images/logo.png"
+
+# Uses the same logo file as the browser-tab icon (and the iPhone home-screen icon) on every page.
+ADD_FAVICON_TO_PAGES = True
+
+# The tab icon is a small copy of the logo, made automatically on every build (needs Pillow:
+# pip install pillow). If Pillow is missing, or the small file doesn't exist, the full logo is used.
+FAVICON_PATH = "images/favicon.png"
+FAVICON_SIZE = 192
 
 def slugify(text):
     if not text or pd.isna(text):
@@ -67,6 +80,97 @@ def strip_collection_crumb(html, collection_name):
         return m.group(1) + inner + m.group(4)
 
     return block_re.sub(fix_block, html, count=1)
+
+def add_logo_to_header(html):
+    """
+    Adds the logo link before the breadcrumb and removes the 'Red Raven Arts' crumb.
+    The logo's link and image path reuse the folder depth of that crumb's own link, so they
+    are correct on every kind of page.
+    """
+    if not ADD_LOGO_TO_PAGES or 'class="site-logo"' in html:
+        return html
+
+    block_re = re.compile(
+        r'(<(div|nav|ol|ul)\b[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>)(.*?)(</\2>)',
+        re.DOTALL | re.IGNORECASE
+    )
+    home_re = re.compile(
+        r'<a\b[^>]*href="([^"]*)"[^>]*>\s*Red\s+Raven\s+Arts\s*</a>'
+        r'\s*(?:<span\b[^>]*\bsep\b[^>]*>\s*/\s*</span>|/)?\s*',
+        re.IGNORECASE
+    )
+
+    m = block_re.search(html)
+    if not m:
+        return html
+    hm = home_re.search(m.group(3))
+    if not hm:
+        return html
+
+    href = hm.group(1)
+    if href.endswith('index.html'):
+        root = href[:-len('index.html')]
+    elif href.endswith('/'):
+        root = href
+    else:
+        return html          # unrecognised link format: leave this page alone
+
+    logo = (f'<a class="site-logo" href="{href}" aria-label="Red Raven Arts, home">'
+            f'<img src="{root}{LOGO_PATH}" alt="Red Raven Arts" width="800" height="800"></a>\n        ')
+    inner = m.group(3)[:hm.start()] + m.group(3)[hm.end():]
+    CRUMB_STATS['logo'] += 1
+    return html[:m.start()] + logo + m.group(1) + inner + m.group(4) + html[m.end():]
+
+def make_favicon():
+    """Makes images/favicon.png (a small square copy of images/logo.png) so tabs load a light file."""
+    if not ADD_FAVICON_TO_PAGES:
+        return
+    logo = BASE_DIR / LOGO_PATH
+    if not logo.exists():
+        print(f"ℹ️ Tab icon: {LOGO_PATH} not found, so no small icon was made.")
+        return
+    try:
+        from PIL import Image
+    except ImportError:
+        print("ℹ️ Tab icon: Pillow isn't installed, so the full-size logo is used. "
+              "For a small, faster icon run:  pip install pillow")
+        return
+    img = Image.open(logo).convert("RGBA")
+    img.thumbnail((FAVICON_SIZE, FAVICON_SIZE), Image.LANCZOS)
+    canvas = Image.new("RGBA", (FAVICON_SIZE, FAVICON_SIZE), (0, 0, 0, 0))   # square, transparent padding
+    canvas.paste(img, ((FAVICON_SIZE - img.width) // 2, (FAVICON_SIZE - img.height) // 2), img)
+    canvas.save(BASE_DIR / FAVICON_PATH, optimize=True)
+    kb = (BASE_DIR / FAVICON_PATH).stat().st_size / 1024
+    print(f"🔖 Tab icon: made {FAVICON_PATH} ({FAVICON_SIZE}x{FAVICON_SIZE}, {kb:.0f} KB) from {LOGO_PATH}.")
+
+def add_favicon_to_head(html):
+    """
+    Adds the logo as the browser-tab icon. The path to the site root is taken from the logo's
+    own link, so it is correct at every folder depth. Any icon the template already has is replaced.
+    """
+    if not ADD_FAVICON_TO_PAGES:
+        return html
+    m = re.search(r'class="site-logo"\s+href="([^"]*)"', html)
+    if not m or '</head>' not in html:
+        return html
+    href = m.group(1)
+    if href.endswith('index.html'):
+        root = href[:-len('index.html')]
+    elif href.endswith('/'):
+        root = href
+    else:
+        return html
+
+    html = re.sub(r'[ \t]*<link\b[^>]*\brel="(?:shortcut icon|icon|apple-touch-icon)"[^>]*>\n?', '', html, flags=re.IGNORECASE)
+    icon = FAVICON_PATH if (BASE_DIR / FAVICON_PATH).exists() else LOGO_PATH
+    tags = (f'    <link rel="icon" type="image/png" href="{root}{icon}">\n'
+            f'    <link rel="apple-touch-icon" href="{root}{icon}">\n')
+    CRUMB_STATS['favicon'] += 1
+    return html.replace('</head>', tags + '</head>', 1)
+
+def finish_page(html, collection_name):
+    """Final tidy-up applied to every generated page."""
+    return add_favicon_to_head(add_logo_to_header(strip_collection_crumb(html, collection_name)))
 
 def short_hash(text, length=6):
     """Deterministic short hash: the same input always gives the same result, on every build."""
@@ -268,12 +372,11 @@ def process_artists_and_artworks(artists_df, artworks_df):
 
     for artist_id, artist in artists_dict.items():
         works = artist['works']
-        standard_gallery = [w for w in works if 0.5 <= w['aspect_ratio'] <= 1.4]
-        bottom_line_gallery = [w for w in works if w not in standard_gallery]
-        bottom_line_gallery.sort(key=lambda x: x['aspect_ratio'])
+        standard_gallery = [w for w in works]
+        standard_gallery.sort(key=lambda x: abs(x["aspect_ratio"] - TARGET_RATIO))
         
         artist['processed_works'] = works
-        artist['final_gallery_items'] = standard_gallery + bottom_line_gallery
+        artist['final_gallery_items'] = standard_gallery
 
         if works:
             best_work = min(works, key=lambda w: abs(w['aspect_ratio'] - TARGET_RATIO))
@@ -316,7 +419,7 @@ def build_artist_pages(artist):
             artist_file=f"{artist_slug}.html"
         )
 
-        rendered_index = strip_collection_crumb(rendered_index, artist['collection'])
+        rendered_index = finish_page(rendered_index, artist['collection'])
 
         with open(artist_dir / f"{artist_slug}.html", 'w', encoding='utf-8') as f:
             f.write(rendered_index)
@@ -334,7 +437,7 @@ def build_artist_pages(artist):
                 work=work,
                 artist_file=f"{artist_slug}.html"
             )
-            rendered_detail = strip_collection_crumb(rendered_detail, artist['collection'])
+            rendered_detail = finish_page(rendered_detail, artist['collection'])
             with open(works_dir / f"{work['slug']}.html", 'w', encoding='utf-8') as f:
                 f.write(rendered_detail)
 
@@ -439,7 +542,7 @@ def build_region_pages(artists_list):
                 sub_region_sections=sub_region_sections
             )
 
-            rendered_html = strip_collection_crumb(rendered_html, data['collection_name'])
+            rendered_html = finish_page(rendered_html, data['collection_name'])
 
             output_path = BASE_DIR / coll_slug / f"{reg_slug}.html"
             output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -525,6 +628,7 @@ if __name__ == "__main__":
     if artists_df is not None and artworks_df is not None:
         print("\n🔨 Generating site from separate Artist and Artwork sheets...")
         artists_data = process_artists_and_artworks(artists_df, artworks_df)
+        make_favicon()
         check_images(artists_data)
 
         cleanup_orphaned_files(artists_data)
@@ -538,6 +642,10 @@ if __name__ == "__main__":
 
         if HIDE_COLLECTION_IN_BREADCRUMB:
             print(f"\n🧭 Breadcrumbs: removed the collection crumb from {CRUMB_STATS['stripped']} of {CRUMB_STATS['pages']} pages.")
+            if ADD_LOGO_TO_PAGES:
+                print(f"🖼️ Logo: added to {CRUMB_STATS['logo']} of {CRUMB_STATS['pages']} pages.")
+            if ADD_FAVICON_TO_PAGES:
+                print(f"🔖 Tab icon: added to {CRUMB_STATS['favicon']} of {CRUMB_STATS['pages']} pages.")
             if CRUMB_STATS['stripped'] < CRUMB_STATS['pages']:
                 print("⚠️ Some pages still show the collection. Their template may build the breadcrumb "
                       "differently; check the breadcrumb markup in the templates.")

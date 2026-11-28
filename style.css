@@ -266,6 +266,11 @@ body {
     padding-bottom: 2px;
 }
 
+.minimal-footer a:hover,
+.minimal-footer a:focus-visible {
+   color: #666;
+}
+
 .index-header {
     text-align: center;
     padding: 30px 0 20px 0;
@@ -369,17 +374,16 @@ body {
 .breadcrumb {
     font-size: .8rem;
     letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
 .breadcrumb a {
-    color: #999;
+    color: #000;
     text-decoration: none;
     transition: color .3s;
 }
 
 .breadcrumb a:hover {
-    color: #000;
+    text-decoration: underline;
 }
 
 .breadcrumb .sep {
@@ -443,13 +447,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%);
     transition: transform .6s ease, filter .6s ease;
-}
-
-.artist-card:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0);
 }
 
 .artist-meta {
@@ -458,8 +456,8 @@ body {
 }
 
 .artist-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-family:  Inter, serif;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 4px;
 }
@@ -490,7 +488,7 @@ body {
 
 .sidebar-label {
     display: block;
-    font-size: .7rem;
+    font-size: .6rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #bbb;
@@ -503,18 +501,19 @@ body {
 }
 
 .sidebar-nav li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .sidebar-nav a {
     text-decoration: none;
     color: #666;
-    font-size: .95rem;
+    font-size: .9rem;
     transition: color .3s;
 }
 
 .sidebar-nav a:hover {
     color: #000;
+    text-decoration: underline;
 }
 
 @media (max-width: 1024px) {
@@ -546,7 +545,8 @@ html {
 }
 
 .artist-years {
-    font-weight: 200;
+    font-size: 0.9rem;
+    font-weight: 400;
     letter-spacing: 1px;
     color: #666;
 }
@@ -561,17 +561,21 @@ html {
     border: none;
     padding: 15px 30px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 550;
     font-size: .9rem;
-    text-transform: uppercase;
     letter-spacing: 1px;
     color: #999;
     transition: .3s;
+    text-transform: uppercase;
 }
 
 .tab-link.active {
     color: #000;
     border-bottom: 2px solid #000;
+}
+
+.tab-link:hover {
+    color: #000;
 }
 
 .tab-content {
@@ -626,18 +630,12 @@ html {
 }
 
 .bio-column {
+    font-family: Inter, sans-serif;
+    font-size: 0.95rem;
     flex: 2;
     line-height: 1.8;
     font-weight: 300;
-    color: #333;
-}
-
-.bio-column h3 {
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: .9rem;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
+    color: #000000;
 }
 
 .image-column {
@@ -655,7 +653,7 @@ html {
     display: block;
     margin-top: 15px;
     font-size: .75rem;
-    font-weight: 200;
+    font-weight: 300;
     color: #888;
 }
 
@@ -683,10 +681,6 @@ html {
     width: 100%;
     display: block;
     transition: transform .5s ease;
-}
-
-.artwork-item:hover img {
-    transform: scale(1.03);
 }
 
 .detail-container {
@@ -717,6 +711,12 @@ html {
     color: #666;
     text-decoration: none;
     border-bottom: 1px solid #ccc;
+}
+
+.work-artist a:hover,
+.work-artist a:focus-visible,
+.work-artist:hover a {
+    opacity: 0.65;
 }
 
 .work-description {
@@ -1599,14 +1599,16 @@ body:has(.home-split-container) .navbar-empty {
     transition: color 0.25s ease;
 }
 
-.home-split-container .grouped .sub-link span {
-    display: inline-block;
-    transition: none;
+.home-split-container .grouped .sub-link {
+    transition: color 0.25s ease;
 }
 
 .home-split-container .grouped .sub-link:hover,
 .home-split-container .grouped .sub-link:focus-visible {
     color: #000000 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+    transition: none;
 }
 
 .home-split-container .grouped a:focus-visible {
@@ -1720,28 +1722,11 @@ body:has(.home-split-container) .navbar-empty {
     color: #1a1a1a;
 }
 
-.visual-caption .cap-cat {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.24em;
-    line-height: 1.5;
-    text-transform: uppercase;
-    color: #6b6b6b;
-    transition: color 0.5s ease;
-}
-
 .visual-caption[href]:hover .cap-main,
 .visual-caption[href]:focus-visible .cap-main {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
-}
-
-.visual-caption[href]:hover .cap-cat,
-.visual-caption[href]:focus-visible .cap-cat {
-    color: #000;
 }
 
 .visual-caption:focus-visible,
@@ -1766,12 +1751,12 @@ body:has(.home-split-container) .navbar-empty {
     letter-spacing: 0.13em;
     line-height: 1.5;
     text-transform: uppercase;
-    color: #6b6b6b;
+    color: #000;
     cursor: pointer;
     transition: color 0.5s ease;
 }
 
-.slide-toggle:hover { color: #000; }
+.slide-toggle:hover { text-decoration: underline; }
 .slide-toggle[hidden] { display: none; }
 
 /* ---------- Tablets and phones: the slideshow sits above the list ---------- */
@@ -1868,4 +1853,74 @@ body:has(.home-split-container) .navbar-empty {
     body:has(.home-split-container) #artistSearch:focus + .search-icon::after {
         background-color: #000;
     }
+}
+
+
+/* ==========================================================================
+   SITE LOGO (top left). Clicking it goes to the homepage.
+   To change it, replace images/logo.png with your own 800 x 800 image
+   (same filename), or change the path in the <img> tags.
+   ========================================================================== */
+
+:root {
+    --logo-size: 44px;     /* displayed size; the 800px file stays sharp on high-resolution screens */
+    --header-h: 90px;      /* header height on pages that have a logo */
+}
+
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    line-height: 0;
+    transition: opacity 0.5s ease;
+}
+
+.site-logo img {
+    display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+}
+
+.site-logo:hover {
+    opacity: 0.65;
+}
+
+.site-logo:focus-visible {
+    outline: 1px solid #000;
+    outline-offset: 6px;
+}
+
+/* A fixed header height keeps the layout the same whatever size the logo is */
+.navbar:has(.site-logo),
+.navbar-empty:has(.site-logo) {
+    align-items: center;
+    box-sizing: border-box;
+    min-height: var(--header-h);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* On inner pages the breadcrumb sits just to the right of the logo */
+.site-logo + .breadcrumb {
+    margin: 0 auto 0 1.75rem;
+}
+
+@media (max-width: 1032px) {
+    :root {
+        --logo-size: 36px;
+        --header-h: 72px;
+    }
+}
+
+.artist-card:hover .artist-name,
+.artist-name:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.artwork-item:hover .artwork-info .title,
+.artwork-info .title:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
